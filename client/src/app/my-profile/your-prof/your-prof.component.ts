@@ -79,56 +79,49 @@ export class YourProfComponent implements OnInit {
   public getLocationData() {
     this._bda.getLocationDataService().subscribe((data: any) => {
       this.locations = data.message;
-      console.log(data, "location-----")
+      // console.log(data, "location-----")
     })
   }
   public getCategoriesData() {
     this._bda.getCategoriesServiceData().subscribe((res: any) => {
-      console.log("get", res.message)
+      // console.log("get", res.message)
       this.categories = res.message;
     });
   }
   notifCheck(event: any, i: any) {
     let checkNotif = event.target.value
     this.viewManageCategArr[i]['notificationFlag'] = checkNotif
-    console.log('notif-check-', this.viewManageCategArr);
+    // console.log('notif-check-', this.viewManageCategArr);
   }
 
-  // selectCategories(event: any) {
-  //   console.log('categories-select--', event);
-  //   this.viewManageCategArr = event
-
-  //   // this.profileForm.patchValue({ serviceCategory: this.viewManageCategArr })
-  //   // console.log("this.profileForm", this.profileForm.value);
-  // }
-
   selectCategories(event: any) {
-    console.log('categories-select--', event);
-    // Map the event to only include _id and category for each item
+    // console.log('categories-select--', event);
+    // this.viewManageCategArr = event
     this.viewManageCategArr = event.map((item: any) => ({
       _id: item._id,
       category: item.category
     }));
 
-    console.log("Updated viewManageCategArr with _id and category", this.viewManageCategArr);
+    this.profileForm.patchValue({ serviceCategory: this.viewManageCategArr })
+    // console.log("this.profileForm", this.profileForm.value);
   }
   locServed(event: any, i: any) {
     // console.log('locations-served----------', event);
     this.viewManageCategArr[i]['serviceLocation'] = event[0]['city'];
     this.viewManageCategArr[i]['locationName'] = event;
 
-    console.log('locations-served----------', this.viewManageCategArr);
+    // console.log('locations-served----------', this.viewManageCategArr);
   }
   checkBusinessType(event: any, i: any) {
     this.viewManageCategArr[i]['type'] = event.target.value;
-    console.log('business-type-check---', this.viewManageCategArr);
+    // console.log('business-type-check---', this.viewManageCategArr);
 
 
   }
   saveProfileDetails() {
     let data = this._bda.getSessionStorageHandler('usrDetls');
-    console.log(typeof (data.userId), this.profileForm.value);
-    let updateId = 'ObjectId(' + data.userId + ')'
+    // console.log(typeof (data.userId), this.profileForm.value);
+    let updateId = data.userId
     // this.profileForm.disable()
     // sessionStorage.setItem('viewMngCat', JSON.stringify(this.viewManageCategArr))
 
@@ -144,14 +137,21 @@ export class YourProfComponent implements OnInit {
       currentLocation: this.profileForm.value.currentLocation,
       businessNo: this.profileForm.value.businessNo,
       whatsappNo: this.profileForm.value.whatsappNo,
-      serviceCategory: this.viewManageCategArr,
+      serviceCategory: this.profileForm.value.serviceCategory,
     }
-    console.log('put-body', body);
+    console.log('user-put-body--', body);
+    this._bda.putUsersServiceData(updateId, body).subscribe((res: any) => {
+      console.log(res);
+      if (res.errorCode == 0) {
+        sessionStorage.setItem("usrDetls", JSON.stringify(res.data));
+        console.log(res.message);
+        console.log("Session Storage Updated for User");
+        this.patchUserForm(res.data)
 
-
-    // this._bda.putUsersServiceData(updateId, body).subscribe((res: any) => {
-    //   console.log(res);
-
-    // })
+      }
+      else {
+        console.log(res.message);
+      }
+    })
   }
 }

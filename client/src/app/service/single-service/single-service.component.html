@@ -51,8 +51,10 @@
                                 </div>
                                 <p>Write a review:</p>
                                 <textarea name="writeReview" id="writeReview" class="form-control shadow-none"
-                                    (change)="writeReview($event)"></textarea>
-                                <button class="btn" [disabled]="reviewSubmitDisable">Submit</button>
+                                    (change)="writeReview($event)" [(ngModel)]="reviewContent" minlength="100"
+                                    maxlength="500"></textarea>
+                                <button class="btn"
+                                    [disabled]="reviewContent.length < 100 || reviewContent.length > 500">Submit</button>
                             </div>
                             <div>
                                 <p>User Reviews and Ratings</p>
@@ -141,8 +143,6 @@
                                 details</p>
                         </div>
                         <div class="card-footer">
-
-
                             <!-- Trigger/Open The Modal -->
                             <button class="btn btn-danger" id="myBtn" (click)="openModal()">Report</button>
                         </div>
@@ -152,7 +152,7 @@
             <div class="col-1"></div>
         </div>
     </div>
-    <!-- The Modal -->
+    <!-- Report Error Modal -->
     <div id="myModal" class="modal" #myModal>
         <!-- Modal content -->
         <div class="modal-content">
@@ -162,10 +162,29 @@
             </div>
             <div class="modal-body">
                 <p>Please state your concern breifly</p>
-                <textarea name="" id="" class="form-control shadow-none" [innerHTML]=""></textarea>
-                <button class="btn">Submit</button>
+                <textarea name="" id="" class="form-control shadow-none" [innerHTML]="" [(ngModel)]="reportContent"
+                    minlength="100" maxlength="500"></textarea>
+                <button class="btn"
+                    [disabled]="reportContent.length < 100 || reportContent.length > 500">Submit</button>
             </div>
         </div>
     </div>
+
+    <!-- More options for reviews -->
+    <!-- <div id="myModalMoreOptions" class="modal1" #myModal>
+        <div class="modal-content">
+            <div>
+                <span class="close" (click)="closeModal()">&times;</span>
+                <p>Report this business</p>
+            </div>
+            <div class="modal-body">
+                <p>Please state your concern breifly</p>
+                <textarea name="" id="" class="form-control shadow-none" [innerHTML]="" [(ngModel)]="reportContent"
+                    minlength="100" maxlength="500"></textarea>
+                <button class="btn"
+                    [disabled]="reportContent.length < 100 || reportContent.length > 500">Submit</button>
+            </div>
+        </div>
+    </div> -->
 </div>
 <app-footer></app-footer>

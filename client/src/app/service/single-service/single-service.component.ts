@@ -14,12 +14,15 @@ export class SingleServiceComponent implements OnInit {
   serviceReviews: any;
   stars: number[] = [1, 2, 3, 4, 5]; // Total stars
 
-  reviewSubmitDisable: boolean = true;
+  // reviewSubmitDisable: boolean = true;
   @ViewChild('widgetsContent', { read: ElementRef })
   public widgetsContent!: ElementRef<any>;
 
   @ViewChild('myModal') modal!: ElementRef;
+  @ViewChild('myModalMoreOptions') modal1!: ElementRef;
 
+  reportContent: string = ''; 
+  reviewContent: string = ''; 
 
   constructor(private route: ActivatedRoute, private _bda: ServicesService) { }
 
@@ -91,19 +94,21 @@ export class SingleServiceComponent implements OnInit {
 
   writeReview(event: any) {
     console.log('writeReview', event.target.value);
-    if (event.target.value.length > '') {
-      this.reviewSubmitDisable = false;
-    } else {
-      this.reviewSubmitDisable = true;
-    }
+    // if (event.target.value.length > '') {
+    //   this.reviewSubmitDisable = false;
+    // } else {
+    //   this.reviewSubmitDisable = true;
+    // }
   }
 
   openModal(): void {
     this.modal.nativeElement.style.display = 'block';
+    this.modal1.nativeElement.style.display='block'
   }
 
   closeModal(): void {
     this.modal.nativeElement.style.display = 'none';
   }
+
 
 }
