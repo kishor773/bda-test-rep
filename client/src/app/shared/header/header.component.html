@@ -1,0 +1,80 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light header">
+    <a class="navbar-brand" href="#">Logo</a>
+    <div class="navbar navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <button type="button" class="position-relative">
+          <img src="assets/bell-fill.png" alt="bell" class="bell">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            99+
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </button>
+      </div>
+      <div class="navbar-nav">
+        <a class="loginBtn" href="/login" *ngIf="!isLoggedIn">Login / Signup</a>
+        <!-- <button (click)="myFunction()" class="dropbtn"><img src="../../../assets/icons/person-circle.png"
+            alt="Logged-in user icon" *ngIf="isLoggedIn">
+        </button> -->
+
+        <div class="dropdown">
+          <button (click)="myFunction()" class="dropbtn"><img src="../../../assets/icons/person-circle.png"
+              alt="Logged-in user icon" *ngIf="isLoggedIn"></button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="/account/my-profile" routerLink='/account/my-profile' routerLinkActive="active">My Profile</a>
+            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create an announcement</a>
+            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create an advertisement</a>
+            <a  (click)="logoutUser()">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="row search_location">
+    <div class="col-1"></div>
+    <div class="col-3 location">
+      <input type="text" autocomplete="off" aria-autocomplete="list"
+        aria-controls="react-autowhatever-city-auto-suggest" aria-label="City Auto-suggest" id="city-auto-sug">
+      <div class="loc-sug">
+        <button class="detect-loc">Detect Location</button>
+        <p>Recent Locations</p>
+        <ul *ngFor="let loc of locations">
+          <li><a href="#">{{loc.name}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-7 search">
+      <button>Search</button>
+    </div>
+    <div class="col-1"></div>
+  </div> -->
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</header>

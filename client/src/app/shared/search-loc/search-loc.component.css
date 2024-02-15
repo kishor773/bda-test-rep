@@ -1,0 +1,123 @@
+.detect-loc {
+    width: 100%;
+    height: auto;
+    padding: 10px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #84818194
+}
+
+.detect-loc:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.detect-loc p {
+    margin: 10px;
+}
+
+.search button {
+    width: 100%;
+    height: auto;
+    padding: 10px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0em;
+    text-align: left;
+    border: 2px solid #84818194
+}
+
+
+
+/*  */
+.dropbtn {
+    width: 100%;
+    height: auto;
+    padding: 10px 0px;
+    font-family: 'Nunito Sans';
+    outline: none;
+    border: none;
+    /* border: 2px solid #84818194; */
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.dropdown-location span:first-child {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid #84818194;
+    gap: 14px;
+    border-radius: 4px;
+    padding: 0 10px;
+
+
+}
+
+
+.dropdown-location {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* background-color: #f1f1f1; */
+    /* width: max-content; */
+    width: 250px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.dropdown-content span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+
+}
+
+.dropdown-location a:hover {
+    background-color: #ddd;
+    cursor: pointer;
+    width: 100%;
+
+}
+
+.show {
+    display: block;
+    top: 110%;
+}

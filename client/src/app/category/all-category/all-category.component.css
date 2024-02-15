@@ -1,0 +1,51 @@
+.container-fluid {
+    background-color: #ffffff;
+
+}
+.category-heading {
+    font-family: "Nunito Sans";
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 65px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+
+.categories-card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+.categories-card-child {
+    flex: 0 0 auto;
+    width: calc((100% - 45* 10px) / 6);
+    height: 7em;
+    box-shadow: 0px 1px 5px 1px #00000040;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-card{
+    width: 18em;
+height: 3rem;
+border-radius: 3px;
+outline:none;
+
+border: 2px solid #0000003D
+
+}
+.categories-card-child p{
+    text-transform: capitalize;
+    font-family: Nunito Sans;
+font-size: 18px;
+font-weight: 700;
+line-height: 55px;
+letter-spacing: 0.01em;
+text-align: center;
+
+}

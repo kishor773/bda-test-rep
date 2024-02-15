@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <br>
+    <form  [formGroup]="login">
+        <div class="row-card">
+            <div class="card login-card">
+                <div class="card-body">
+                    <div class="toggle">
+                        <span routerLink="/login" routerLinkActive="active">
+                            <a routerLink="/login" routerLinkActive="active" >
+                                Login
+                            </a>
+                        </span>
+                        <span routerLink="/signup" routerLinkActive="active">
+                            <a routerLink="/signup" routerLinkActive="active">
+                                Signup
+                            </a>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" class="form-control shadow-none" formControlName="email">
+                    </div>
+                    <div class="row">
+                        <label for="pwd">Password</label>
+                        <input type="password" name="pwd" id="pwd" class="form-control shadow-none" formControlName="password">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="button" (click)="submit()">Submit</button>
+                    </div>
+                    <!-- {{this.login.value|json}} -->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

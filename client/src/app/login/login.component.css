@@ -1,0 +1,46 @@
+.row-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
+}
+
+.login-card {
+    width: 50%;
+    font-family: Nunito Sans;
+    box-shadow: 0px 1px 5px 1px #00000026;
+    border-radius: 10px;
+}
+
+.toggle {
+    border: 1px solid #a7a7a7;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #DFDFDF;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-family: Nunito Sans;
+    font-weight: 500;
+}
+
+.toggle span {
+    width: 45%;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.active {
+    background: #ebebeb;
+    color: #000000;
+}
+
+.row {
+    padding: 1rem;
+}

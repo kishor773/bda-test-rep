@@ -1,0 +1,54 @@
+.card {
+
+    background: transparent;
+    width: 330px;
+    height: auto;
+    border-radius: 8px;
+    padding:10px;
+    box-shadow: 0px 1px 5px 1px #00000040;
+
+}
+.heading{
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap:10px;
+    border-bottom: 2px solid #84818194;
+
+}
+.heading h1{
+    font-family: Nunito Sans;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 3px;
+    }
+    .ratings{
+        border-bottom: 2px solid #84818194
+    }
+.ratings p{
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+}
+.type{
+    border-bottom: 2px solid #84818194
+}
+.type p{
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+       
+
+
+

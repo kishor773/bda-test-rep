@@ -1,0 +1,229 @@
+<div class="container-fluid">
+    <app-header></app-header>
+    <div class="row">
+        <div class="col-3">
+            <app-side-prof></app-side-prof>
+        </div>
+        <div class="col-9">
+            <form action="">
+                <div class="card">
+                    <div class="listing-details-tabs">
+                        <input type="radio" name="listing-details-tabs" id="listing-details-tabs-1" value="" checked>
+                        <label for="listing-details-tabs-1">{{selectedServiceCategory}}</label>
+                        <div id="listing-details-tabs-content-1">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <label for="businessName">Business Name <span
+                                                class="mandatoryField">*</span></label>
+                                        <input type="text" class="form-control shadow-none" name="businessName"
+                                            id="businessName">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <label for="shortDescription">Short Description <span
+                                                class="mandatoryField">*</span></label>
+                                        <textarea class="form-control shadow-none" name="shortDescription"
+                                            id="shortDescription"></textarea>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <label for="category">Category <span class="mandatoryField">*</span>
+                                            &nbsp;
+                                            <div class="tooltip"><span><img
+                                                        src="../../../assets/icons/question-circle-fill.png"
+                                                        alt="Help"></span>
+                                                <span class="tooltiptext">Tooltip text</span>
+                                            </div>
+                                        </label>
+                                        <select name="category" id="category" class="form-control shadow-none"
+                                            (change)="selectCatHandler($event)">
+                                            <option value=""></option>
+                                            <option *ngFor="let cat of categories" [value]=cat.category>{{cat.category}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="subCat1">Sub Category 1 </label>
+                                        <select name="subCat1" id="subCat1" class="form-control shadow-none"
+                                            (change)="selectSubCat1Handler($event)">
+                                            <option value=""></option>
+                                            <option *ngFor="let cat of subCat1" [value]=cat.subCategory>
+                                                {{cat.subCategory}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="subCat2">Sub Category 2 </label>
+                                        <select name="subCat2" id="subCat2" class="form-control shadow-none"
+                                            (change)="selectSubCat2Handler($event)">
+                                            <option value=""></option>
+                                            <option *ngFor="let cat of subCat2" [value]=cat.type>{{cat.type}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <label for="subCat3">Sub Category 3 </label>
+                                        <select name="subCat3" id="subCat3" class="form-control shadow-none"
+                                            (change)="selectSubCat3Handler($event)">
+                                            <option value=""></option>
+                                            <option *ngFor="let cat of subCat3" [value]=cat.aminities>{{cat.aminities
+                                                }}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                    <!-- <div class="col-sm">
+                                    <label for="subCat4">Sub Category 4 </label>
+                                    <select name="subCat4" id="subCat4" class="form-control shadow-none">
+                                        <option *ngFor="let cat of subCat4" [value]=cat.category>{{cat.category}}
+                                        </option>
+                                    </select>
+                                </div> -->
+                                </div><br>
+                                <p>Address</p>
+                                <div class="row address-row">
+                                    <br>
+                                    <table class="table table-responsive table-bordered text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Address Title</th>
+                                                <th>City</th>
+                                                <th>State</th>
+                                                <th>Country</th>
+                                                <th>Pincode</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><textarea name="addressTitle" class="form-control shadow-none"
+                                                        id="addressTitle" [value]=""></textarea></td>
+                                                <td><select name="city" id="city" class="form-control shadow-none"
+                                                        (change)="cityHandler($event)">
+                                                        <option value=""></option>
+                                                        <option *ngFor="let add of addressArr" [value]=add.city>
+                                                            {{add.city}}
+                                                        </option>
+                                                    </select></td>
+                                                <td>
+                                                    <select name="state" id="state" class="form-control shadow-none"
+                                                        (change)="stateHandler($event)">
+                                                        <option value=""></option>
+                                                        <option *ngFor="let add of addressArr" [value]=add.state>
+                                                            {{add.state}}
+                                                        </option>
+                                                    </select>
+
+                                                </td>
+                                                <td><select name="country" id="country" class="form-control shadow-none"
+                                                        (change)="countryHandler($event)">
+                                                        <option value=""></option>
+                                                        <option *ngFor="let add of addressArr" [value]=add.country>
+                                                            {{add.country}}
+                                                        </option>
+                                                    </select></td>
+                                                <td><input type="text" name="pincode" id="pincode"
+                                                        class="form-control shadow-none" [value]="" max="6"></td>
+                                                <td>
+                                                    <!-- <button type="button" (click)="deleteAddress(i)">Delete</button> -->
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>Working Hours</p>
+                                <div class="row workingHrs-row">
+                                    <div class="col-sm">
+                                        <label for="fromDay">From Day</label>
+                                        <select name="fromDay" id="fromDay" class="form-control shadow-none"
+                                            (change)="cityHandler($event)">
+                                            <option value=""></option>
+                                            <option *ngFor="let days of daysOfWeek" [value]=days.name>
+                                                {{days.name}}
+                                            </option>
+                                        </select>
+                                        <!-- <ng-select class="ng-select" placeholder="" [clearable]="false"
+                                        [searchable]="true" appendTo="body">
+                                        <ng-option *ngFor="let days of daysOfWeek"
+                                            [value]="days.name">{{days.name}}</ng-option>
+                                    </ng-select> -->
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="toDay">To Day</label>
+                                        <select name="toDay" id="toDay" class="form-control shadow-none"
+                                            (change)="cityHandler($event)">
+                                            <option value=""></option>
+                                            <option *ngFor="let days of daysOfWeek" [value]=days.name>
+                                                {{days.name}}
+                                            </option>
+                                        </select>
+                                        <!-- <ng-select class="ng-select" placeholder="" [clearable]="false"
+                                        [searchable]="true" appendTo="body">
+                                        <ng-option *ngFor="let days of daysOfWeek"
+                                            [value]="days.name">{{days.name}}</ng-option>
+                                    </ng-select> -->
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="fromTime">From Day</label>
+                                        <input type="time" name="fromTime" class="form-control shadow-none"
+                                            id="fromTime">
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="toTime">To Day</label>
+                                        <input type="time" name="toTime" class="form-control shadow-none" id="toTime">
+                                    </div>
+                                </div>
+                                <p>Attachments </p>
+                                <div class="row attachments-row">
+                                    <p> First Photo is mandatory which will be used as Cover Photo</p>
+                                    <div class="attach">
+                                        <span>
+                                            <button class="btn"></button>
+                                            <input type="file" name="myfile" accept="image/*" />
+                                            <!-- <img [src]=" imageURL" height="20"> -->
+                                        </span>
+                                        <span>
+                                            <button class="btn"></button>
+                                            <input type="file" name="myfile" accept="image/*" />
+                                        </span>
+                                        <span>
+                                            <button class=" btn"></button>
+                                            <input type="file" name="myfile" accept="image/*" />
+                                        </span>
+                                        <span>
+                                            <button class=" btn"></button>
+                                            <input type="file" name="myfile" accept="image/*" />
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <p>Business URLs</p>
+                                <div class="row businessUrl-row">
+                                    <div class="col-sm">
+                                        <label for="Youtube">Youtube</label>
+                                        <input type="url" name="toTime" class="form-control shadow-none" id="Youtube">
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="Instagram">Instagram</label>
+                                        <input type="url" name="toTime" class="form-control shadow-none" id="Instagram">
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="Twitter">Twitter</label>
+                                        <input type="url" name="toTime" class="form-control shadow-none" id="Twitter">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <br>
+</div>

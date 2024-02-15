@@ -1,0 +1,242 @@
+.card {
+    border-radius: 8px;
+    box-shadow: 0px 1px 5px 1px #00000040;
+    padding: 2px;
+}
+
+label {
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: #585858b0;
+
+}
+
+.your-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+}
+
+.your-profile-header div:nth-child(1) span:nth-child(1) img {
+    width: 15%;
+}
+
+.your-profile-header div:nth-child(1) span:nth-child(2) {
+    font-family: Nunito Sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.your-profile-header div:nth-child(2) {
+    width: 30%;
+}
+
+.your-profile-header div:nth-child(2) button img {
+    background: transparent;
+}
+
+.your-profile-header div:nth-child(2) button {
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+    background: #D9D9D9;
+    border: none;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 5px 20px;
+    float: inline-end;
+}
+
+.loc-sug,
+.cat-int {
+    display: none;
+    padding: 6px;
+}
+
+.loc-sug p,
+.cat-int p {
+    margin: 0;
+}
+
+.loc-sug ul li,
+.cat-int ul li {
+    list-style: none;
+    padding: 3px;
+
+}
+
+.loc-sug ul li:hover,
+.cat-int ul li:hover {
+    list-style: none;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+#categoryInterests:focus,
+#location:focus {
+    background-color: #ffffff;
+
+}
+
+#categoryInterests:focus+.cat-int,
+#location:focus+.loc-sug {
+    display: block;
+    border: 1.5px solid #74a8cc;
+    border-radius: 4px;
+    /* position: relative; */
+    /* top: 100%; */
+    /* left: 5%; */
+    /* right: 0; */
+    z-index: 1;
+    margin: 10px 0;
+    pointer-events: auto;
+    transition: all 0.2s ease-out;
+
+}
+
+/* CUSTOM ACCORDION STYLE START */
+.container-accordion {
+    margin: 0 auto;
+}
+
+.accordion {
+    /* margin: 30px 0px; */
+}
+
+.toggle {
+    display: none;
+}
+
+.option {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.title,
+.content {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: all 0.2s;
+    overflow-y: hidden;
+}
+
+.title {
+    background: #fff;
+    padding: 1em;
+    display: block;
+    color: #16171a;
+    border-radius: 4px;
+    border: 1px solid #D5D5D5;
+    box-shadow: 0px 1px 5px 1px #00000040;
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.title:after,
+.title:before {
+    content: "";
+    position: absolute;
+    right: 26px;
+    top: 43%;
+    width: 1.5px;
+    height: 10px;
+    background-color: #16171a;
+    transition: all 0.2s;
+    transform: rotate(-45deg);
+}
+
+.title:after {
+    transform: rotate(45deg);
+    right: 20px;
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.content div {
+    margin: 0;
+    padding: 8px;
+    /* font-size: 0.9em; */
+    line-height: 1.5;
+}
+
+.content-row {
+    border-bottom: 1px solid #D5D5D5;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.toggle:checked+.title+.content {
+    max-height: 500px;
+    overflow-y: auto;
+    box-shadow: 0px 1px 5px 1px #00000040;
+}
+
+.toggle:checked+.title:before {
+    transform: rotate(45deg) !important;
+}
+
+.toggle:checked+.title:after {
+    transform: rotate(-45deg) !important;
+}
+
+/* CUSTOM ACCORDION STYLE END */
+
+.col-3 .form-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+}
+
+.col-2 .form-check {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.col-1 .btn-danger {
+    float: inline-end;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

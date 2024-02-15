@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "c676bc0d-02e7-4287-ba1c-ce450b62600f",
+		"name": "business_directory_database",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30424515"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "get_categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6000/api/categories/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "post_categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n         {\r\n            \r\n            \"categoryId\": \"2\",\r\n            \"category\": \"food\",\r\n            \"subCategory\": \"Restaurants\",\r\n            \"type\": \"Indian\",\r\n            \"aminities\": \"Take-away\",\r\n            \"location_offered\": \"up\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/categories/postAll"
+					},
+					"response": []
+				},
+				{
+					"name": "put_categories",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \r\n            \"categoryId\": \"2\",\r\n            \"category\": \"food\",\r\n            \"subCategory\": \"Restaurants\",\r\n            \"type\": \"Italian\",\r\n            \"aminities\": \"Take-away\",\r\n            \"location_offered\": \"mysuru\"\r\n        }\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/categories/updateAll/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "locations",
+			"item": [
+				{
+					"name": "get_locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6000/api/locations/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "post_locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n            \"location_details\": [\r\n                {\r\n                    \"coords\": {\r\n                        \"latitude\": 40,\r\n                        \"longitude\": -40,\r\n                        \"speed\": 20,\r\n                        \"accuracy\": 50\r\n                    },\r\n                    \r\n                    \"locationId\": 2,\r\n                    \"locationName\": \"jayanagar\",\r\n                    \"state\": \"karnataka\",\r\n                    \"city\": \"bengaluru\",\r\n                    \"pincode\": 560078,\r\n                    \"country\": \"india\"\r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/locations/postAll"
+					},
+					"response": []
+				},
+				{
+					"name": "put_locations",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n            \"location_details\": [\r\n                {\r\n                    \"coords\": {\r\n                        \"latitude\": 40,\r\n                        \"longitude\": -40,\r\n                        \"speed\": 200,\r\n                        \"accuracy\": 50\r\n                    },\r\n                    \r\n                    \"locationId\": 2,\r\n                    \"locationName\": \"jayanagar\",\r\n                    \"state\": \"karnataka\",\r\n                    \"city\": \"bengaluru\",\r\n                    \"pincode\": 560078,\r\n                    \"country\": \"india\"\r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/locations/updateAll/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notifications",
+			"item": [
+				{
+					"name": "get_notifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6000/api/notifications/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "post_notifications",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n          \r\n            \"email\": \"nspkumar6573@gmail.com\",\r\n            \"phone\": 9731044506,\r\n            \"searchBroadcast\": [\r\n                {\r\n                    \r\n                    \"searchBroadcastId\": 2,\r\n                    \"notificationFlag\": true,\r\n                    \"serviceName\": \"safety\",\r\n                    \"locationName\": \"hyderabad\"\r\n                }\r\n            ],\r\n            \"searchNotification\": [\r\n                {\r\n                 \r\n                    \"name\": \"police\",\r\n                    \"phone\": 123456789,\r\n                    \"email\": \"xyz@gmail.com\",\r\n                    \"serviceName\": \"safety\",\r\n                    \"searchDateTime\": \"2024-01-01T01:01:45.000Z\"\r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/notifications/postAll"
+					},
+					"response": []
+				},
+				{
+					"name": "put_notifications",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n          \r\n            \"email\": \"nspkumar6573@gmail.com\",\r\n            \"phone\": 9731044506,\r\n            \"searchBroadcast\": [\r\n                {\r\n                    \r\n                    \"searchBroadcastId\": 2,\r\n                    \"notificationFlag\": true,\r\n                    \"serviceName\": \"safety\",\r\n                    \"locationName\": \"mysuru\"\r\n                }\r\n            ],\r\n            \"searchNotification\": [\r\n                {\r\n                 \r\n                    \"name\": \"police\",\r\n                    \"phone\": 123456789,\r\n                    \"email\": \"xyz@gmail.com\",\r\n                    \"serviceName\": \"safety\",\r\n                    \"searchDateTime\": \"2024-01-01T01:01:45.000Z\"\r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/notifications/updateAll/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "plans",
+			"item": [
+				{
+					"name": "post_plans",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n           \r\n            \"planId\": 2,\r\n            \"planName\": \"silver\",\r\n            \"planPrice\": 1000,\r\n            \"planValidity\": 30,\r\n            \"planStartDate\": \"2024-01-01T01:09:45.000Z\",\r\n            \"planEndDate\": \"2024-01-31T23:59:59.000Z\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/plans/postAll"
+					},
+					"response": []
+				},
+				{
+					"name": "get_plans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6000/api/plans/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "put_plans",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n           \r\n            \"planId\": 1,\r\n            \"planName\": \"gold\",\r\n            \"planPrice\": 1000,\r\n            \"planValidity\": 30,\r\n            \"planStartDate\": \"2024-01-01T01:09:45.000Z\",\r\n            \"planEndDate\": \"2024-01-31T23:59:59.000Z\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/plans/updateAll/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "services",
+			"item": [
+				{
+					"name": "servicesget",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6000/api/services/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "servicepost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n           \r\n            \"categories\": [\r\n                [\r\n                    {\r\n                        \"categoryId\": 2,\r\n                        \"category\": [\r\n                            {\r\n                                \"serviceId\": 2,\r\n                                \"serviceName\": \"police\",\r\n                                \"serviceTagName\": \"police2\",\r\n                                \"servicePhotos\": {\r\n                                    \"photo1\": \"photo1\",\r\n                                    \"photo2\": \"photo2\",\r\n                                    \"photo3\": \"photo3\",\r\n                                    \"photo4\": \"photo4\",\r\n                                    \"photo5\": \"photo5\"\r\n                                },\r\n                                \"serviceDesc\": \"servciedesc\",\r\n                                \"serviceTime\": 12,\r\n                                \"serviceLocation\": [\r\n                                    {\r\n                                        \"locationId\": 2,\r\n                                        \"locationName\": \"bengalurur\",\r\n                                        \"coords\": {\r\n                                            \"latitude\": 12,\r\n                                            \"longitude\": -22,\r\n                                            \"speed\": 123,\r\n                                            \"accuracy\": 1\r\n                                        },\r\n                                        \"state\": \"karnataka\",\r\n                                        \"city\": \"bengaluru\",\r\n                                        \"pincode\": 560078,\r\n                                        \"country\": \"india\"\r\n                                    }\r\n                                ],\r\n                                \"serviceType\": \"free\",\r\n                                \"servicePaymentDetails\": {\r\n                                    \"acceptedPayMode\": \"online\",\r\n                                    \"price\": 12323\r\n                                },\r\n                                \"serviceCategory\": \"EMERGENCY\",\r\n                                \"serviceAvgRatings\": 5,\r\n                                \"serviceReviews\": [\r\n                                    {\r\n                                        \"email\": \"nsjdj@gmail.com\",\r\n                                        \"name\": \"kishore\",\r\n                                        \"usrRatings\": 6,\r\n                                        \"description\": \"lovely\"\r\n                                    }\r\n                                ],\r\n                                \"listedBy\": \"emailk\",\r\n                                \"serviceReports\": [\r\n                                    {}\r\n                                ],\r\n                                \"listingDate\": \"2024-23-1\",\r\n                                \"serviceEnquiry\": {\r\n                                    \"email\": \"dwdwj@gmail.com\",\r\n                                    \"name\": \"rajesh\",\r\n                                    \"enquiryDetails\": \"jpnagar\"\r\n                                }\r\n                            }\r\n                        ],\r\n                        \"subCategory\": [\r\n                            {}\r\n                        ],\r\n                        \"type\": [\r\n                            {}\r\n                        ],\r\n                        \"aminities\": [\r\n                            {}\r\n                        ]\r\n                    }\r\n                ]\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/services/postAll"
+					},
+					"response": []
+				},
+				{
+					"name": "serviceput",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \r\n            \"categories\": [\r\n                [\r\n                    {\r\n                        \"categoryId\": 1,\r\n                        \"category\": [\r\n                            {\r\n                                \"serviceId\": 1,\r\n                                \"serviceName\": \"police\",\r\n                                \"serviceTagName\": \"police1\",\r\n                                \"servicePhotos\": {\r\n                                    \"photo1\": \"photo1\",\r\n                                    \"photo2\": \"photo2\",\r\n                                    \"photo3\": \"photo3\",\r\n                                    \"photo4\": \"photo4\",\r\n                                    \"photo5\": \"photo5\"\r\n                                },\r\n                                \"serviceDesc\": \"servciedesc\",\r\n                                \"serviceTime\": 12,\r\n                                \"serviceLocation\": [\r\n                                    {\r\n                                        \"locationId\": 1,\r\n                                        \"locationName\": \"bengalurur\",\r\n                                        \"coords\": {\r\n                                            \"latitude\": 12,\r\n                                            \"longitude\": -22,\r\n                                            \"speed\": 123,\r\n                                            \"accuracy\": 1\r\n                                        },\r\n                                        \"state\": \"karnataka\",\r\n                                        \"city\": \"bengaluru\",\r\n                                        \"pincode\": 560078,\r\n                                        \"country\": \"india\"\r\n                                    }\r\n                                ],\r\n                                \"serviceType\": \"free\",\r\n                                \"servicePaymentDetails\": {\r\n                                    \"acceptedPayMode\": \"online\",\r\n                                    \"price\": 12323\r\n                                },\r\n                                \"serviceCategory\": \"EMERGENCY\",\r\n                                \"serviceAvgRatings\": 5,\r\n                                \"serviceReviews\": [\r\n                                    {\r\n                                        \"email\": \"nsjdj@gmail.com\",\r\n                                        \"name\": \"kishore\",\r\n                                        \"usrRatings\": 6,\r\n                                        \"description\": \"lovely\"\r\n                                    }\r\n                                ],\r\n                                \"listedBy\": \"emailk\",\r\n                                \"serviceReports\": [\r\n                                    {}\r\n                                ],\r\n                                \"listingDate\": \"2024-23-1\",\r\n                                \"serviceEnquiry\": {\r\n                                    \"email\": \"dwdwj@gmail.com\",\r\n                                    \"name\": \"rajesh\",\r\n                                    \"enquiryDetails\": \"jpnagar\"\r\n                                }\r\n                            }\r\n                        ],\r\n                        \"subCategory\": [\r\n                            {}\r\n                        ],\r\n                        \"type\": [\r\n                            {}\r\n                        ],\r\n                        \"aminities\": [\r\n                            {}\r\n                        ]\r\n                    }\r\n                ]\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/services/updateAll/65a2d092b4f917bd3e3b9b4d"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "searchs",
+			"item": [
+				{
+					"name": "searcg_get_api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6000/api/search/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "search_post_api",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n           \r\n            \"email\": \"nspkumar546@gmail.com\",\r\n            \"phone\": 12323456,\r\n            \"searchHistory\": [\r\n                {\r\n                    \"serviceName\": \"police\",\r\n                    \"serviceType\": \"free\",\r\n                    \"serviceLocation\": [\r\n                        {\r\n                            \"coords\": {\r\n                                \"latitude\": 12,\r\n                                \"longitude\": -99,\r\n                                \"speed\": 123,\r\n                                \"accuracy\": 20\r\n                            },\r\n                            \"locationId\": 2,\r\n                            \"locationName\": \"bengaluru\",\r\n                            \"state\": \"karanataka\",\r\n                            \"city\": \"bengaluru\",\r\n                            \"pincode\": 560078,\r\n                            \"country\": \"india\"\r\n                           \r\n                        }\r\n                    ]\r\n                    \r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/search/postAll"
+					},
+					"response": []
+				},
+				{
+					"name": "search_put_api",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n           \r\n            \"email\": \"nspkumar546@gmail.com\",\r\n            \"phone\": 12323456,\r\n            \"searchHistory\": [\r\n                {\r\n                    \"serviceName\": \"police\",\r\n                    \"serviceType\": \"free\",\r\n                    \"serviceLocation\": [\r\n                        {\r\n                            \"coords\": {\r\n                                \"latitude\": 99,\r\n                                \"longitude\": -99,\r\n                                \"speed\": 123,\r\n                                \"accuracy\": 20\r\n                            },\r\n                            \"locationId\": 2,\r\n                            \"locationName\": \"bengaluru\",\r\n                            \"state\": \"karanataka\",\r\n                            \"city\": \"bengaluru\",\r\n                            \"pincode\": 560078,\r\n                            \"country\": \"india\"\r\n                           \r\n                        }\r\n                    ]\r\n                    \r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/search/updateAll/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get_users_api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6000/api/users/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "put_users_api",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n       \r\n            \"userId\": 2,\r\n            \"firstName\": \"Shravan\",\r\n            \"lastName\": \"NP\",\r\n            \"name\": \"\",\r\n            \"email\": \"nspkumar6573@gmail.com\",\r\n            \"phone\": \"9731044506\",\r\n            \"password\": \"snp@1234\",\r\n            \"isAdmin\": true,\r\n            \"currentLocation\": \"bengaluru\",\r\n            \"currentActivePlan\": \"gold\",\r\n            \"userPlanHistory\": [\r\n                {\r\n                    \"paymentInfo\": {\r\n                        \"paymentStatus\": \"Success\",\r\n                        \"transactionId\": \"abc123\",\r\n                        \"paymentDate\": \"2024-01-01T12:34:56.000Z\"\r\n                    },\r\n                    \"userPlanHistoryId\": 2,\r\n                    \"planId\": 2,\r\n                    \"planName\": \"gold\",\r\n                    \"planPrice\": 1000,\r\n                    \"planValidity\": 30,\r\n                    \"planStartDate\": \"2024-01-01T00:00:00.000Z\",\r\n                    \"planEndDate\": \"2024-01-31T23:59:59.000Z\"\r\n                  \r\n                }\r\n            ],\r\n            \"referralCode\": \"ABC123\",\r\n            \"notifPrefCheck\": true,\r\n            \"serviceCategory\": [\r\n                {\r\n                    \"serviceId\": 2,\r\n                    \"notificationFlag\": true,\r\n                    \"serviceName\": \"safety\",\r\n                    \"serviceLocation\": \"bengaluru\",\r\n                    \"locationId\": 2,\r\n                    \"userType\": \"Provider\"\r\n                    \r\n                }\r\n            ],\r\n            \"userRegStatus\": \"Approved\",\r\n            \"userStatus\": \"Active\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/users/updateAll/2"
+					},
+					"response": []
+				},
+				{
+					"name": "post_users_api",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n       \r\n            \"userId\": 2,\r\n            \"firstName\": \"Shravan\",\r\n            \"lastName\": \"NP\",\r\n            \"name\": \"\",\r\n            \"email\": \"nspkumar6573@gmail.com\",\r\n            \"phone\": \"9731044506\",\r\n            \"password\": \"snp@1234\",\r\n            \"isAdmin\": true,\r\n            \"currentLocation\": \"bengaluru\",\r\n            \"currentActivePlan\": \"gold\",\r\n            \"userPlanHistory\": [\r\n                {\r\n                    \"paymentInfo\": {\r\n                        \"paymentStatus\": \"Success\",\r\n                        \"transactionId\": \"abc123\",\r\n                        \"paymentDate\": \"2024-01-01T12:34:56.000Z\"\r\n                    },\r\n                    \"userPlanHistoryId\": 1,\r\n                    \"planId\": 2,\r\n                    \"planName\": \"gold\",\r\n                    \"planPrice\": 1000,\r\n                    \"planValidity\": 30,\r\n                    \"planStartDate\": \"2024-01-01T00:00:00.000Z\",\r\n                    \"planEndDate\": \"2024-01-31T23:59:59.000Z\"\r\n                  \r\n                }\r\n            ],\r\n            \"referralCode\": \"ABC123\",\r\n            \"notifPrefCheck\": true,\r\n            \"serviceCategory\": [\r\n                {\r\n                    \"serviceId\": 2,\r\n                    \"notificationFlag\": true,\r\n                    \"serviceName\": \"safety\",\r\n                    \"serviceLocation\": \"bengaluru\",\r\n                    \"locationId\": 2,\r\n                    \"userType\": \"Provider\"\r\n                    \r\n                }\r\n            ],\r\n            \"userRegStatus\": \"Approved\",\r\n            \"userStatus\": \"Active\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6000/api/users/postAll"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

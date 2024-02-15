@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans';
+    src: url(assets/Nunito_Sans,Poppins/Nunito_Sans/static/NunitoSans_7pt_Condensed-Regular.ttf);
+    background-color: #ffffff;
+}
+
+
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url(assets/Nunito_Sans,Poppins/Nunito_Sans/static/NunitoSans_7pt_Condensed-Regular.ttf);
+
+}
+
+
+body {
+    overflow-x: hidden;
+    background: #f7f8fa;
+}
+
+section {
+    background-color: white;
+}

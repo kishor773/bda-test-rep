@@ -1,0 +1,200 @@
+<div class="container-fluid">
+    <app-header></app-header>
+    <div class="row">
+        <div class="col-3">
+            <app-side-prof></app-side-prof>
+        </div>
+        <div class="col-9">
+            <form [formGroup]="profileForm">
+                <div class="card">
+                    <div class="your-profile-header">
+                        <div>
+                            <span>
+                                <img src="../../../assets/icons/person-circle.png" alt="Profile image">
+                            </span>
+                            <span>{{usrName}}</span>
+                        </div>
+                        <div>
+                            <span>
+
+                                <button type="button"><img src="../../../assets/icons/pencil-square.png"
+                                        alt="">Edit</button>
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="familyName">Family Name</label>
+                                <input type="text" class="form-control shadow-none" name="familyName" id="familyName"
+                                    formControlName="familyName">
+                            </div>
+                            <div class="col-sm">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control shadow-none" name="firstName" id="firstName"
+                                    formControlName="firstName">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="middleName">Middle Name</label>
+                                <input type="text" class="form-control shadow-none" name="middleName" id="middleName"
+                                    formControlName="middleName">
+                            </div>
+                            <div class="col-sm">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control shadow-none" name="lastName" id="lastName"
+                                    formControlName="lastName">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="email">Email Id</label>
+                                <input type="text" class="form-control shadow-none" name="email" id="email"
+                                    formControlName="email">
+                            </div>
+
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="phone">Phone</label>
+                                <input type="number" class="form-control shadow-none" name="phone" id="phone"
+                                    formControlName="phone">
+                            </div>
+                            <div class="col-sm">
+                                <label for="whatsappNo">Whatsapp Number</label>
+                                <input type="number" class="form-control shadow-none" name="whatsappNo" id="whatsappNo"
+                                    formControlName="whatsappNo">
+                            </div>
+                            <div class="col-sm">
+                                <label for="businessTel">Business Telephone No.</label>
+                                <input type="number" class="form-control shadow-none" name="businessTel"
+                                    id="businessTel" formControlName="businessTel">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="categoryInterests">Category Interests</label>
+                                <ng-select [items]="categories" [multiple]="true" [closeOnSelect]="false"
+                                    [searchable]="true" bindLabel="category" placeholder="Select"
+                                    (change)="selectCategories($event)">
+                                </ng-select>
+{{viewManageCategArr|json}}
+
+                                <!-- <input type="text" class="form-control shadow-none" name="categoryInterests"
+                                id="categoryInterests">
+                            <div class="cat-int">
+                                <ul *ngFor="let cat of categories">
+                                    <li><input type="checkbox" name="categories" id="categories" [value]="cat.name">
+                                        {{cat.name}}</li>
+                                </ul>
+                            </div> -->
+                            </div>
+                            <div class="col-sm">
+                                <label for="location">Current Location</label>
+                                <!-- <ng-select [items]="locations" [closeOnSelect]="true" [searchable]="true"
+                                    bindLabel="name" placeholder="Select" formControlName="middleName">
+                                    <ng-option>
+                                        Detect Location
+                                    </ng-option>
+                                </ng-select> -->
+                                <select name="location" id="location" class="form-control shadow-none"
+                                    formControlName="currentLocation">
+                                    <option value=""></option>
+                                    <option *ngFor="let item of locations" [value]=item.city>{{item.city}} </option>
+                                </select>
+                            </div>
+                            <div class="col-sm">
+                                <label for="currentPlan">Current Plan</label>
+                                <input type="text" class="form-control shadow-none" name="currentPlan" id="currentPlan"
+                                    formControlName="currentActivePlan">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <label for="selctedCategories">Selcted Categories</label>
+
+                        </div>
+
+                    </div>
+                </div><br>
+                {{viewManageCategArr|json}}
+                <div class="container-accordion">
+                    <div class="accordion">
+                        <div class="option">
+                            <!-- <input class="toggle" [id]="i" type="checkbox" /> -->
+                            <input class="toggle" id="i" type="checkbox" />
+                            <!-- <label class="title" [for]="i"> -->
+                            <label class="title" for="i">
+                                <div class="row title-row">
+                                    View / Manage Categories
+                                </div>
+                            </label>
+                            <div class="content">
+                                <div class="row content-row" *ngFor="let data of viewManageCategArr;let i=index">
+                                    <div class="col-3">
+                                        <label for="categoryName">Category Name</label>
+                                        <input type="text" class="form-control shadow-none" name="categoryName"
+                                            id="categoryName" [value]="data.category">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="categoryInterests">Locations Served</label>
+                                        <ng-select [items]="locations" [multiple]="true" [closeOnSelect]="false"
+                                            [searchable]="true" bindLabel="city" placeholder="Select"
+                                            (change)="locServed($event,i)">
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-3">
+                                        <!-- <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch"
+                                                id="flexSwitchCheckChecked" checked (change)="notifCheck($event)">
+                                            <label class="form-check-label" for="flexSwitchCheckChecked">Allow
+                                                Notifications</label>
+                                        </div> -->
+
+                                        <input class="form-check-input" type="checkbox" value="true" [id]="i"
+                                            (change)="notifCheck($event,i)">&nbsp;
+                                        <label class="form-check-label" [for]="i">
+                                            Allow
+                                            Notifications
+                                        </label>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Business,Social"
+                                                [id]="i" (change)="checkBusinessType($event,i)">
+                                            <label class="form-check-label" [for]="i">
+                                                Both
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Business" [id]="i"
+                                                (change)="checkBusinessType($event,i)">
+                                            <label class="form-check-label" [for]="i">
+                                                Business
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Social" [id]="i"
+                                                (change)="checkBusinessType($event,i)">
+                                            <label class="form-check-label" [for]="i">
+                                                Social
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-1">
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-primary" (click)="saveProfileDetails()">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+.card {
+    border-radius: 8px;
+    box-shadow: 0px 1px 5px 1px #00000040;
+    padding: 2px;
+}
+
+label {
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+    text-align: left;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.listing-details-tabs>input[type="radio"] {
+    display: none;
+
+}
+
+.listing-details-tabs>div {
+    display: none;
+    border-top: 2px solid #e0e0e0;
+    padding: 10px 0px;
+    font-size: 16px;
+    margin: 0px 15px;
+}
+
+#listing-details-tabs-1:checked~#listing-details-tabs-content-1 {
+    display: block;
+    /* text-transform: capitalize; */
+}
+
+.listing-details-tabs>label {
+    display: inline-block;
+    vertical-align: middle;
+    user-select: none;
+    padding: 10px 20px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+    font-family: Nunito Sans;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+    margin: 0px 15px;
+}
+
+.listing-details-tabs>label:not(:first-of-type) {
+    border-left: none;
+}
+
+.listing-details-tabs>input[type="radio"]:checked+label {
+    background-color: #fff;
+    border-bottom: 3px solid #848181;
+    padding: 15px;
+    margin: 0px 12px;
+}
+
+#listing-details-tabs-content-1 p:nth-child(1) {
+    color: #8B8B8B;
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0;
+}
+
+#listing-details-tabs-content-1 p:nth-child(2) {
+    color: #000000;
+    font-family: Nunito Sans;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+
+.card-header,
+.card-footer {
+    background: #FFFFFF;
+}
+
+.mandatoryField {
+    color: red;
+}
+
+p {
+    font-family: Nunito Sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0;
+
+}
+
+.address-row,
+.workingHrs-row,
+.attachments-row,
+.businessUrl-row {
+    border-top: 2px solid #84818194;
+    padding: 10px 0;
+}
+
+tbody tr td:nth-child(3),
+tbody tr td:nth-child(4) {
+    width: 20%;
+}
+
+
+tbody tr td:nth-child(5) {
+    width: 10%;
+}
+
+
+.attachments-row div {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+}
+
+.btn {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    border: 1px solid #D5D5D5;
+    color: #9F9F9F;
+    background-image: url('src/assets/icons/upld60.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.attach {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    cursor: pointer;
+
+}
+
+.attach span {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    cursor: pointer;
+
+}
+
+.attach input[type=file] {
+    position: absolute;
+    left: 0px;
+    top: 45px;
+    cursor: pointer;
+    opacity: 0;
+}

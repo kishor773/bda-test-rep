@@ -1,0 +1,171 @@
+<app-header></app-header>
+<app-search-loc></app-search-loc>
+<div class="contanier-fluid"><br>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="data-block">
+                <h1>{{serviceName}}</h1>
+                <p>{{serviceRatings}} <img src="/assets/icons/Star 1.png" alt="" class="star"></p>
+            </div>
+
+            <div class="row">
+                <div class="card" id="img-block">
+                    <div class="listing-img-carousel">
+                        <button (click)="scrollLeft()"></button>
+                        <span #widgetsContent>
+                            <img src="../../../assets/images/b1.jpg">
+                            <img src="../../../assets/images/b2.jpg">
+                            <img src="../../../assets/images/b3.jpg">
+                            <img src="../../../assets/images/b4.jpg">
+                            <img src="../../../assets/images/b5.jpg">
+                        </span>
+                        <button (click)="scrollRight()"></button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="card business-block">
+                    <h1>Business Information</h1>
+                    <div class="business-block-data">
+                        <!-- <textarea name="serviceShortDesc" id="serviceShortDesc" class="form-control shadow-none" [innerHTML]="serviceShortDescription"></textarea> -->
+                        <p [innerHTML]="serviceShortDescription"></p>
+                    </div>
+                </div>
+            </div><br>
+            <div class="row reviews-row">
+                <div class="col-9">
+                    <div class="card">
+                        <div class="card-title">
+                            <h1> Reviews and Ratings</h1>
+                        </div>
+                        <div class="card-body" id="review-sec">
+                            <div>
+                                <p>Rate this service:</p>
+                                <div class="star-rating">
+                                    <span *ngFor="let star of stars; let i = index" (click)="rate(i + 1)"
+                                        [ngClass]="{'rated': i < serviceRatings}">
+                                        &#9733;
+                                    </span>
+                                </div>
+                                <p>Write a review:</p>
+                                <textarea name="writeReview" id="writeReview" class="form-control shadow-none"
+                                    (change)="writeReview($event)"></textarea>
+                                <button class="btn" [disabled]="reviewSubmitDisable">Submit</button>
+                            </div>
+                            <div>
+                                <p>User Reviews and Ratings</p>
+                                <div *ngFor="let reviews of serviceReviews;let i=index">
+                                    <span><img src="../../../assets/icons/person-circle.png" alt=""></span>
+                                    <span>{{serviceReviews[i].name}}</span>
+                                    <span>{{serviceReviews[i].usrRatings}}</span>
+                                    <span class="dropdown">
+                                        <button (click)="myFunction()" class="dropbtn"><img
+                                                src="../../../assets/icons/three-dots-vertical.png"
+                                                alt="Logged-in user icon"></button>
+                                        <div id="myDropdown" class="dropdown-content">
+                                            <a href="/account/my-profile" routerLink='/account/my-profile'
+                                                routerLinkActive="active">My Profile</a>
+                                            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create an
+                                                announcement</a>
+                                            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create an
+                                                advertisement</a>
+                                        </div>
+                                    </span>
+                                    <br>
+                                    <span>{{serviceReviews[i].description}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-title">
+                            <h1> Contact Details</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <!-- {{singleServiceResp.socialUrls|json}} -->
+                                <ul *ngFor="let data of singleServiceResp.address" class="contact">
+                                    <li>
+                                        <span><img src="../../../assets/icons/geo-alt (2).png" alt=""></span>
+                                        <span>{{data.addressTitle}},<br>{{data.city}},
+                                            {{data.state}}-{{data.pincode}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/telephone.png" alt=""></span>
+                                        <span>phone no</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/calendar.png" alt=""></span>
+                                        <span>{{data.fromDay}} - {{data.toDay}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/clock.png" alt="">
+                                        </span>
+                                        <span>{{data.fromTime}} - {{data.toTime}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/email.png" alt=""></span>
+                                        <span>{{data.phoneNo}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/youtube.png" alt=""></span>
+                                        <span> {{singleServiceResp.socialUrls.youTubeUrl}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/whatsapp.png" alt=""></span>
+                                        <span>{{singleServiceResp.socialUrls.whatsappUrl}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/instagram.png" alt=""></span>
+                                        <span>{{singleServiceResp.socialUrls.instagramUrl}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/twitter-x.png" alt=""></span>
+                                        <span>{{singleServiceResp.socialUrls.twitterUrl}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <div class="row"></div> -->
+                        </div>
+                    </div><br>
+                    <div class="card report-card">
+                        <div class="card-title">
+                            <h1>Report this business</h1>
+                        </div>
+                        <div class="card-body">
+                            <p>Help us improve by reporting an error so that we keep you updated with the relevant
+                                details</p>
+                        </div>
+                        <div class="card-footer">
+
+
+                            <!-- Trigger/Open The Modal -->
+                            <button class="btn btn-danger" id="myBtn" (click)="openModal()">Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal" #myModal>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div>
+                <span class="close" (click)="closeModal()">&times;</span>
+                <p>Report this business</p>
+            </div>
+            <div class="modal-body">
+                <p>Please state your concern breifly</p>
+                <textarea name="" id="" class="form-control shadow-none" [innerHTML]=""></textarea>
+                <button class="btn">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="container-fluid"><br><br>
+    <div class="row ">
+     <div class="col-1"></div>
+     <div class="col-10">
+        <input  [(ngModel)]="searchtext"  class="search-card" placeholder=" Search  Categories" aria-label="search">
+     </div>
+     <div class="col-1"></div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-1"></div>
+        <div class="col-10">
+           
+            <div class="categories-card mt-4" routerLink="/services/allServices">
+                <div *ngFor="let item of categoriesData|filter:searchtext" class="categories-card-child">
+                    <p>{{item.category}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div><br>
+<app-footer></app-footer>

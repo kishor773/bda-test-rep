@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container-fluid"><br>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10 filters-services">
+            <div class="first-div">
+                <app-filters></app-filters>
+            </div>
+            <div class="second-div">
+   
+                <div *ngFor="let item of servicesdata" class="card1" [routerLink]="['/services/singleServices', item._id]">
+                    <div class="card1-child1">
+                        <div class="image-block">
+                            <p>{{item.categories[0][0].category[0].servicePhotos.photo1}}</p>
+                        </div>
+                    </div>
+                    <div class="card1-child2">
+                        <div class="data-block">
+                            <h1>{{item.categories[0][0].category[0].serviceName}}</h1>
+                            <p>{{item.categories[0][0].category[0].serviceReviews[0].usrRatings}} <img
+                                    src="/assets/icons/Star 1.png" alt="" class="star"></p>
+                            <p><img src="/assets/icons/geo-alt.png">
+                                {{item.categories[0][0].category[0].serviceLocation[0].locationName}}</p>
+                        </div>
+                        <div class="data-block2 ">
+                            <div class="warning-like">
+                                <button><img src="/assets/icons/exclamation-triangle.png" alt=""></button>
+                                <button><img src="/assets/icons/heart.png" alt="">
+                                </button>
+                            </div>
+                            <div> <button class="learn-more"><span>Learn More</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>
