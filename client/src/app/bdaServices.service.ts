@@ -16,6 +16,10 @@ export class ServicesService {
     let parsedSessionData = JSON.parse(sessionData);
     return parsedSessionData
   }
+
+  public setSessionStorage(key: any, value: any) {
+    sessionStorage.setItem(key, value)
+  }
   //  API's for Category Collections
   getCategoriesServiceData() {
     let url = `${this.baseUrl}/api/categories/getAll`;

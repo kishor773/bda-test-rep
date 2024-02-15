@@ -7,6 +7,7 @@ import { AdvertismentComponent } from './advertisment/advertisment.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import { ServicesService } from '../bdaServices.service';
 
 
 
@@ -24,7 +25,6 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     NgSelectModule,
     FormsModule,
-
 
   ],
   exports: [

@@ -143,7 +143,9 @@ export class YourProfComponent implements OnInit {
     this._bda.putUsersServiceData(updateId, body).subscribe((res: any) => {
       console.log(res);
       if (res.errorCode == 0) {
-        sessionStorage.setItem("usrDetls", JSON.stringify(res.data));
+        // sessionStorage.setItem("usrDetls", JSON.stringify(res.data));
+        this._bda.setSessionStorage('usrDetls', JSON.stringify(res.payload))
+
         console.log(res.message);
         console.log("Session Storage Updated for User");
         this.patchUserForm(res.data)

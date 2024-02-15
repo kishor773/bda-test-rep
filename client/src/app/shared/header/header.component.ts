@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicesService } from 'src/app/bdaServices.service';
 
 @Component({
   selector: 'app-header',
@@ -18,20 +19,20 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn: Boolean = false;
 
-  constructor(private window: Window, private router: Router) { }
+  constructor(private window: Window, private router: Router, private _bda: ServicesService) { }
 
   ngOnInit() {
     // this.getCurrentLocation()
     this.selectedLocation = this.locations[0];
-    this.sessionStorageHandler();
+    this.checkUserLoggedInStatus();
     window.onclick = (event: any) => this.closeDropdownOnClickOutside(event);
   }
-  private sessionStorageHandler() {
-    let usrLogInStatus: any = sessionStorage.getItem('isLoggedIn');
-    let parsedUsrLogStats = JSON.parse(usrLogInStatus)
+  private checkUserLoggedInStatus() {
+    let usrLogInStatus = this._bda.getSessionStorageHandler('isLoggedIn');
+    // let parsedUsrLogStats = JSON.parse(usrLogInStatus)
     // console.log(parsedUsrLogStats, typeof usrLogInStatus);
-    parsedUsrLogStats == 1 ? this.isLoggedIn = true : this.isLoggedIn = false;
-    // console.log(this.isLoggedIn);
+    usrLogInStatus == 1 ? this.isLoggedIn = true : this.isLoggedIn = false;
+    console.log(this.isLoggedIn);
 
   }
 
@@ -71,7 +72,6 @@ export class HeaderComponent implements OnInit {
 
   logoutUser() {
     console.log('User Logging Out');
-
     sessionStorage.clear();
     this.router.navigate(['/login'])
   }

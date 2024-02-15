@@ -4,8 +4,7 @@
         <ul>
             <li><a routerLink='/account/my-profile' routerLinkActive="active">Your Profile</a>
             </li>
-            <li><a routerLink='/account/categories' routerLinkActive="active" id="location"
-                    (click)="fetchUserDetails()">Categories</a>
+            <li><a routerLink='/account/categories' routerLinkActive="active" id="location">Categories</a>
                 <div id="loc-sug">
                     <!-- <ul>
                         <li>Business
@@ -27,7 +26,7 @@
                         </li>
                     </ul> -->
 
-                    <ul *ngFor="let data of businessType.serviceCategory; let i=index">
+                    <ul *ngFor="let data of businessType; let i=index">
                         <li>{{data.type}}
                             <ol>
                                 <li><a [routerLink]="['/account/categories',data.category]"
