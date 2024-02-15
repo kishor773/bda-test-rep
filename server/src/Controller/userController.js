@@ -1,3 +1,4 @@
+const { restart } = require('nodemon');
 var userService = require('../Service/userService');
 
 var getUserDataController = async (req, res) => {
@@ -37,18 +38,13 @@ var postUserDataController = async (req, res) => {
 var putUserDataController = async (req, res) => {
   try {
     var userData = await userService.putUserDataService(req.params.userId, req.body);
-    console.log(userData);
-    // if (userData) {
-    //   res.send({ "message": userData, "status": true })
-    // }
-    // else {
-    //   res.send({ "message": "not able to post data", "status": false })
-    // }
+    // console.log('userData====', userData)
+    res.json({errorCode:0,message:"User Details Updated Sucessfully",data:userData})
   }
 
   catch (error) {
-    console.log(error);
-    res.send({ "message": "internal Storage error", "status": false })
+    // console.log(error);
+    res.json({errorCode:1,message:"Failed to update user data ",data:error})
   }
 }
 module.exports = { getUserDataController, postUserDataController, putUserDataController }

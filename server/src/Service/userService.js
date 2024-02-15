@@ -1,20 +1,20 @@
-var userModel= require('../Model/userModel');
+var userModel = require('../Model/userModel');
 
-module.exports.getUserDataService= async()=>{
+module.exports.getUserDataService = async () => {
 
-    try{
- var data= await userModel.find({});
- return data
+    try {
+        var data = await userModel.find({});
+        return data
     }
-    catch(error){
+    catch (error) {
         console.log(error);
         return error
     }
 }
 
-module.exports.postUserDataService= async(userDetails)=>{
+module.exports.postUserDataService = async (userDetails) => {
 
-    try{
+    try {
 
         // var userModelData= new userModel();
         // userModelData.userId=userDetails.userId,
@@ -56,31 +56,30 @@ module.exports.postUserDataService= async(userDetails)=>{
         //     serviceLocation:category.serviceLocation,
         //     locationName:category.locationName,
         //     userType:category.userType,
-             
+
         // }))
         var data = await userModel.create(userDetails);
-        console.log(data,"user-data")
+        console.log(data, "user-data")
         return data
 
     }
-    catch(error){
+    catch (error) {
         console.log(error);
         return error
     }
 }
-module.exports.putUserDataService= async(_id,userDetails)=>{
-
-    try{
-        const filter={
-            '_id':_id
-        }
- var data= await userModel.updateOne(filter,userDetails);
- console.log(data)
- return data;
- 
-    }
-    catch(error){
+module.exports.putUserDataService = async (_id, userDetails) => {
+    try {
+        const filter = {
+            '_id': _id
+        };
+        // Set {new: true} to return the updated document
+        const options = { new: true };
+        const data = await userModel.findOneAndUpdate(filter, userDetails, options);
+        console.log('updated data', data);
+        return data;
+    } catch (error) {
         console.log(error);
-        return error
+        return error;
     }
-}
+};
