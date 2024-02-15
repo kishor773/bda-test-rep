@@ -1,0 +1,74 @@
+[{
+  "_id": {
+    "$oid": "65952381ca69c2a4e60a4515"
+  },
+  "location_details": [
+    {
+      "locationId": 1,
+      "locationName": "Tokyo",
+      "coords": {
+        "latitude": 35.6821936,
+        "longitude": 139.762221,
+        "speed": 20,
+        "accuracy": 5
+      },
+      "state": "S",
+      "city": "Gualaquiza",
+      "pincode": 560076,
+      "country": "EC",
+      "_id": {
+        "$oid": "65bb30614bdda3f93b73174a"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65af4e4778f7ff3da943bb41"
+  },
+  "location_details": [
+    {
+      "locationId": 2,
+      "locationName": "US",
+      "coords": {
+        "latitude": 39.7837304,
+        "longitude": -100.445882,
+        "speed": 200,
+        "accuracy": 50
+      },
+      "state": "ER",
+      "city": "Argavand",
+      "pincode": 560078,
+      "country": "AM",
+      "_id": {
+        "$oid": "65bb30744bdda3f93b731750"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ba2de09627f45b59eaf468"
+  },
+  "location_details": [
+    {
+      "locationId": 3,
+      "locationName": "Mumbai",
+      "coords": {
+        "latitude": 19.0785451,
+        "longitude": 72.878176,
+        "speed": null,
+        "accuracy": null
+      },
+      "state": "KA",
+      "city": "Bangalore Urban",
+      "pincode": 3333,
+      "country": "IN",
+      "_id": {
+        "$oid": "65bb30824bdda3f93b731756"
+      }
+    }
+  ],
+  "__v": 0
+}]

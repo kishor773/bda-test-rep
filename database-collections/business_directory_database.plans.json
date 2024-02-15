@@ -1,0 +1,47 @@
+[{
+  "_id": {
+    "$oid": "6595245fca69c2a4e60a4516"
+  },
+  "planId": 1,
+  "planName": "Gold",
+  "planPrice": 1000,
+  "planValidity": 30,
+  "planStartDate": {
+    "$date": "2024-02-04T00:00:00.000Z"
+  },
+  "planEndDate": {
+    "$date": "2024-01-31T23:59:59.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65a616a6f25113e4777e4854"
+  },
+  "planId": 2,
+  "planName": "Silver",
+  "planPrice": 1500,
+  "planValidity": 30,
+  "planStartDate": {
+    "$date": "2024-01-01T01:09:45.000Z"
+  },
+  "planEndDate": {
+    "$date": "2024-01-31T23:59:59.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65afa7ca78f7ff3da943cca6"
+  },
+  "planId": 3,
+  "planName": "Gold",
+  "planPrice": 820,
+  "planValidity": 30,
+  "planStartDate": {
+    "$date": "2024-01-28T00:00:00.000Z"
+  },
+  "planEndDate": {
+    "$date": "2024-01-28T00:00:00.000Z"
+  },
+  "__v": 0
+}]
