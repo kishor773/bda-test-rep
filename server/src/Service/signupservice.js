@@ -10,7 +10,7 @@ module.exports.postSignupDataService = async (signupDetails) => {
       signupModelData.email = signupDetails.email,
       signupModelData.password = signupDetails.password,
       signupModelData.currentLocation = signupDetails.currentLocation
-     
+      signupModelData.referralCode = signupDetails.referralCode
       // signupModelData.isAdmin = signupDetails.isAdmin,
       // signupModelData.userStatus = signupDetails.userStatus,
       // signupModelData.currentActivePlan = signupDetails.currentActivePlan

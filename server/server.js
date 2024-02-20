@@ -33,8 +33,8 @@ server.use(function (req, res, next) {
 server.use(express.json());
 server.use('/api', require('./src/routes/routes'));
 
-//JWT Authentication
-server.post('/login-user', async (req, res) => {
+  //JWT Authentication
+  server.post('/login-user', async (req, res) => {
     const { email, password, phone } = req.body;
 
     try {
@@ -93,7 +93,7 @@ server.post('/login-user', async (req, res) => {
         //     "token": ""
         //   }
         // If user exists and credentials are correct, generate JWT token
-
+      
         const payload = {
             userId: user._id, firstName: user.firstName, lastName: user.lastName, email: user.email,        //     "lastName": "NP",
             name: user.name,
@@ -122,7 +122,7 @@ server.post('/login-user', async (req, res) => {
         res.json({ errorCode: 1, message: 'Something went wrong', errorMsg: error });
     }
 });
-//JWT Authentication
+  //JWT Authentication
 server.get('/protectedRoute', auth.verifyToken, (req, res) => {
     // Access user information from req.user
     res.json({ message: 'You have access to protected data', user: req.user });
@@ -130,7 +130,7 @@ server.get('/protectedRoute', auth.verifyToken, (req, res) => {
 
 
 
-//port
+     //port
 server.listen(`${port}`, function check(error) {
     if (error) {
         console.log("error", error)

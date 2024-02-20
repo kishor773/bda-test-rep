@@ -1,20 +1,19 @@
-var signupService = require('../Service/signupservice');
-var postSignupDatacontroller = async (req, res) => {
-   try {
-      var signupData = await signupService.postSignupDataService(req.body);
-      console.log("signupData------", signupData)
+var signupService=require('../Service/signupservice');
+var postSignupDatacontroller= async(req,res)=>{
+    try{
+        var signupData= await signupService.postSignupDataService(req.body);
 
-      if (signupData) {
-         res.send({ "errorCode": 0, "message": "User Registered Sucessfully", "data": signupData, "status": true })
-      }
-      else {
-         res.send({ "errorCode": 1, "message": "Something went wrong", "status": false })
-      }
+        if(signupData){
+           res.status(200).send({"message":signupData,"status":true})
+        }
+        else{
+           res.status(200).send({"message":"not able to put data","status":false})
+        }
+    }
+    catch(error){
+       console.log(error);
+       res.status(500).send({"message":"internal storage error","status":false})
+    }
    }
-   catch (error) {
-      console.log(error);
-      res.send({ "errorCode": 1, "message": "Failed to register", "status": false })
-   }
-}
 
-module.exports = { postSignupDatacontroller }
+   module.exports={postSignupDatacontroller}

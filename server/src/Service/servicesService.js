@@ -21,6 +21,17 @@ module.exports.getServicesIdDataService = async (id) => {
     }
 };
 
+module.exports.servicesSortBy = async (id) => {
+    try {
+        var data = await servicesModel.find({}).sort({ avgRatings: -1 });
+        // var data = await servicesModel.aggregate([{ $sort: { avgRatings: 1 }}]);
+        return data;
+    } catch (error) {
+        console.log('services-sort-by-error', error);
+        throw error;
+    }
+};
+
 module.exports.postServicesDataService = async (servicesDetails) => {
 
     try {

@@ -38,18 +38,15 @@ var postLocationsDataController = async (req, res) => {
 }
 
 var putLocationsDataController = async (req, res) => {
+  console.log('1212112112212---',req.params)
   try {
-    var locationsData = await locationsService.putLocationsDataService(req.params.locationId, req.body);
-    if (locationsData) {
-      res.status(200).send({ "message": locationsData, "status": true });
-    }
-    else {
-      res.status(200).send({ "message": "not update", "status": false })
-    }
+    var locationsData = await locationsService.putLocationsDataService(req.params._id, req.body);
+    res.json({ 'errorCode': 0, "message": 'Updated Locations', data: locationsData, "status": true });
+
   }
   catch (error) {
     console.log(error);
-    res.status(500).send({ "message": "Internal storage error", "status": false })
+    res.json({ 'errorCode': 1, "message": "Failed to update locations", "status": false })
   }
 }
 

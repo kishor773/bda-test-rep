@@ -1,53 +1,66 @@
-var mongoose=require('mongoose');
-var Schema=mongoose.Schema;
-var locationsSchema= new Schema({
-    location_details:[
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var locationsSchema = new Schema({
+    email: {
+        type: String,
+        required: true,
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+    phone: {
+        type: String,
+        required: true,
+    },
+
+    recentlocations: [
         {
-            locationId:{
-                type:Number,
-                required:true
+            locationId: {
+                type: Number,
+                required: false
             },
-            locationName:{
-                type:String,
-                required:true
+            locationName: {
+                type: String,
+                required: false
             },
-            coords:{
-                latitude:{
-                    type:Number,
-                    required:true
+            coords: {
+                latitude: {
+                    type: Number,
+                    required: false
                 },
-                longitude:{
-                    type:Number,
-                    required:true
+                longitude: {
+                    type: Number,
+                    required: false
                 },
-                speed:{
-                    type:Number,
-                    required:false
+                speed: {
+                    type: Number,
+                    required: false
                 },
-                accuracy:{
-                    type:Number,
-                    required:false
+                accuracy: {
+                    type: Number,
+                    required: false
                 }
             },
-            state:{
-                type:String,
-                required:true
+            state: {
+                type: String,
+                required: false
             },
-            city:{
-                type:String,
-                required:true
+            city: {
+                type: String,
+                required: false
             },
-            pincode:{
-                type:Number,
-                required:true
+            pincode: {
+                type: Number,
+                required: false
             },
-            country:{
-                type:String,
-                required:true
+            country: {
+                type: String,
+                required: false
             }
         }
     ]
-        
-    
+
+
 })
-module.exports=mongoose.model('locations',locationsSchema)
+module.exports = mongoose.model('locations', locationsSchema)

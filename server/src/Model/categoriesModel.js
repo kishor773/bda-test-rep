@@ -1,39 +1,26 @@
-const mongoose = require('mongoose');
-const AutoIncrement = require('mongoose-sequence')(mongoose);
+var mongoose = require('mongoose');
 
-const categoriesSchema = new mongoose.Schema({
-    categoryId: {
-        type: Number,
-        unique: true,
-    },
+var  Schema = mongoose.Schema;
+var categoriesSchema = new Schema({
+  
     category: {
         type: String,
-        required: true,
+        required: false,
     },
-    subCategory: {
-        type: String,
-        required: true,
-    },
-    type: {
-        type: String,
-        required: true,
-    },
-    aminities: {
-        type: String,
-        required: true,
-    },
-    location_offered: {
-        type: String,
-        required: true,
-    }
+    subCategory: [
+        
+    ],
+    type: [
+        
+    ],
+    aminities:[ 
+       
+    ],
+    location_offered: [{
+        
+    }]
 });
 
-// Apply the auto-increment plugin to your schema
-categoriesSchema.plugin(AutoIncrement, { inc_field: 'categoryId' ,start_seq: 0});
 
+module.exports = mongoose.model('categories', categoriesSchema);
 
-
-const categoriesModel = mongoose.model('categories', categoriesSchema);
-
-
-module.exports = categoriesModel;

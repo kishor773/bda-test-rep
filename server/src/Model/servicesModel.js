@@ -2,141 +2,68 @@ var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 const serviceSchema = new Schema({
   categories: [{
-    categoryId: {
-      type: Number,
-      required: true,
+    categoryName: {
+      type: String,
+      required: false,
     },
     category: [{
-      serviceId: {
-        type: Number,
-        required: true,
-      },
+      
       serviceName: {
         type: String,
-        required: true,
+        required: false,
       },
       serviceTagName: {
         type: String,
-        required: true,
+        required: false,
       },
  
       servicePhotos: {
         photo1: {
           type: String,
-          required: true,
+          required: false,
         },
         photo2: {
           type: String,
-          required: true,
+          required: false,
         },
         photo3: {
           type: String,
-          required: true,
+          required: false,
         },
         photo4: {
           type: String,
-          required: true,
+          required: false,
         },
         photo5: {
           type: String,
-          required: true,
+          required: false,
         },
       },
       serviceDesc:{
         type: String,
-        required: true,
+        required: false,
       },
-      socialUrls:{
-        whatsappUrl:{
-          type: String,
-        required: true,
-        },
-        instagramUrl:{
-          type: String,
-          required: true,
-        },
-        youTubeUrl:{
-          type: String,
-          required: true,
-        },
-        twitterUrl:{
-          type: String,
-          required: true,
-        }
+      serviceTime:{
+        type: String,
+        required: false,
       },
-      workingHours: [{
-        fromDay:{
-          type: String,
-          required: true,
-        },
-        toDay:{
-          type: String,
-          required: true,
-        },
-        fromTime:{
-          type: String,
-          required: true,
-        },
-        toTime:{
-          type: String,
-          required: true,
-        }
-      }],
-      address: [{
-        addressTitle:{
-          type: String,
-          required: true,
-        },
-        state: {
-          type: String,
-          required: true,
-        },
-        city: {
-          type: String,
-          required: true,
-        },
-        pincode: {
-          type: String,
-          required: true,
-        },
-        country: {
-          type: String,
-          required: true,
-        },
-        fromDay2:{
-          type: String,
-          required: true,
-        },
-        toDay2:{
-          type: String,
-          required: true,
-        },
-        fromTime2:{
-          type: String,
-          required: true,
-        },
-        toTime2:{
-          type: String,
-          required: true,
-        }
-     } ],
       serviceLocation: [{
         locationId:{
           type: Number,
-          required: true,
+          required: false,
         },
         locationName:{
           type: String,
-          required: true,
+          required: false,
         },
         coords: {
           latitude:{
             type: Number,
-            required: true,
+            required: false,
           },
           longitude: {
             type: Number,
-            required: true,
+            required: false,
           },
           speed: {
             type: Number,
@@ -151,66 +78,133 @@ const serviceSchema = new Schema({
       }],
       serviceType: {
         type: String,
-        required: true,
+        required: false,
       },
       servicePaymentDetails: {
         acceptedPayMode:{
           type: String,
-          required: true,
+          required: false,
         },
-        price: Number,
+        price: {
+          type: String,
+          required: false,
+        },
+      },
+     
+      address: [{
+        addressTitle:{
+          type: String,
+          required: false,
+        },
+        state: {
+          type: String,
+          required: false,
+        },
+        city: {
+          type: String,
+          required: false,
+        },
+        pincode: {
+          type: String,
+          required: false,
+        },
+        country: {
+          type: String,
+          required: false,
+        },
+       
+     } ],
+     
+     
+      businessUrl:{
+        instagramUrl:{
+          type: String,
+          required: false,
+        },
+        youtubeUrl:{
+          type: String,
+          required: false,
+        },
+        twitterUrl:{
+          type: String,
+          required: false,
+        }
+      },
+      workingHours:{
+        fromDay:{
+          type: String,
+          required: false,
+        },
+        toDay:{
+          type: String,
+          required: false,
+        },
+        fromTime:{
+          type: String,
+          required: false,
+        },
+        toTime:{
+          type: String,
+          required: false,
+        },
       },
       serviceCategory: {
         type: String,
-        required: true,
+        required: false,
       },
       serviceAvgRatings: {
         type: Number,
-        required: true,
+        required: false,
       },
       serviceReviews: [{
         email: {
           type: String,
-          required: true,
+          required: false,
         },
         name: {
           type: String,
-          required: true,
+          required: false,
         },
         usrRatings: {
           type: Number,
-          required: true,
+          required: false,
         },
         description:{
           type: String,
-          required: true,
+          required: false,
         },
       }],
       listedBy: {
         type: String,
-        required: true,
+        required: false,
       },
       serviceReports: [{}],
       listingDate: {
         type: String,
-        required: true,
+        required: false,
       },
       serviceEnquiry: {
         email: {
           type: String,
-          required: true,
+          required: false,
         },
         name: {
           type: String,
-          required: true,
+          required: false,
         },
         enquiryDetails:{
           type: String,
-          required: true,
+          required: false,
         },
       },
     }],
-    subCategory: [{}],
+    subCategory1: [{}],
+    subCategory2: [{}],
+    subCategory3: [{}],
+    userDetails:[{
+      
+     
+    }],
     type: [{}],
     aminities: [{}],
   }],
