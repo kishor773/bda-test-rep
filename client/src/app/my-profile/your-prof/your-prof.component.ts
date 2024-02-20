@@ -53,6 +53,8 @@ export class YourProfComponent implements OnInit {
   }
 
   public patchUserForm(data: any) {
+    this.viewManageCategArr = data.serviceCategory;
+    console.log('GOT DATA TO PATCH USER FORM', this.viewManageCategArr);
     this.profileForm.patchValue({
       familyName: data.familyName,
       firstName: data.firstName,
@@ -61,8 +63,8 @@ export class YourProfComponent implements OnInit {
       name: data.name,
       email: data.email,
       phone: data.phone,
-      // whatsappNo: data.whatsappNo,
-      // businessNo: data.businessNo,
+      whatsappNo: data.whatsappNo,
+      businessNo: data.businessNo,
       // password: (),
       // isAdmin: (false),
       currentLocation: data.currentLocation,
@@ -89,9 +91,9 @@ export class YourProfComponent implements OnInit {
     });
   }
   notifCheck(event: any, i: any) {
-    let checkNotif = event.target.value
+    let checkNotif = event.target.checked
     this.viewManageCategArr[i]['notificationFlag'] = checkNotif
-    // console.log('notif-check-', this.viewManageCategArr);
+    console.log('notif-check-', i, event.target.checked);
   }
 
   selectCategories(event: any) {

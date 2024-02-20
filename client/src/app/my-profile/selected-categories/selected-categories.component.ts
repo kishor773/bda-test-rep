@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ServicesService } from 'src/app/bdaServices.service';
 import { FormControl, FormGroup } from '@angular/forms';
+// import { SelectedCategories } from '../selected-categories/selected-categories.model'
 // import { Ng2ImgMaxService } from 'ng2-img-max';
 @Component({
   selector: 'app-selected-categories',
@@ -15,12 +16,12 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
   subCat2: any[] = [];
   subCat3: any[] = [];
   subCat4: any[] = [];
-  locations = [
-    { id: 1, name: 'Bengaluru' },
-    { id: 2, name: 'Mysuru' },
-    { id: 3, name: 'KGF' },
-    { id: 4, name: 'Kolar' },
-  ];
+  // locations = [
+  //   { id: 1, name: 'Bengaluru' },
+  //   { id: 2, name: 'Mysuru' },
+  //   { id: 3, name: 'KGF' },
+  //   { id: 4, name: 'Kolar' },
+  // ];
 
   addressArr: any = [
     {
@@ -109,7 +110,6 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
     private router: Router,
     private _aR: ActivatedRoute,
     private _bdaS: ServicesService,
- 
   ) {
     this.selectedCategoriesFormName = new FormGroup({
       serviceName: new FormControl(''),
@@ -141,6 +141,7 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
     });
   }
   ngOnInit(): void {
+    let businessListing
     this.fetchAllCategories();
     this._aR.params.subscribe((params: Params) => {
       // console.log(params, typeof params['id']);
@@ -178,7 +179,7 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
     console.log(subcat2Select);
     this.filterSubCat3handler(subcat2Select);
   }
-  selectSubCat3Handler(event: any) {}
+  selectSubCat3Handler(event: any) { }
   public filterSubCat1handler(data: any) {
     this.subCat1 = this.categories.filter(
       (subCat1) => subCat1.category == data
@@ -247,11 +248,11 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
                 fromTime: this.selectedCategoriesFormName.value.fromTime,
                 toTime: this.selectedCategoriesFormName.value.toTime,
               },
-              serviceReviews:[{
-                email:this.selectedCategoriesFormName.value.email,
-                name:this.selectedCategoriesFormName.value.name,
-                usrRatings:this.selectedCategoriesFormName.value.usrRatings,
-                description:this.selectedCategoriesFormName.value.description,
+              serviceReviews: [{
+                email: this.selectedCategoriesFormName.value.email,
+                name: this.selectedCategoriesFormName.value.name,
+                usrRatings: this.selectedCategoriesFormName.value.usrRatings,
+                description: this.selectedCategoriesFormName.value.description,
               }],
               subCategory1: this.selectedCategoriesFormName.value.subCategory1,
               subCategory2: this.selectedCategoriesFormName.value.subCategory2,
@@ -269,9 +270,9 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
         console.log(data, 'selected-categories data--------');
       });
   }
-  cityHandler(event: any) {}
-  stateHandler(event: any) {}
-  countryHandler(event: any) {}
+  cityHandler(event: any) { }
+  stateHandler(event: any) { }
+  countryHandler(event: any) { }
 
 
 
@@ -285,7 +286,7 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
   //       // If file size exceeds 5 MB, compress it
   //     let returnedData=  this._bdaS.compressImage(file, maxSizeInMB);
   //     console.log(returnedData);
-      
+
   //     } else {
   //       // If file size is within 5 MB, do not compress
   //       console.log("File size is within 5 MB. No compression needed.");
@@ -293,6 +294,6 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
   //   }
   // }
 
-  
-  
+
+
 }

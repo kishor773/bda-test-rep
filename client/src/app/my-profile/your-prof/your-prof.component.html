@@ -68,9 +68,9 @@
                                     formControlName="whatsappNo">
                             </div>
                             <div class="col-sm">
-                                <label for="businessTel">Business Telephone No.</label>
-                                <input type="number" class="form-control shadow-none" name="businessTel"
-                                    id="businessTel" formControlName="businessTel">
+                                <label for="businessNo">Business Telephone No.</label>
+                                <input type="number" class="form-control shadow-none" name="businessNo" id="businessNo"
+                                    formControlName="businessNo">
                             </div>
                         </div><br>
                         <div class="row">
@@ -148,7 +148,7 @@
                                                 Notifications</label>
                                         </div> -->
 
-                                        <input class="form-check-input" type="checkbox" value="true" [id]="i"
+                                        <input class="form-check-input" type="checkbox" [value]="true" [id]="i"
                                             (change)="notifCheck($event,i)">&nbsp;
                                         <label class="form-check-label" [for]="i">
                                             Allow
