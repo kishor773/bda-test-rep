@@ -1,0 +1,269 @@
+[{
+  "_id": {
+    "$oid": "65a2f280b4f917bd3e3b9b4e"
+  },
+  "email": "kishor.p@codeswift.in",
+  "phone": {
+    "$numberLong": "9731044507"
+  },
+  "searchHistory": [
+    {
+      "serviceName": "New Malleshwaram School",
+      "serviceType": "free",
+      "serviceLocation": [
+        {
+          "locationId": 1,
+          "locationName": "Bengaluru",
+          "state": "karanataka",
+          "city": "bengaluru",
+          "pincode": 560078,
+          "country": "india",
+          "coords": {
+            "latitude": 12,
+            "longitude": -99,
+            "speed": 123,
+            "accuracy": 20
+          },
+          "_id": {
+            "$oid": "65bb30ff4bdda3f93b7317a5"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "65bb30ff4bdda3f93b7317a4"
+      }
+    },
+    {
+      "serviceName": "New Temple",
+      "serviceType": "Free",
+      "serviceLocation": [
+        {
+          "_id": {
+            "$oid": "65a2f280b4f917bd3e3b9b4e"
+          },
+          "email": "kishor.p@codeswift.in",
+          "phone": {
+            "$numberLong": "9731044507"
+          },
+          "searchHistory": [
+            {
+              "serviceName": "New Malleshwaram School",
+              "serviceType": "free",
+              "serviceLocation": [
+                {
+                  "locationId": 1,
+                  "locationName": "Bengaluru",
+                  "state": "karanataka",
+                  "city": "bengaluru",
+                  "pincode": 560078,
+                  "country": "india",
+                  "coords": {
+                    "latitude": 12,
+                    "longitude": -99,
+                    "speed": 123,
+                    "accuracy": 20
+                  },
+                  "_id": {
+                    "$oid": "65bb30ff4bdda3f93b7317a5"
+                  }
+                }
+              ],
+              "_id": {
+                "$oid": "65bb30ff4bdda3f93b7317a4"
+              }
+            },
+            {
+              "serviceName": "New Temple",
+              "serviceType": "Free",
+              "serviceLocation": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "New Malleshwaram School 123",
+      "serviceType": "free",
+      "serviceLocation": [
+        {
+          "locationId": 1,
+          "locationName": "Bengaluru",
+          "state": "karanataka",
+          "city": "bengaluru",
+          "pincode": 560078,
+          "country": "india",
+          "coords": {
+            "latitude": 12,
+            "longitude": -99,
+            "speed": 123,
+            "accuracy": 20
+          },
+          "_id": {
+            "$oid": "65bb30ff4bdda3f93b7317a5"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "65bb30ff4bdda3f93b7317a4"
+      }
+    },
+    {
+      "serviceName": "New Temple 123",
+      "serviceType": "Free",
+      "serviceLocation": [
+        {
+          "_id": {
+            "$oid": "65a2f280b4f917bd3e3b9b4e"
+          },
+          "email": "kishor.p@codeswift.in",
+          "phone": {
+            "$numberLong": "9731044507"
+          },
+          "searchHistory": [
+            {
+              "serviceName": "New Malleshwaram School",
+              "serviceType": "free",
+              "serviceLocation": [
+                {
+                  "locationId": 1,
+                  "locationName": "Bengaluru",
+                  "state": "karanataka",
+                  "city": "bengaluru",
+                  "pincode": 560078,
+                  "country": "india",
+                  "coords": {
+                    "latitude": 12,
+                    "longitude": -99,
+                    "speed": 123,
+                    "accuracy": 20
+                  },
+                  "_id": {
+                    "$oid": "65bb30ff4bdda3f93b7317a5"
+                  }
+                }
+              ],
+              "_id": {
+                "$oid": "65bb30ff4bdda3f93b7317a4"
+              }
+            },
+            {
+              "serviceName": "New Temple",
+              "serviceType": "Free",
+              "serviceLocation": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "New Malleshwaram School 123",
+      "serviceType": "free",
+      "serviceLocation": [
+        {
+          "locationId": 1,
+          "locationName": "Bengaluru",
+          "state": "karanataka",
+          "city": "bengaluru",
+          "pincode": 560078,
+          "country": "india",
+          "coords": {
+            "latitude": 12,
+            "longitude": -99,
+            "speed": 123,
+            "accuracy": 20
+          },
+          "_id": {
+            "$oid": "65bb30ff4bdda3f93b7317a5"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "65bb30ff4bdda3f93b7317a4"
+      }
+    },
+    {
+      "serviceName": "New Temple 123",
+      "serviceType": "Free",
+      "serviceLocation": [
+        {
+          "_id": {
+            "$oid": "65a2f280b4f917bd3e3b9b4e"
+          },
+          "email": "kishor.p@codeswift.in",
+          "phone": {
+            "$numberLong": "9731044507"
+          },
+          "searchHistory": [
+            {
+              "serviceName": "New Malleshwaram School",
+              "serviceType": "free",
+              "serviceLocation": [
+                {
+                  "locationId": 1,
+                  "locationName": "Bengaluru",
+                  "state": "karanataka",
+                  "city": "bengaluru",
+                  "pincode": 560078,
+                  "country": "india",
+                  "coords": {
+                    "latitude": 12,
+                    "longitude": -99,
+                    "speed": 123,
+                    "accuracy": 20
+                  },
+                  "_id": {
+                    "$oid": "65bb30ff4bdda3f93b7317a5"
+                  }
+                }
+              ],
+              "_id": {
+                "$oid": "65bb30ff4bdda3f93b7317a4"
+              }
+            },
+            {
+              "serviceName": "New Temple",
+              "serviceType": "Free",
+              "serviceLocation": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65a6186ff25113e4777e4863"
+  },
+  "searchHistory": [
+    {
+      "serviceName": "service",
+      "serviceType": "service",
+      "serviceLocation": [
+        {
+          "locationId": 43444,
+          "locationName": "Bihar",
+          "state": "11",
+          "city": "Hjelmeland",
+          "pincode": 444444444,
+          "country": "NO",
+          "coords": {
+            "latitude": 25.6440845,
+            "longitude": 85.906508,
+            "speed": null,
+            "accuracy": null
+          },
+          "_id": {
+            "$oid": "65bb31894bdda3f93b7317d6"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "65bb31894bdda3f93b7317d5"
+      }
+    }
+  ],
+  "email": "nsp@gmail.com",
+  "phone": 123456789,
+  "__v": 0
+}]

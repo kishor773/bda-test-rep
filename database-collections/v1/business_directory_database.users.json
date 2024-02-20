@@ -252,14 +252,23 @@
   "_id": {
     "$oid": "65ce3ffd18e5d91cee8b08a8"
   },
-  "name": "KrishnaRanjithCDAB",
+  "name": "Mr.RanjithKumarABB",
   "userPlanHistory": [],
   "serviceCategory": [
     {
-      "category": "Education",
+      "category": "Event Organizing",
       "notificationFlag": true,
-      "serviceLocation": "Mumbai",
+      "serviceLocation": "Delhi",
       "locationName": [
+        {
+          "_id": "65cb4e4f638071de28651ff2",
+          "city": "Delhi",
+          "lat": 28.61,
+          "lng": 77.23,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Delhi"
+        },
         {
           "_id": "65cb4e4f638071de28651ff3",
           "city": "Mumbai",
@@ -268,7 +277,16 @@
           "country": "India",
           "iso2": "IN",
           "state": "Maharashtra"
-        },
+        }
+      ],
+      "type": "Business",
+      "_id": "65c465af7ca16a841065fc6e"
+    },
+    {
+      "category": "Fashion",
+      "notificationFlag": true,
+      "serviceLocation": "Chennai",
+      "locationName": [
         {
           "_id": "65cb4e4f638071de28651ff6",
           "city": "Chennai",
@@ -277,16 +295,7 @@
           "country": "India",
           "iso2": "IN",
           "state": "Tamil Nadu"
-        }
-      ],
-      "type": "Social",
-      "_id": "65cc67c227aedb9d305c82ab"
-    },
-    {
-      "category": "Health Care",
-      "notificationFlag": true,
-      "serviceLocation": "Bangalore",
-      "locationName": [
+        },
         {
           "_id": "65cb4e4f638071de28651ff5",
           "city": "Bangalore",
@@ -295,30 +304,37 @@
           "country": "India",
           "iso2": "IN",
           "state": "Karnataka"
-        },
-        {
-          "_id": "65cb4e4f638071de28651ff4",
-          "city": "Kolkata",
-          "lat": 22.5675,
-          "lng": 88.37,
-          "country": "India",
-          "iso2": "IN",
-          "state": "West Bengal"
         }
       ],
-      "type": "Business",
-      "_id": "65cc67cf27aedb9d305c82b0"
+      "type": "Social",
+      "_id": "65c47b997ca16a841065fd64"
     }
   ],
   "firstName": "Ranjith",
-  "lastName": "AB",
+  "lastName": "ABB",
   "phone": "9845517094",
-  "email": "ranjith1234@gmail.com",
-  "password": "12346",
+  "email": "kishor.p@codeswift.in",
+  "password": "1234",
   "currentLocation": "Surat",
   "__v": 0,
   "businessNo": null,
-  "familyName": "Krishna",
-  "middleName": "CD",
-  "whatsappNo": "9845517095"
+  "familyName": "Mr.",
+  "middleName": "Kumar",
+  "whatsappNo": "1234567890"
+},
+{
+  "_id": {
+    "$oid": "65cf6a9b032fa153b7f61961"
+  },
+  "name": "",
+  "userPlanHistory": [],
+  "serviceCategory": [],
+  "firstName": "Umesh",
+  "lastName": "Sahu",
+  "phone": "192835647",
+  "email": "umesh@email.com",
+  "password": "0987",
+  "currentLocation": "Gwalior",
+  "referralCode": "UME17080920595944302",
+  "__v": 0
 }]

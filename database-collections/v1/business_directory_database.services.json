@@ -1,0 +1,467 @@
+[{
+  "_id": {
+    "$oid": "65cf312758e2ab8f19f54768"
+  },
+  "categories": [
+    [
+      {
+        "categoryName": "Healthcare",
+        "category": [
+          {
+            "serviceName": "This is another very very very long service name entered by the test user,This is another very very very long service name entered by the test user",
+            "servicePhotos": {
+              "photo1": "",
+              "photo2": "",
+              "photo3": "",
+              "photo4": ""
+            },
+            "serviceDesc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "serviceLocation": [
+              {}
+            ],
+            "address": [
+              {
+                "addressTitle": "Address Title ",
+                "state": "Maharashtra",
+                "city": "Mumbai",
+                "pincode": "400708",
+                "country": "India"
+              }
+            ],
+            "businessUrl": {
+              "youtubeUrl": "Youtube",
+              "instagramUrl": "Instagram",
+              "twitterUrl": "Twitter"
+            },
+            "workingHours": {
+              "fromDay": "Wednesday",
+              "toDay": "Sunday",
+              "fromTime": "16:18",
+              "toTime": "16:18"
+            },
+            "serviceReviews": [
+              {
+                "email": "test@email.com",
+                "name": "Test User",
+                "usrRatings": "4",
+                "description": "This is test review"
+              },
+              {
+                "email": "test@gmail.in",
+                "name": "Test User 1",
+                "usrRatings": "5",
+                "description": "This is description"
+              }
+            ],
+            "subCategory1": "Restaurants",
+            "subCategory2": "Italian",
+            "subCategory3": "Take-away",
+            "avgRatings": 4,
+            "listingDate": ""
+          }
+        ],
+        "userDetails": {
+          "_id": "65ce3ffd18e5d91cee8b08a8",
+          "name": "RaoRanjithNAB",
+          "userPlanHistory": [],
+          "serviceCategory": [
+            {
+              "category": "police2",
+              "notificationFlag": true,
+              "serviceLocation": "Mumbai",
+              "locationName": [
+                {
+                  "_id": "65cb4e4f638071de28651ff3",
+                  "city": "Mumbai",
+                  "lat": 19.0761,
+                  "lng": 72.8775,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Maharashtra"
+                },
+                {
+                  "_id": "65cb4e4f638071de28651ff5",
+                  "city": "Bangalore",
+                  "lat": 12.9789,
+                  "lng": 77.5917,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Karnataka"
+                }
+              ],
+              "type": "Business",
+              "_id": "65ce5041ae62c41c7548508d"
+            },
+            {
+              "category": "Food54321",
+              "notificationFlag": true,
+              "serviceLocation": "Chennai",
+              "locationName": [
+                {
+                  "_id": "65cb4e4f638071de28651ff6",
+                  "city": "Chennai",
+                  "lat": 13.0825,
+                  "lng": 80.275,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Tamil Nadu"
+                },
+                {
+                  "_id": "65cb4e4f638071de28651ff7",
+                  "city": "Hyderabad",
+                  "lat": 17.385,
+                  "lng": 78.4867,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Telangana"
+                }
+              ],
+              "type": "Social",
+              "_id": "65ce535987cf9870e4b8e7ad"
+            }
+          ],
+          "firstName": "Ranjith",
+          "lastName": "AB",
+          "phone": "9845517094",
+          "email": "ranjith1234@gmail.com",
+          "password": "12346",
+          "currentLocation": "Surat",
+          "__v": 0,
+          "businessNo": "9845517097",
+          "familyName": "Rao",
+          "middleName": "N",
+          "whatsappNo": "9845517097"
+        }
+      }
+    ],
+    []
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d33543f2511fc86a808e6c"
+  },
+  "categories": [
+    [
+      {
+        "categoryName": "Event Organizing",
+        "category": [
+          {
+            "serviceName": "This is Event Organizing service listed by the test user",
+            "servicePhotos": {
+              "photo1": "",
+              "photo2": "",
+              "photo3": "",
+              "photo4": ""
+            },
+            "serviceDesc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "serviceLocation": [
+              {
+                "coords": {}
+              }
+            ],
+            "address": [
+              {
+                "addressTitle": "Address Title ",
+                "state": "Maharashtra",
+                "city": "Mumbai",
+                "pincode": "400708",
+                "country": "India"
+              }
+            ],
+            "businessUrl": {
+              "youtubeUrl": "Youtube",
+              "instagramUrl": "Instagram",
+              "twitterUrl": "Twitter"
+            },
+            "workingHours": {
+              "fromDay": "Wednesday",
+              "toDay": "Sunday",
+              "fromTime": "16:18",
+              "toTime": "16:18"
+            },
+            "serviceReviews": [
+              {
+                "email": "kishor.p@codeswift.in",
+                "name": "Mr.RanjithKumarABB",
+                "usrRatings": 1,
+                "description": "TTTTTTTTTTTTTestablished fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various "
+              }
+            ],
+            "serviceReports": "THTHTHTHTH that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various ",
+            "subCategory1": "Restaurants",
+            "subCategory2": "Italian",
+            "subCategory3": "Take-away",
+            "avgRatings": 3
+          }
+        ]
+      }
+    ]
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d33558f2511fc86a808e6d"
+  },
+  "categories": [
+    [
+      {
+        "categoryName": "Food & Catering",
+        "category": [
+          {
+            "serviceName": "This is Food & Catering service listed by the test user",
+            "servicePhotos": {
+              "photo1": "",
+              "photo2": "",
+              "photo3": "",
+              "photo4": ""
+            },
+            "serviceDesc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "serviceLocation": [
+              {}
+            ],
+            "address": [
+              {
+                "addressTitle": "Address Title ",
+                "state": "Maharashtra",
+                "city": "Mumbai",
+                "pincode": "400708",
+                "country": "India"
+              }
+            ],
+            "businessUrl": {
+              "youtubeUrl": "Youtube",
+              "instagramUrl": "Instagram",
+              "twitterUrl": "Twitter"
+            },
+            "workingHours": {
+              "fromDay": "Wednesday",
+              "toDay": "Sunday",
+              "fromTime": "16:18",
+              "toTime": "16:18"
+            },
+            "serviceReviews": [
+              {
+                "email": "test@email.com",
+                "name": "Test User",
+                "usrRatings": "4",
+                "description": "This is test review"
+              }
+            ],
+            "subCategory1": "Restaurants",
+            "subCategory2": "Italian",
+            "subCategory3": "Take-away",
+            "avgRatings": 4
+          }
+        ],
+        "userDetails": {
+          "_id": "65ce3ffd18e5d91cee8b08a8",
+          "name": "RaoRanjithNAB",
+          "userPlanHistory": [],
+          "serviceCategory": [
+            {
+              "category": "police2",
+              "notificationFlag": true,
+              "serviceLocation": "Mumbai",
+              "locationName": [
+                {
+                  "_id": "65cb4e4f638071de28651ff3",
+                  "city": "Mumbai",
+                  "lat": 19.0761,
+                  "lng": 72.8775,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Maharashtra"
+                },
+                {
+                  "_id": "65cb4e4f638071de28651ff5",
+                  "city": "Bangalore",
+                  "lat": 12.9789,
+                  "lng": 77.5917,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Karnataka"
+                }
+              ],
+              "type": "Business",
+              "_id": "65ce5041ae62c41c7548508d"
+            },
+            {
+              "category": "Food54321",
+              "notificationFlag": true,
+              "serviceLocation": "Chennai",
+              "locationName": [
+                {
+                  "_id": "65cb4e4f638071de28651ff6",
+                  "city": "Chennai",
+                  "lat": 13.0825,
+                  "lng": 80.275,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Tamil Nadu"
+                },
+                {
+                  "_id": "65cb4e4f638071de28651ff7",
+                  "city": "Hyderabad",
+                  "lat": 17.385,
+                  "lng": 78.4867,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Telangana"
+                }
+              ],
+              "type": "Social",
+              "_id": "65ce535987cf9870e4b8e7ad"
+            }
+          ],
+          "firstName": "Ranjith",
+          "lastName": "AB",
+          "phone": "9845517094",
+          "email": "ranjith1234@gmail.com",
+          "password": "12346",
+          "currentLocation": "Surat",
+          "__v": 0,
+          "businessNo": "9845517097",
+          "familyName": "Rao",
+          "middleName": "N",
+          "whatsappNo": "9845517097"
+        }
+      }
+    ]
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d33574f2511fc86a808e6e"
+  },
+  "categories": [
+    [
+      {
+        "categoryName": "Healthcare",
+        "category": [
+          {
+            "serviceName": "This is Healthcare service name entered by the test user,This is another very very very long service name entered by the test user",
+            "servicePhotos": {
+              "photo1": "",
+              "photo2": "",
+              "photo3": "",
+              "photo4": ""
+            },
+            "serviceDesc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "serviceLocation": [
+              {}
+            ],
+            "address": [
+              {
+                "addressTitle": "Address Title ",
+                "state": "Maharashtra",
+                "city": "Mumbai",
+                "pincode": "400708",
+                "country": "India"
+              }
+            ],
+            "businessUrl": {
+              "youtubeUrl": "Youtube",
+              "instagramUrl": "Instagram",
+              "twitterUrl": "Twitter"
+            },
+            "workingHours": {
+              "fromDay": "Wednesday",
+              "toDay": "Sunday",
+              "fromTime": "16:18",
+              "toTime": "16:18"
+            },
+            "serviceReviews": [
+              {
+                "email": "test@email.com",
+                "name": "Test User",
+                "usrRatings": "4",
+                "description": "This is test review"
+              }
+            ],
+            "subCategory1": "Restaurants",
+            "subCategory2": "Italian",
+            "subCategory3": "Take-away",
+            "avgRatings": 2
+          }
+        ],
+        "userDetails": {
+          "_id": "65ce3ffd18e5d91cee8b08a8",
+          "name": "RaoRanjithNAB",
+          "userPlanHistory": [],
+          "serviceCategory": [
+            {
+              "category": "police2",
+              "notificationFlag": true,
+              "serviceLocation": "Mumbai",
+              "locationName": [
+                {
+                  "_id": "65cb4e4f638071de28651ff3",
+                  "city": "Mumbai",
+                  "lat": 19.0761,
+                  "lng": 72.8775,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Maharashtra"
+                },
+                {
+                  "_id": "65cb4e4f638071de28651ff5",
+                  "city": "Bangalore",
+                  "lat": 12.9789,
+                  "lng": 77.5917,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Karnataka"
+                }
+              ],
+              "type": "Business",
+              "_id": "65ce5041ae62c41c7548508d"
+            },
+            {
+              "category": "Food54321",
+              "notificationFlag": true,
+              "serviceLocation": "Chennai",
+              "locationName": [
+                {
+                  "_id": "65cb4e4f638071de28651ff6",
+                  "city": "Chennai",
+                  "lat": 13.0825,
+                  "lng": 80.275,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Tamil Nadu"
+                },
+                {
+                  "_id": "65cb4e4f638071de28651ff7",
+                  "city": "Hyderabad",
+                  "lat": 17.385,
+                  "lng": 78.4867,
+                  "country": "India",
+                  "iso2": "IN",
+                  "state": "Telangana"
+                }
+              ],
+              "type": "Social",
+              "_id": "65ce535987cf9870e4b8e7ad"
+            }
+          ],
+          "firstName": "Ranjith",
+          "lastName": "AB",
+          "phone": "9845517094",
+          "email": "ranjith1234@gmail.com",
+          "password": "12346",
+          "currentLocation": "Surat",
+          "__v": 0,
+          "businessNo": "9845517097",
+          "familyName": "Rao",
+          "middleName": "N",
+          "whatsappNo": "9845517097"
+        }
+      }
+    ]
+  ],
+  "__v": 0
+}]
