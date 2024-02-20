@@ -1,215 +1,199 @@
-var mongoose=require('mongoose');
-var Schema=mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 const serviceSchema = new Schema({
-  categories: [{
-    categoryName: {
+  categoryName: {
+    type: String,
+    required: false
+  },
+  serviceDetails: [{
+    serviceName: {
       type: String,
-      required: false,
+      required: false
     },
-    category: [{
-      
-      serviceName: {
+    serivceDesc: {
+      type: String,
+      required: false
+    },
+    servicePhotos: [{
+      photo1: {
         type: String,
-        required: false,
+        required: false
       },
-      serviceTagName: {
+      photo2: {
         type: String,
-        required: false,
+        required: false
       },
- 
-      servicePhotos: {
-        photo1: {
-          type: String,
-          required: false,
-        },
-        photo2: {
-          type: String,
-          required: false,
-        },
-        photo3: {
-          type: String,
-          required: false,
-        },
-        photo4: {
-          type: String,
-          required: false,
-        },
-        photo5: {
-          type: String,
-          required: false,
-        },
-      },
-      serviceDesc:{
+      photo3: {
         type: String,
-        required: false,
+        required: false
       },
-      serviceTime:{
+      photo4: {
         type: String,
-        required: false,
+        required: false
       },
-      serviceLocation: [{
-        locationId:{
-          type: Number,
-          required: false,
-        },
-        locationName:{
-          type: String,
-          required: false,
-        },
-        coords: {
-          latitude:{
-            type: Number,
-            required: false,
-          },
-          longitude: {
-            type: Number,
-            required: false,
-          },
-          speed: {
-            type: Number,
-            required: false,
-          },
-          accuracy: {
-            type: Number,
-            required: false,
-          },
-        },
-        
-      }],
-      serviceType: {
+    }],
+    businessURL: {
+      instagram: {
         type: String,
-        required: false,
+        required: false
       },
-      servicePaymentDetails: {
-        acceptedPayMode:{
-          type: String,
-          required: false,
-        },
-        price: {
-          type: String,
-          required: false,
-        },
-      },
-     
-      address: [{
-        addressTitle:{
-          type: String,
-          required: false,
-        },
-        state: {
-          type: String,
-          required: false,
-        },
-        city: {
-          type: String,
-          required: false,
-        },
-        pincode: {
-          type: String,
-          required: false,
-        },
-        country: {
-          type: String,
-          required: false,
-        },
-       
-     } ],
-     
-     
-      businessUrl:{
-        instagramUrl:{
-          type: String,
-          required: false,
-        },
-        youtubeUrl:{
-          type: String,
-          required: false,
-        },
-        twitterUrl:{
-          type: String,
-          required: false,
-        }
-      },
-      workingHours:{
-        fromDay:{
-          type: String,
-          required: false,
-        },
-        toDay:{
-          type: String,
-          required: false,
-        },
-        fromTime:{
-          type: String,
-          required: false,
-        },
-        toTime:{
-          type: String,
-          required: false,
-        },
-      },
-      serviceCategory: {
+      whatsapp: {
         type: String,
-        required: false,
+        required: false
       },
-      serviceAvgRatings: {
+      twitter: {
+        type: String,
+        required: false
+      },
+      youtube: {
+        type: String,
+        required: false
+      },
+    },
+    serviceAddress: [{
+      addressTitle: {
+        type: String,
+        required: false
+      },
+      suburb: {
+        type: String,
+        required: false
+      },
+      city: {
+        type: String,
+        required: false
+      },
+      state: {
+        type: String,
+        required: false
+      },
+      country: {
+        type: String,
+        required: false
+      },
+      pincode: {
+        type: String,
+        required: false
+      },
+      firstName: {
+        type: String,
+        required: false
+      },
+      lastName: {
+        type: String,
+        required: false
+      },
+      phoneNo: {
+        type: String,
+        required: false
+      },
+      fromDay: {
+        type: String,
+        required: false
+      },
+      toDay: {
+        type: String,
+        required: false
+      },
+      fromTime: {
+        type: String,
+        required: false
+      },
+      toTime: {
+        type: String,
+        required: false
+      },
+
+    }],
+    avgRatings: {
+      type: mongoose.Schema.Types.Decimal128,
+      required: false,
+      default: 0.0
+    },
+    serviceRnR: [{
+      email: {
+        type: String,
+        required: false
+      },
+      name: {
+        type: String,
+        required: false
+      },
+      usrRatings: {
         type: Number,
-        required: false,
+        required: false
       },
-      serviceReviews: [{
-        email: {
-          type: String,
-          required: false,
-        },
-        name: {
-          type: String,
-          required: false,
-        },
-        usrRatings: {
-          type: Number,
-          required: false,
-        },
-        description:{
-          type: String,
-          required: false,
-        },
-      }],
-      listedBy: {
+      description: {
         type: String,
-        required: false,
-      },
-      serviceReports: [{}],
-      listingDate: {
-        type: String,
-        required: false,
-      },
-      serviceEnquiry: {
-        email: {
-          type: String,
-          required: false,
-        },
-        name: {
-          type: String,
-          required: false,
-        },
-        enquiryDetails:{
-          type: String,
-          required: false,
-        },
+        required: false
       },
     }],
-    subCategory1: [{}],
-    subCategory2: [{}],
-    subCategory3: [{}],
-    userDetails:[{
-      
-     
+    serviceReports: [{
+      email: {
+        type: String,
+        required: false
+      },
+      reportStmt: {
+        type: String,
+        required: false
+      },
+      reason: {
+        type: String,
+        required: false
+      },
+
     }],
-    type: [{}],
-    aminities: [{}],
-  }],
+    subCategory1: {
+      name: {
+        type: String,
+        required: false
+      }
+    },
+    subCategory2: {
+      name: {
+        type: String,
+        required: false
+      }
+    },
+    subCategory3: {
+      name: {
+        type: String,
+        required: false
+      }
+    },
+    subCategory4: {
+      name: {
+        type: String,
+        required: false
+      }
+    },
+    listedBy: {
+      email: {
+        type: String,
+        required: false
+      },
+      name: {
+        type: String,
+        required: false
+      },
+      phoneNo: {
+        type: String,
+        required: false
+      },
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      required: false
+    }
+  }]
+
 });
 
 
+//! Old model 
+// module.exports = mongoose.model('services', serviceSchema);
 
-module.exports = mongoose.model('services', serviceSchema);
+//! New model 
+module.exports = mongoose.model('newServices', serviceSchema);
+
