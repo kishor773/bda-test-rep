@@ -1,5 +1,5 @@
 p {
-text-transform: capitalize  ;
+    text-transform: capitalize;
 }
 
 .filters-services {
@@ -13,15 +13,14 @@ text-transform: capitalize  ;
 
 }
 
-.card1 {
+.card {
     width: 99%;
-    height: 15em;
+    /* height: 15em; */
     display: flex;
     margin-bottom: 2%;
     box-shadow: 0px 1px 5px 1px #00000040;
     border-radius: 8px;
-    /* box-shadow: 0px 1px 5px 1px #00000040; */
-
+    /* height: 23.5%; */
 }
 
 .image-block {
@@ -31,11 +30,98 @@ text-transform: capitalize  ;
     border: 1px solid #A1A1A1A3;
     width: 221px;
     height: 13em;
-    margin-top: 17px;
-    margin-left: 12px;
+    /* margin-top: 17px;
+    margin-left: 12px; */
+    /* margin: 20px; */
     border-radius: 4px;
 
 }
+
+.all-service-card {
+    display: flex;
+    /* gap: 3%; */
+    border-radius: 8px;
+
+}
+
+.all-service-card div:last-child {
+    /* padding: 12px 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 69%;
+    height: 100%;
+    gap: 28px;
+}
+
+.action-btns {
+    width: auto;
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+}
+
+.action-btns button {
+    border: none;
+    outline: none;
+    background-color: transperent;
+    padding: 1px 9px;
+
+}
+
+.actions-row {
+    height: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.data-row {
+    width: 100%;
+    /* height: 75px; */
+}
+
+.data-row p:nth-child(1) {
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-weight: 600;
+    /* line-height: 49px; */
+    text-align: left;
+    width: 100%;
+    height: 40px;
+    /* word-wrap: break-word;
+    white-space: pre-line;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    /* margin: 0; */
+}
+
+.data-row p:nth-child(2) {
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-align: left;
+}
+
+.data-row p:nth-child(3) {
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: #000000B0;
+
+}
+
+
+
 
 .data-block h1 {
     font-family: Nunito Sans;
@@ -89,12 +175,11 @@ text-transform: capitalize  ;
 }
 
 .learn-more {
-
     background: #0066FFAB;
     outline: none;
     border: none;
-    width: 232px;
-    height: 45px;
+    /* width: 232px; */
+    /* height: 45px; */
     padding: 0px;
     margin: 0px;
     border-radius: 4px;
@@ -110,9 +195,6 @@ text-transform: capitalize  ;
     letter-spacing: 0.01em;
     text-align: left;
     color: #FFFFFF;
-
-
-
 }
 
 .warning-like button img {
@@ -150,3 +232,110 @@ text-transform: capitalize  ;
     justify-content: space-evenly;
 
 }
+
+
+
+.toggle {
+    border: 1px solid #a7a7a7;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #DFDFDF;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-family: Nunito Sans;
+    font-weight: 500;
+}
+
+.toggle span {
+    width: 45%;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+
+
+.active {
+    background: #ebebeb;
+    color: #000000;
+}
+
+
+
+.filterCard {
+
+    background: transparent;
+    width: 330px;
+    height: auto;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 1px 5px 1px #00000040;
+
+}
+
+.heading {
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 10px;
+    border-bottom: 2px solid #84818194;
+    padding: 10px;
+
+}
+
+.heading h1 {
+    font-family: Nunito Sans;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.ratings, .type, .subCategory, .aminities {
+    
+    border-bottom: 2px solid #84818194
+}
+
+.ratings p, .type p, .subCategory p, .aminities p {
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.ratings span, .type span, .subCategory span, .aminities span {
+    gap: 10px;
+}
+
+.ratings span button, .type span button, .subCategory span button, .aminities span button  {
+    width: max-content;
+    padding: 5px 12px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid #000000;
+    
+ 
+
+}
+.ratings span button img{
+    width: 10px;
+}
+
+
+
+
+
+
+
+
+

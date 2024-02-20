@@ -21,9 +21,9 @@
           <button><img (click)="myFunction()" class="dropbtn" src="../../../assets/icons/person-circle.png"
               alt="Logged-in user icon" *ngIf="isLoggedIn"></button>
           <div id="myDropdown" class="dropdown-content">
-            <a href="/account/my-profile" routerLink='/account/my-profile' routerLinkActive="active">My Profile</a>
-            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create an announcement</a>
-            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create an advertisement</a>
+            <a href="/account/my-profile" routerLink='/account/my-profile' routerLinkActive="active" (click)="setStorage()">My Profile</a>
+            <a>Create an announcement</a>
+            <a>Create an advertisement</a>
             <a (click)="logoutUser()">Logout</a>
           </div>
         </div>

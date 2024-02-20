@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row search_location">
         <div class="col-1"></div>
-        <div class="col-3" >
+        <div class="col-3">
             <!-- <input type="text" autocomplete="on" aria-autocomplete="list"
                 aria-controls="react-autowhatever-city-auto-suggest" aria-label="City Auto-suggest" id="city-auto-sug">
             <div class="loc-sug">
@@ -15,19 +15,25 @@
                 <!-- <button (click)="myFunction()" class="dropbtn"> -->
                 <span>
                     <img src="../../../assets/icons/geo-alt (2).png" alt="">
-                    <input type="search" class="form-control shadow-none dropbtn" (click)="myFunction()" name="" id="">
+                    <input type="search" class="form-control shadow-none dropbtn" (click)="myFunction()" name="" id=""
+                        [(ngModel)]="currentLocName" (change)="geocodeLocation($event)">
                 </span>
                 <!-- </button> -->
                 <div id="myDropdown-location" class="dropdown-content">
-                    <button class="detect-loc">Detect Location</button>
+                    <button class="btn detect-loc">Detect Location</button>
                     <p>Recent Locations</p>
-                    <span *ngFor="let loc of locations">
-                        <a href="{{loc.name}}">{{loc.name}}</a></span>
+                    <span *ngFor="let item of recLocations;let i=index">
+                        <!-- <ul *ngFor="let item of recLocations;let i=index">
+                            <li>{{item.locationName}}</li>
+                        </ul> -->
+                        <a [href]="['/services/allServices',item.locationName]">{{item.locationName}}</a>
+                    </span>
                 </div>
             </div>
         </div>
         <div class="col-7 search">
-            <button type="button">Search</button>
+            <!-- <button type="button">Search</button> -->
+            <input type="search" class="form-control shadow-none" (click)="goToUserSearches()" name="" id="">
         </div>
         <div class="col-1"></div>
     </div>

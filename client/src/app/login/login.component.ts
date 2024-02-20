@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
         this._bda.setSessionStorage('isLoggedIn', '1')
         this._bda.setSessionStorage('usrDetls', JSON.stringify(res.payload))
         this._bda.setSessionStorage('token', JSON.stringify(res.token))
+        // this._bda.setSessionStorage('isViewing', '/accounts')
 
         // sessionStorage.setItem('isLoggedIn', '1')
         // sessionStorage.setItem('usrDetls', JSON.stringify(res.payload))

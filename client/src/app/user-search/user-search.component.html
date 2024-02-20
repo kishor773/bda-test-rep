@@ -1,0 +1,76 @@
+<app-header></app-header>
+<app-search-loc></app-search-loc>
+<!-- <app-breadcrumbs></app-breadcrumbs> -->
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="toggle">
+                <span routerLink="/services/allServices" routerLinkActive="active">
+                    <a routerLink="/services/allServices" routerLinkActive="active">
+                        Search Results
+                    </a>
+                </span>
+                <span routerLink="/user-search" routerLinkActive="active">
+                    <a routerLink="/user-search" routerLinkActive="active">
+                        History
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-7"><br>
+            <div class="card">
+                <div class="card-header">
+                    <span>
+                        <p>My Searches</p>
+                        <a> Clear All</a>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <ul *ngFor="let searchHist of filteredSearchesByEmail[0].searchHistory;let i=index">
+                        <li> <a href="">{{searchHist.serviceName}}</a>
+                            <br><a href="">{{searchHist.serviceType}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer"></div>
+            </div><br>
+            <div class="card">
+                <div class="card-header">
+                    <span>
+                        <p>What people are looking for</p>
+                        <!-- <a> Clear All</a> -->
+                    </span>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col-3">
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    <span>
+                        <p>Inquiries</p>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>

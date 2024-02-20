@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/bdaServices.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-all-category',
   templateUrl: './all-category.component.html',
@@ -13,7 +14,7 @@ export class AllCategoryComponent implements OnInit {
   showForm: boolean = false;
   searchtext: any;
 
-  constructor(private categories: ServicesService) {
+  constructor(private categories: ServicesService, private _router: Router) {
     this.hero = new FormGroup({
       category: new FormControl(''),
       subCategory: new FormControl(''),
@@ -31,6 +32,11 @@ export class AllCategoryComponent implements OnInit {
       this.categoriesData = res.message;
       // console.log( this.categoriesData,"get")
     });
+  }
+
+  selectCategory(categoryName: any) {
+    console.log(categoryName);
+    this._router.navigate(['/services/allServices', categoryName])
   }
   // save() {
   //   console.log('Current Student ID:', this.currentStudentID);

@@ -77,9 +77,9 @@ export class YourProfComponent implements OnInit {
     })
   }
   public getLocationData() {
-    this._bda.getLocationDataService().subscribe((data: any) => {
+    this._bda.getAllIndianCitiesStates().subscribe((data: any) => {
       this.locations = data.message;
-      // console.log(data, "location-----")
+      console.log(data, "Indian")
     })
   }
   public getCategoriesData() {

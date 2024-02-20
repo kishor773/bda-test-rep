@@ -9,16 +9,19 @@ import { AllServiceComponent } from './service/all-service/all-service.component
 import { FiltersComponent } from './shared/filters/filters.component';
 import { YourProfComponent } from './my-profile/your-prof/your-prof.component';
 import { SingleServiceComponent } from './service/single-service/single-service.component';
+import { UserSearchComponent } from './user-search/user-search.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   {
     path: 'home',
     component: HomeComponent,
+    // data: { breadcrumb: 'Home' }
   },
   {
     path: 'allCategory',
     component: AllCategoryComponent,
   },
+  // { path: 'example', component: ExampleComponent, data: { breadcrumb: 'Example' } }
   // {
   //   path: 'allServices',
   //   component: AllServiceComponent
@@ -34,6 +37,10 @@ const routes: Routes = [
   {
     path: 'filters',
     component: FiltersComponent
+  },
+  {
+    path: 'user-search',
+    component: UserSearchComponent
   },
   // {
   //   path: 'singleServices/:id',

@@ -1,0 +1,15 @@
+/* Add your CSS styles for the breadcrumbs component here */
+nav {
+  /* Your styles here */
+  background-color: #ffffff;
+  padding: 15px 0;
+  border: 1px solid black;
+}
+
+.breadcrumb-item {
+  /* Your styles here */
+}
+
+.breadcrumb-link {
+  /* Your styles here */
+}

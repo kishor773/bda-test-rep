@@ -1,0 +1,91 @@
+.toggle {
+    border: 1px solid #a7a7a7;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #DFDFDF;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-family: Nunito Sans;
+    font-weight: 500;
+}
+
+.toggle span {
+    width: 45%;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.active {
+    background: #ebebeb;
+    color: #000000;
+}
+
+.card {
+    border: 8px;
+    box-shadow: 0px 1px 5px 1px #00000026;
+
+}
+.col-7 .card-body {
+    height: 500px;
+    overflow-y: auto;
+}
+.card-body ul {
+    padding: 0;
+}
+
+.card-body ul li {
+    list-style: none;
+    border-bottom: 1px solid #000000B0
+}
+
+.card-body ul li a:first-child {
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+.card-body ul li a:last-child {
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.card-header,
+.card-footer {
+    background-color: transparent;
+    height: 50%;
+}
+
+.card-header span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header span p {
+    font-family: Nunito Sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0;
+}
+
+.card-footer {
+    border: none;
+}

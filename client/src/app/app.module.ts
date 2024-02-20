@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { AllServiceComponent } from './service/all-service/all-service.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SingleServiceComponent } from './service/single-service/single-service.component';
+import { UserSearchComponent } from './user-search/user-search.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { SingleServiceComponent } from './service/single-service/single-service.
     HomeComponent,
     AllCategoryComponent,
     FilterPipe,
-    AllServiceComponent, SingleServiceComponent
+    AllServiceComponent, SingleServiceComponent, UserSearchComponent
   ],
   imports: [
     BrowserModule,

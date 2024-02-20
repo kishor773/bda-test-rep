@@ -3,17 +3,19 @@
 
     <div class="heading">
         <div> <img src="/assets/icons/Vector.png" alt=""></div>
-        <div >
+        <div>
             <h1>All Filters</h1>
         </div>
-    </div>   
-     <div class="ratings">
+    </div>
+    <div class="ratings">
         <p>Ratings</p>
-     </div>
-     <div class="type">
+        <span *ngFor="let stars of starsArr; let i =index"><button>{{stars}}
+        <img src="../../../assets/icons/Star 1.png" alt=""></button></span>
+    </div>
+    <div class="type">
         <p>Type</p>
-     </div>
-  
+    </div>
+
 </div>
 
 <!-- </div> -->

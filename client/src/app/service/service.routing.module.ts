@@ -5,11 +5,22 @@ import { SingleServiceComponent } from './single-service/single-service.componen
 const routes: Routes = [
     {
         path: 'allServices',
-        component: AllServiceComponent
+        component: AllServiceComponent, data: { breadcrumb: 'All Services' }
+
+    },
+    // {
+    //     path: 'allServices/:location/:name',
+    //     component: AllServiceComponent, data: { breadcrumb: 'All Services' }
+
+    // },
+    {
+        path: 'allServices/:location/:name',
+        component: AllServiceComponent, data: { breadcrumb: 'All Services' }
+
     },
     {
         path: 'singleServices/:id',
-        component: SingleServiceComponent
+        component: SingleServiceComponent, data: { breadcrumb: 'Single Service' }
     },
 ];
 

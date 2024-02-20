@@ -1,43 +1,101 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
+<!-- <app-search-loc></app-search-loc> -->
 <div class="container-fluid"><br>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="toggle">
+                <span routerLink="/services/allServices" routerLinkActive="active">
+                    <a routerLink="/services/allServices" routerLinkActive="active">
+                        Search Results
+                    </a>
+                </span>
+                <span routerLink="/user-search" routerLinkActive="active">
+                    <a routerLink="/user-search" routerLinkActive="active">
+                        History
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <br>
     <div class="row">
         <div class="col-1">
         </div>
         <div class="col-10 filters-services">
             <div class="first-div">
-                <app-filters></app-filters>
+                <!-- <app-filters [selectedCategoryId]=catId></app-filters> -->
+                <div class="filterCard">
+
+                    <div class="heading">
+                        <div> <img src="/assets/icons/Vector.png" alt=""></div>
+                        <div>
+                            <h1>All Filters</h1>
+                        </div>
+                    </div>
+                    <div class="ratings">
+                        <p>Ratings</p>
+                        <span class="col-md-1" *ngFor="let stars of starsArr; let i =index"><button>{{stars}}
+                                <img src="../../../assets/icons/Star 1.png" alt=""></button></span>
+                    </div>
+                    <div class="type ">
+                        <p>Type</p>
+                        <span *ngFor="let type of allTypes; let i =index"><button
+                                (click)="selectType(type)">{{type}}</button></span>
+
+                    </div>
+                    <div class="subCategory">
+                        <p>Sub Category</p>
+
+                        <div class="allCategories">
+                            <span *ngFor="let cat of allSubCategories; let i =index"><button
+                                    (click)="selectSubcategory(cat)">{{cat}}</button></span>
+                        </div>
+
+                    </div>
+                    <div class="aminities">
+                        <p>Aminities</p>
+                        <span *ngFor="let aminitie of allAminities; let i =index"><button
+                                (click)="selectAminitie(aminitie)">{{aminitie}}</button></span>
+                    </div>
+
+                </div>
             </div>
             <div class="second-div">
-   
-                <div *ngFor="let item of servicesdata" class="card1" [routerLink]="['/services/singleServices', item._id]">
-                    <div class="card1-child1">
+                <div class="card" *ngFor="let item of servicesdata;let i=index"
+                    [routerLink]="['/services/singleServices', item._id]">
+                    <div class="card-body all-service-card">
                         <div class="image-block">
-                            <p>{{item.categories[0][0].category[0].servicePhotos.photo1}}</p>
+                            <img src="" alt="">
+                        </div>
+                        <div>
+                            <span class="row data-row">
+                                <p>{{item.categories[0][0].category[0].serviceName}}</p>
+                                <p>{{item.categories[0][0].category[0].avgRatings}} <img
+                                        src="/assets/icons/Star 1.png" alt="" class="star"></p>
+                                <p><img src="/assets/icons/geo-alt.png">
+                                    {{item.categories[0][0].category[0].address[0].city}}</p>
+                            </span>
+                            <span class="row actions-row">
+                                <span class="action-btns">
+                                    <button><img src="/assets/icons/exclamation-triangle.png" alt=""></button>
+                                    <button><img src="/assets/icons/heart.png" alt=""></button>
+                                    <button class="btn btn-primary">Learn More</button>
+                                </span>
+                                <span>
+                                    <!-- <button class="btn btn-primary">Learn More</button> -->
+                                </span>
+                            </span>
                         </div>
                     </div>
-                    <div class="card1-child2">
-                        <div class="data-block">
-                            <h1>{{item.categories[0][0].category[0].serviceName}}</h1>
-                            <p>{{item.categories[0][0].category[0].serviceReviews[0].usrRatings}} <img
-                                    src="/assets/icons/Star 1.png" alt="" class="star"></p>
-                            <p><img src="/assets/icons/geo-alt.png">
-                                {{item.categories[0][0].category[0].serviceLocation[0].locationName}}</p>
-                        </div>
-                        <div class="data-block2 ">
-                            <div class="warning-like">
-                                <button><img src="/assets/icons/exclamation-triangle.png" alt=""></button>
-                                <button><img src="/assets/icons/heart.png" alt="">
-                                </button>
-                            </div>
-                            <div> <button class="learn-more"><span>Learn More</span></button>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
+                <button (click)="loadMore(servicesdata)">Load more</button>
+                <button (click)="sortByRatings()">Sort</button>
             </div>
         </div>
         <div class="col-1">
         </div>
-        <app-footer></app-footer>
     </div>
 </div>

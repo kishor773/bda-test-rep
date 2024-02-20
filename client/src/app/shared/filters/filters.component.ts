@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent {
-
+  starsArr: any = ['Any', 5, 4, 3, 2, 1]
 }

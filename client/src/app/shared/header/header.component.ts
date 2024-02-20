@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     // let parsedUsrLogStats = JSON.parse(usrLogInStatus)
     // console.log(parsedUsrLogStats, typeof usrLogInStatus);
     usrLogInStatus == 1 ? this.isLoggedIn = true : this.isLoggedIn = false;
-    console.log(this.isLoggedIn);
+    // console.log(this.isLoggedIn);
 
   }
 
@@ -74,5 +74,9 @@ export class HeaderComponent implements OnInit {
     console.log('User Logging Out');
     sessionStorage.clear();
     this.router.navigate(['/login'])
+  }
+
+  setStorage() {
+    this._bda.setSessionStorage('isViewing', 'accounts')
   }
 }

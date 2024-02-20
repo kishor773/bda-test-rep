@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-search-loc></app-search-loc>
+<!-- <app-header></app-header> -->
+<!-- <app-search-loc></app-search-loc> -->
 <div class="contanier-fluid"><br>
     <div class="row">
         <div class="col-1"></div>
@@ -40,7 +40,7 @@
                         <div class="card-title">
                             <h1> Reviews and Ratings</h1>
                         </div>
-                        <div class="card-body" id="review-sec">
+                        <div class="card-body" id="review-sec" [formGroup]="reviewsform">
                             <div>
                                 <p>Rate this service:</p>
                                 <div class="star-rating">
@@ -51,10 +51,12 @@
                                 </div>
                                 <p>Write a review:</p>
                                 <textarea name="writeReview" id="writeReview" class="form-control shadow-none"
-                                    (change)="writeReview($event)" [(ngModel)]="reviewContent" minlength="100"
-                                    maxlength="500"></textarea>
+                                    (change)="writeReview($event)" minlength="100" maxlength="500"
+                                    formControlName="description" [(ngModel)]="reviewContent"></textarea>
                                 <button class="btn"
-                                    [disabled]="reviewContent.length < 100 || reviewContent.length > 500">Submit</button>
+                                    [disabled]="reviewContent.length < 100 || reviewContent.length > 500"
+                                    (click)="submit()">Submit</button>
+                                <!-- {{this.reviewsform.value|json}} -->
                             </div>
                             <div>
                                 <p>User Reviews and Ratings</p>
@@ -115,19 +117,19 @@
                                     </li>
                                     <li>
                                         <span><img src="../../../assets/icons/youtube.png" alt=""></span>
-                                        <span> {{singleServiceResp.socialUrls.youTubeUrl}}</span>
+                                        <span> {{singleServiceResp.businessUrl.youTubeUrl}}</span>
                                     </li>
                                     <li>
                                         <span><img src="../../../assets/icons/whatsapp.png" alt=""></span>
-                                        <span>{{singleServiceResp.socialUrls.whatsappUrl}}</span>
+                                        <span>{{singleServiceResp.businessUrl.whatsappUrl}}</span>
                                     </li>
                                     <li>
                                         <span><img src="../../../assets/icons/instagram.png" alt=""></span>
-                                        <span>{{singleServiceResp.socialUrls.instagramUrl}}</span>
+                                        <span>{{singleServiceResp.businessUrl.instagramUrl}}</span>
                                     </li>
                                     <li>
                                         <span><img src="../../../assets/icons/twitter-x.png" alt=""></span>
-                                        <span>{{singleServiceResp.socialUrls.twitterUrl}}</span>
+                                        <span>{{singleServiceResp.businessUrl.twitterUrl}}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -145,6 +147,7 @@
                         <div class="card-footer">
                             <!-- Trigger/Open The Modal -->
                             <button class="btn btn-danger" id="myBtn" (click)="openModal()">Report</button>
+
                         </div>
                     </div>
                 </div>
@@ -155,7 +158,7 @@
     <!-- Report Error Modal -->
     <div id="myModal" class="modal" #myModal>
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="modal-content" [formGroup]="reportsform">
             <div>
                 <span class="close" (click)="closeModal()">&times;</span>
                 <p>Report this business</p>
@@ -163,9 +166,10 @@
             <div class="modal-body">
                 <p>Please state your concern breifly</p>
                 <textarea name="" id="" class="form-control shadow-none" [innerHTML]="" [(ngModel)]="reportContent"
-                    minlength="100" maxlength="500"></textarea>
-                <button class="btn"
-                    [disabled]="reportContent.length < 100 || reportContent.length > 500">Submit</button>
+                    minlength="100" maxlength="500" formControlName="report"></textarea>
+                <button class="btn" [disabled]="reportContent.length < 100 || reportContent.length > 500"
+                    (click)="reportSubmit()">Submit</button>
+                <!-- {{this.reportsform.value|json}} -->
             </div>
         </div>
     </div>
@@ -187,4 +191,3 @@
         </div>
     </div> -->
 </div>
-<app-footer></app-footer>

@@ -8,9 +8,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { ServicesService } from '../bdaServices.service';
-
-
-
+// import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +16,8 @@ import { ServicesService } from '../bdaServices.service';
     SearchLocComponent,
     FiltersComponent,
     AdvertismentComponent,
-    HeaderComponent
+    HeaderComponent,
+    // BreadcrumbsComponent
 
   ],
   imports: [
@@ -32,7 +31,8 @@ import { ServicesService } from '../bdaServices.service';
     SearchLocComponent,
     FiltersComponent,
     AdvertismentComponent,
-    HeaderComponent
+    HeaderComponent,
+    // BreadcrumbsComponent
   ]
 })
 export class SharedModule { }

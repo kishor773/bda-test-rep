@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
     this.getCategoryData();
   }
   submit() {
-    let referralCode = this.generateReferralCode(this.signup.value.firstName);
+    let refCode = this.generateReferralCode(this.signup.value.firstName);
 
     let bodydata = {
       firstName: this.signup.value.firstName,
@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
       phone: this.signup.value.phone,
       password: this.signup.value.password,
       currentLocation: this.signup.value.currentLocation,
-      referralCode,
+      referralCode: refCode,
     };
 
     this.service.postSignupDataService(bodydata).subscribe((res: any) => {
@@ -53,7 +53,7 @@ export class SignupComponent implements OnInit {
     console.log(bodydata, 'bodydata------');
   }
   getLocationData() {
-    this.service.getLocationDataService().subscribe((data: any) => {
+    this.service.getAllIndianCitiesStates().subscribe((data: any) => {
       this.locationData = data.message;
       console.log(data, 'location-----');
     });

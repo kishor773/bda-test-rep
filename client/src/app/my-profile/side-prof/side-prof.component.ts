@@ -16,6 +16,7 @@ export class SideProfComponent implements OnInit {
     { id: 3, name: 'KGF' },
     { id: 4, name: 'Kolar' }
   ];
+  servicesdata: any = [];
   constructor(private router: Router, private _aR: ActivatedRoute, private _bda: ServicesService) { }
   ngOnInit(): void {
 
@@ -52,4 +53,10 @@ export class SideProfComponent implements OnInit {
   //   }
   // }
 
+  getServicesData() {
+    this._bda.getServicesServiceData().subscribe((data: any) => {
+      this.servicesdata = data.message;
+      console.log('services get data', this.servicesdata);
+    });
+  }
 }

@@ -4,42 +4,66 @@
     width: 330px;
     height: auto;
     border-radius: 8px;
-    padding:10px;
+    padding: 10px;
     box-shadow: 0px 1px 5px 1px #00000040;
 
 }
-.heading{
+
+.heading {
     display: flex;
     justify-content: flex-start;
     align-content: flex-end;
     flex-wrap: nowrap;
     align-items: flex-start;
-    gap:10px;
+    gap: 10px;
     border-bottom: 2px solid #84818194;
+    padding: 10px;
 
 }
-.heading h1{
+
+.heading h1 {
     font-family: Nunito Sans;
     font-size: 19px;
     font-weight: 600;
     margin-top: 3px;
-    }
-    .ratings{
-        border-bottom: 2px solid #84818194
-    }
-.ratings p{
-    font-family: Nunito Sans;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 33px;
-    letter-spacing: 0em;
-    text-align: left;
-    
 }
-.type{
+
+.ratings {
     border-bottom: 2px solid #84818194
 }
-.type p{
+
+.ratings p {
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.ratings span {
+    gap: 10px;
+}
+
+.ratings span button {
+    width: max-content;
+    padding: 5px 12px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid #000000
+}
+.ratings span button img{
+    width: 10px;
+}
+
+
+.type {
+    border-bottom: 2px solid #84818194
+}
+
+.type p {
     font-family: Nunito Sans;
     font-size: 15px;
     font-weight: 600;
@@ -47,8 +71,3 @@
     letter-spacing: 0em;
     text-align: left;
 }
-
-       
-
-
-

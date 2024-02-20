@@ -8,8 +8,8 @@
     border: none;
     font-family: Nunito Sans;
     font-size: 16px;
-    font-weight: 400;
-    border: 2px solid #84818194
+    font-weight: 500;
+    /* border: 2px solid #84818194 */
 }
 
 .detect-loc:hover {
@@ -37,9 +37,20 @@
     border: 2px solid #84818194
 }
 
+.search input[type="search"] {
+    border: 2px solid #84818194;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
 
 
-/*  */
+
+/* Custom location picker */
 .dropbtn {
     width: 100%;
     height: auto;
