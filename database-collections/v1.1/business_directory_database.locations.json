@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "65cf2ead58e2ab8f19f54765"
+  },
+  "recentlocations": [
+    {
+      "locationName": "Doddanekundi",
+      "coords": {
+        "latitude": 12.966376100000002,
+        "longitude": 77.69906178246475
+      },
+      "state": "Karnataka",
+      "city": "Bengaluru",
+      "pincode": 560037,
+      "country": "India",
+      "_id": {
+        "$oid": "65d321a71dfedbd8440ebaa4"
+      }
+    },
+    {
+      "locationName": "Malleswaram",
+      "coords": {
+        "latitude": 13.0038684,
+        "longitude": 77.5691484
+      },
+      "state": "Karnataka",
+      "city": "Bengaluru",
+      "pincode": 560003,
+      "country": "India",
+      "_id": {
+        "$oid": "65d325a91dfedbd8440ebc6c"
+      }
+    }
+  ],
+  "email": "kishor.p@codeswift.in",
+  "name": "Kishore",
+  "phone": "8073452527"
+}]

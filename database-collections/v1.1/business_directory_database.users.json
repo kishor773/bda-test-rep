@@ -1,0 +1,340 @@
+[{
+  "_id": {
+    "$oid": "65952199ca69c2a4e60a4514"
+  },
+  "userId": 1,
+  "firstName": "Shravan",
+  "lastName": "BDA",
+  "name": "RaoShravanRSABDA",
+  "email": "nspkumar6573@gmail.com",
+  "phone": "9731044506",
+  "password": "snp@1234",
+  "isAdmin": true,
+  "currentLocation": "Mumbai",
+  "currentActivePlan": "gold",
+  "userPlanHistory": [
+    {
+      "userPlanHistoryId": 1,
+      "planId": 2,
+      "planName": "gold",
+      "planPrice": 1000,
+      "planValidity": 30,
+      "planStartDate": {
+        "$date": "2024-01-01T00:00:00.000Z"
+      },
+      "planEndDate": {
+        "$date": "2024-01-31T23:59:59.000Z"
+      },
+      "paymentInfo": {
+        "paymentStatus": "Success",
+        "transactionId": "abc123",
+        "paymentDate": {
+          "$date": "2024-01-01T12:34:56.000Z"
+        }
+      },
+      "_id": {
+        "$oid": "65ccca498c908218e52e1767"
+      }
+    }
+  ],
+  "referralCode": "ABC123",
+  "notifPrefCheck": true,
+  "serviceCategory": [
+    {
+      "category": "Health Care",
+      "notificationFlag": true,
+      "serviceLocation": "Hyderabad",
+      "locationName": [
+        {
+          "_id": "65cb4e4f638071de28651ff7",
+          "city": "Hyderabad",
+          "lat": 17.385,
+          "lng": 78.4867,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Telangana"
+        },
+        {
+          "_id": "65cb4e4f638071de2865203f",
+          "city": "Nangloi Jat",
+          "lat": 28.6833,
+          "lng": 77.0667,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Delhi"
+        }
+      ],
+      "type": "Business",
+      "_id": "65cc67cf27aedb9d305c82b0"
+    },
+    {
+      "category": "Education",
+      "notificationFlag": true,
+      "serviceLocation": "Bangalore",
+      "locationName": [
+        {
+          "_id": "65cb4e4f638071de28651ff5",
+          "city": "Bangalore",
+          "lat": 12.9789,
+          "lng": 77.5917,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Karnataka"
+        },
+        {
+          "_id": "65cb4e4f638071de28651ff4",
+          "city": "Kolkata",
+          "lat": 22.5675,
+          "lng": 88.37,
+          "country": "India",
+          "iso2": "IN",
+          "state": "West Bengal"
+        }
+      ],
+      "type": "Social",
+      "_id": "65cc67c227aedb9d305c82ab"
+    }
+  ],
+  "userRegStatus": "Approved",
+  "userStatus": "Active",
+  "token": "1112",
+  "businessNo": null,
+  "whatsappNo": "8731044506",
+  "familyName": "Rao",
+  "middleName": "RSA"
+},
+{
+  "_id": {
+    "$oid": "65cda52f706d28b650ef969b"
+  },
+  "userId": 2,
+  "firstName": "User Test",
+  "lastName": "NP",
+  "familyName": "22222",
+  "middleName": "222222",
+  "businessNo": "123456",
+  "whatsappNo": "12345",
+  "name": "Shravan NP",
+  "email": "nspkunar6573@gmail.com",
+  "phone": "9731044806",
+  "password": "snp@1334",
+  "isAdmin": true,
+  "currentLocation": "bengalurur",
+  "currentActivePlan": "gold",
+  "userPlanHistory": [
+    {
+      "userPlanHistoryId": 1,
+      "planId": 2,
+      "planName": "free",
+      "planPrice": 1000,
+      "planValidity": 30,
+      "planStartDate": {
+        "$date": "2024-01-01T00:00:00.000Z"
+      },
+      "planEndDate": {
+        "$date": "2024-01-31T23:59:59.000Z"
+      },
+      "paymentInfo": {
+        "paymentStatus": "Success",
+        "transactionId": "abc123",
+        "paymentDate": {
+          "$date": "2024-01-01T12:34:56.000Z"
+        }
+      },
+      "_id": {
+        "$oid": "65cdc54bb0316d3bb43cc1ae"
+      }
+    }
+  ],
+  "referralCode": "ABC123",
+  "notifPrefCheck": true,
+  "serviceCategory": [
+    {
+      "categoryName": "1111111",
+      "notificationFlag": true,
+      "serviceName": "safety",
+      "serviceLocation": "bengaluru",
+      "locationName": [
+        {}
+      ],
+      "userType": "Provider",
+      "_id": {
+        "$oid": "65cdc54bb0316d3bb43cc1af"
+      }
+    }
+  ],
+  "userRegStatus": "Approved",
+  "userStatus": "Active",
+  "token": "1112",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65cdc482b0316d3bb43cc1a7"
+  },
+  "userId": 3,
+  "firstName": "Shravan",
+  "lastName": "NP",
+  "familyName": "22222",
+  "middleName": "222222",
+  "businessNo": "123456",
+  "whatsappNo": "12345",
+  "name": "Shravan NP",
+  "email": "nspkunar6563@gmail.com",
+  "phone": "9731054806",
+  "password": "stp@1334",
+  "isAdmin": true,
+  "currentLocation": "bengalurur",
+  "currentActivePlan": "gold",
+  "userPlanHistory": [
+    {
+      "userPlanHistoryId": 1,
+      "planId": 2,
+      "planName": "gold",
+      "planPrice": 1000,
+      "planValidity": 30,
+      "planStartDate": {
+        "$date": "2024-01-01T00:00:00.000Z"
+      },
+      "planEndDate": {
+        "$date": "2024-01-31T23:59:59.000Z"
+      },
+      "paymentInfo": {
+        "paymentStatus": "Success",
+        "transactionId": "abc123",
+        "paymentDate": {
+          "$date": "2024-01-01T12:34:56.000Z"
+        }
+      },
+      "_id": {
+        "$oid": "65cdc482b0316d3bb43cc1a8"
+      }
+    }
+  ],
+  "referralCode": "ABC123",
+  "notifPrefCheck": true,
+  "serviceCategory": [
+    {
+      "categoryName": "1111111",
+      "notificationFlag": true,
+      "serviceName": "safety",
+      "serviceLocation": "bengaluru",
+      "locationName": [
+        {}
+      ],
+      "userType": "Provider",
+      "_id": {
+        "$oid": "65cdc482b0316d3bb43cc1a9"
+      }
+    }
+  ],
+  "userRegStatus": "Approved",
+  "userStatus": "Active",
+  "token": "1112",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65cdc582b0316d3bb43cc1b3"
+  },
+  "name": "",
+  "userPlanHistory": [],
+  "serviceCategory": [],
+  "firstName": "vikas",
+  "lastName": "rajput",
+  "phone": "12345678",
+  "email": "vikas@gmail.com",
+  "password": "12345",
+  "currentLocation": "Prayagraj",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ce3ffd18e5d91cee8b08a8"
+  },
+  "name": "Mr.RanjithKumarABB",
+  "userPlanHistory": [],
+  "serviceCategory": [
+    {
+      "category": "Event Organizing",
+      "notificationFlag": true,
+      "serviceLocation": "Delhi",
+      "locationName": [
+        {
+          "_id": "65cb4e4f638071de28651ff2",
+          "city": "Delhi",
+          "lat": 28.61,
+          "lng": 77.23,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Delhi"
+        },
+        {
+          "_id": "65cb4e4f638071de28651ff3",
+          "city": "Mumbai",
+          "lat": 19.0761,
+          "lng": 72.8775,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Maharashtra"
+        }
+      ],
+      "type": "Business",
+      "_id": "65c465af7ca16a841065fc6e"
+    },
+    {
+      "category": "Fashion",
+      "notificationFlag": true,
+      "serviceLocation": "Chennai",
+      "locationName": [
+        {
+          "_id": "65cb4e4f638071de28651ff6",
+          "city": "Chennai",
+          "lat": 13.0825,
+          "lng": 80.275,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Tamil Nadu"
+        },
+        {
+          "_id": "65cb4e4f638071de28651ff5",
+          "city": "Bangalore",
+          "lat": 12.9789,
+          "lng": 77.5917,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Karnataka"
+        }
+      ],
+      "type": "Social",
+      "_id": "65c47b997ca16a841065fd64"
+    }
+  ],
+  "firstName": "Ranjith",
+  "lastName": "ABB",
+  "phone": "9845517094",
+  "email": "kishor.p@codeswift.in",
+  "password": "1234",
+  "currentLocation": "Surat",
+  "__v": 0,
+  "businessNo": null,
+  "familyName": "Mr.",
+  "middleName": "Kumar",
+  "whatsappNo": "1234567890"
+},
+{
+  "_id": {
+    "$oid": "65cf6a9b032fa153b7f61961"
+  },
+  "name": "",
+  "userPlanHistory": [],
+  "serviceCategory": [],
+  "firstName": "Umesh",
+  "lastName": "Sahu",
+  "phone": "192835647",
+  "email": "umesh@email.com",
+  "password": "0987",
+  "currentLocation": "Gwalior",
+  "referralCode": "UME17080920595944302",
+  "__v": 0
+}]

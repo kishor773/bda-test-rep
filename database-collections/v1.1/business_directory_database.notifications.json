@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "6595203aca69c2a4e60a4512"
+  },
+  "email": "nspkumar6573@gmail.com",
+  "phone": "9731044505",
+  "searchBroadcast": [
+    {
+      "searchBroadcastId": 1,
+      "notificationFlag": true,
+      "serviceName": "safety",
+      "locationName": "Hyderabad",
+      "_id": {
+        "$oid": "65bb309c4bdda3f93b731768"
+      }
+    }
+  ],
+  "searchNotification": [
+    {
+      "name": "police",
+      "phone": 123456788,
+      "email": "manjula@gmail.com",
+      "serviceName": "safety",
+      "searchDateTime": {
+        "$date": "2024-01-28T00:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "65bb309c4bdda3f93b731769"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65af7c2778f7ff3da943c4a9"
+  },
+  "searchBroadcast": [
+    {
+      "searchBroadcastId": 2,
+      "notificationFlag": true,
+      "serviceName": "safety",
+      "locationName": "Mysuru",
+      "_id": {
+        "$oid": "65bb30a54bdda3f93b731772"
+      }
+    }
+  ],
+  "searchNotification": [
+    {
+      "name": "police2",
+      "phone": 123456789,
+      "email": "kishore@gmail.com",
+      "serviceName": "doctor",
+      "searchDateTime": {
+        "$date": "2024-01-01T01:01:45.000Z"
+      },
+      "_id": {
+        "$oid": "65bb30a54bdda3f93b731773"
+      }
+    }
+  ],
+  "email": "nspkumar653@gmail.com",
+  "phone": "9731044507",
+  "__v": 0
+}]

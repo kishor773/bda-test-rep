@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "65cf2500161d3581ab5a8565"
+  },
+  "subCategory": [
+    "eeeeeeee ffffffff"
+  ],
+  "type": [
+    "eeee"
+  ],
+  "aminities": [
+    "eeee"
+  ],
+  "location_offered": [
+    "eeeeeee"
+  ],
+  "category": "Healthcare",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65cf2c2d161d3581ab5a856b"
+  },
+  "subCategory": [
+    "College"
+  ],
+  "type": [
+    "CBSE"
+  ],
+  "aminities": [
+    "Government"
+  ],
+  "location_offered": [
+    "Bangalore"
+  ],
+  "category": "Education",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65cf2c64161d3581ab5a856e"
+  },
+  "subCategory": [
+    "Party"
+  ],
+  "type": [
+    "Night-Dance"
+  ],
+  "aminities": [
+    "Public"
+  ],
+  "location_offered": [
+    "Bangalore"
+  ],
+  "category": "Event Organization",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65cf2c8e161d3581ab5a8572"
+  },
+  "subCategory": [
+    "dsddd"
+  ],
+  "type": [
+    "ddd"
+  ],
+  "aminities": [
+    "ddd"
+  ],
+  "location_offered": [
+    "ddddd"
+  ],
+  "category": "Food & Catering",
+  "__v": 0
+}]
