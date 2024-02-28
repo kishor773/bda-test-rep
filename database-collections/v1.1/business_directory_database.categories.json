@@ -3,10 +3,11 @@
     "$oid": "65cf2500161d3581ab5a8565"
   },
   "subCategory": [
-    "eeeeeeee ffffffff"
+    "Nurse,Doctor"
   ],
   "type": [
-    "eeee"
+    "eeee",
+    "New"
   ],
   "aminities": [
     "eeee"
@@ -52,7 +53,7 @@
   "location_offered": [
     "Bangalore"
   ],
-  "category": "Event Organization",
+  "category": "Event Organizing",
   "__v": 0
 },
 {

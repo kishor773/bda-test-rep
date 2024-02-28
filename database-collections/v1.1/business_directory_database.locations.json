@@ -30,6 +30,75 @@
       "_id": {
         "$oid": "65d325a91dfedbd8440ebc6c"
       }
+    },
+    {
+      "locationName": "Lal Bahadur Shastri Nagar",
+      "coords": {
+        "latitude": 12.9661984,
+        "longitude": 77.6765872
+      },
+      "state": "Karnataka",
+      "city": "Bengaluru",
+      "pincode": 560103,
+      "country": "India",
+      "_id": {
+        "$oid": "65d8271820c1043ba178c3c4"
+      }
+    },
+    {
+      "locationName": "HAL Airport Ward",
+      "coords": {
+        "latitude": 12.9614937,
+        "longitude": 77.67759504343736
+      },
+      "state": "Karnataka",
+      "city": "Bengaluru",
+      "pincode": 560037,
+      "country": "India",
+      "_id": {
+        "$oid": "65debfba016840178f93aacc"
+      }
+    },
+    {
+      "locationName": "Hebbal",
+      "coords": {
+        "latitude": 13.038225646581852,
+        "longitude": 77.59183347400267
+      },
+      "state": "Karnataka",
+      "city": "Bengaluru",
+      "pincode": 560065,
+      "country": "India",
+      "_id": {
+        "$oid": "65dec493016840178f93ac58"
+      }
+    },
+    {
+      "coords": {
+        "latitude": 47.4664531,
+        "longitude": -0.5594168
+      },
+      "state": "Pays de la Loire",
+      "city": "Angers",
+      "pincode": 49101,
+      "country": "France",
+      "_id": {
+        "$oid": "65dee043016840178f93b717"
+      }
+    },
+    {
+      "locationName": "Bowbazar",
+      "coords": {
+        "latitude": 22.572869283886472,
+        "longitude": 88.36399695893704
+      },
+      "state": "West Bengal",
+      "city": "Kolkata",
+      "pincode": 700073,
+      "country": "India",
+      "_id": {
+        "$oid": "65df29a07fba30a16692f0fe"
+      }
     }
   ],
   "email": "kishor.p@codeswift.in",

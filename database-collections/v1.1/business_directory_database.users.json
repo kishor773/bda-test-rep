@@ -317,7 +317,7 @@
   "password": "1234",
   "currentLocation": "Surat",
   "__v": 0,
-  "businessNo": null,
+  "businessNo": "1234567890",
   "familyName": "Mr.",
   "middleName": "Kumar",
   "whatsappNo": "1234567890"
@@ -337,4 +337,79 @@
   "currentLocation": "Gwalior",
   "referralCode": "UME17080920595944302",
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65df14d46a942ab932808337"
+  },
+  "name": "Ms. Kiara K Ruiz",
+  "userPlanHistory": [],
+  "serviceCategory": [
+    {
+      "category": "Healthcare",
+      "notificationFlag": true,
+      "serviceLocation": "Delhi",
+      "locationName": [
+        {
+          "_id": "65cb4e4f638071de28651ff2",
+          "city": "Delhi",
+          "lat": 28.61,
+          "lng": 77.23,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Delhi"
+        },
+        {
+          "_id": "65cb4e4f638071de28651ff3",
+          "city": "Mumbai",
+          "lat": 19.0761,
+          "lng": 72.8775,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Maharashtra"
+        }
+      ],
+      "type": "Social",
+      "_id": "65cf2500161d3581ab5a8565"
+    },
+    {
+      "category": "Education",
+      "notificationFlag": true,
+      "serviceLocation": "Kolkata",
+      "locationName": [
+        {
+          "_id": "65cb4e4f638071de28651ff4",
+          "city": "Kolkata",
+          "lat": 22.5675,
+          "lng": 88.37,
+          "country": "India",
+          "iso2": "IN",
+          "state": "West Bengal"
+        },
+        {
+          "_id": "65cb4e4f638071de28651ff5",
+          "city": "Bangalore",
+          "lat": 12.9789,
+          "lng": 77.5917,
+          "country": "India",
+          "iso2": "IN",
+          "state": "Karnataka"
+        }
+      ],
+      "type": "Business",
+      "_id": "65cf2c2d161d3581ab5a856b"
+    }
+  ],
+  "firstName": "Kiara ",
+  "lastName": "Ruiz",
+  "phone": "3622222222",
+  "email": "tuvyqivi@mailinator.com",
+  "password": "Pa$$w0rd!",
+  "currentLocation": "Madurai",
+  "referralCode": "KIA17091186762192655",
+  "__v": 0,
+  "businessNo": "3622222222",
+  "familyName": "Ms. ",
+  "middleName": "K ",
+  "whatsappNo": "3622222222"
 }]

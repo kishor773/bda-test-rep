@@ -266,4 +266,14 @@
   "email": "nsp@gmail.com",
   "phone": 123456789,
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65decbb208cef589ce85a6b1"
+  },
+  "email": "k@code.com",
+  "phone": {
+    "$numberLong": "9731044507"
+  },
+  "searchHistory": []
 }]

@@ -1,467 +1,736 @@
 [{
   "_id": {
-    "$oid": "65cf312758e2ab8f19f54768"
+    "$oid": "65d4c3e85af95599d00941d3"
   },
-  "categories": [
-    [
-      {
-        "categoryName": "Healthcare",
-        "category": [
-          {
-            "serviceName": "This is another very very very long service name entered by the test user,This is another very very very long service name entered by the test user",
-            "servicePhotos": {
-              "photo1": "",
-              "photo2": "",
-              "photo3": "",
-              "photo4": ""
-            },
-            "serviceDesc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-            "serviceLocation": [
-              {}
-            ],
-            "address": [
-              {
-                "addressTitle": "Address Title ",
-                "state": "Maharashtra",
-                "city": "Mumbai",
-                "pincode": "400708",
-                "country": "India"
-              }
-            ],
-            "businessUrl": {
-              "youtubeUrl": "Youtube",
-              "instagramUrl": "Instagram",
-              "twitterUrl": "Twitter"
-            },
-            "workingHours": {
-              "fromDay": "Wednesday",
-              "toDay": "Sunday",
-              "fromTime": "16:18",
-              "toTime": "16:18"
-            },
-            "serviceReviews": [
-              {
-                "email": "test@email.com",
-                "name": "Test User",
-                "usrRatings": "4",
-                "description": "This is test review"
-              },
-              {
-                "email": "test@gmail.in",
-                "name": "Test User 1",
-                "usrRatings": "5",
-                "description": "This is description"
-              }
-            ],
-            "subCategory1": "Restaurants",
-            "subCategory2": "Italian",
-            "subCategory3": "Take-away",
-            "avgRatings": 4,
-            "listingDate": ""
-          }
-        ],
-        "userDetails": {
-          "_id": "65ce3ffd18e5d91cee8b08a8",
-          "name": "RaoRanjithNAB",
-          "userPlanHistory": [],
-          "serviceCategory": [
-            {
-              "category": "police2",
-              "notificationFlag": true,
-              "serviceLocation": "Mumbai",
-              "locationName": [
-                {
-                  "_id": "65cb4e4f638071de28651ff3",
-                  "city": "Mumbai",
-                  "lat": 19.0761,
-                  "lng": 72.8775,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Maharashtra"
-                },
-                {
-                  "_id": "65cb4e4f638071de28651ff5",
-                  "city": "Bangalore",
-                  "lat": 12.9789,
-                  "lng": 77.5917,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Karnataka"
-                }
-              ],
-              "type": "Business",
-              "_id": "65ce5041ae62c41c7548508d"
-            },
-            {
-              "category": "Food54321",
-              "notificationFlag": true,
-              "serviceLocation": "Chennai",
-              "locationName": [
-                {
-                  "_id": "65cb4e4f638071de28651ff6",
-                  "city": "Chennai",
-                  "lat": 13.0825,
-                  "lng": 80.275,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Tamil Nadu"
-                },
-                {
-                  "_id": "65cb4e4f638071de28651ff7",
-                  "city": "Hyderabad",
-                  "lat": 17.385,
-                  "lng": 78.4867,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Telangana"
-                }
-              ],
-              "type": "Social",
-              "_id": "65ce535987cf9870e4b8e7ad"
-            }
-          ],
-          "firstName": "Ranjith",
-          "lastName": "AB",
-          "phone": "9845517094",
-          "email": "ranjith1234@gmail.com",
-          "password": "12346",
-          "currentLocation": "Surat",
-          "__v": 0,
-          "businessNo": "9845517097",
-          "familyName": "Rao",
-          "middleName": "N",
-          "whatsappNo": "9845517097"
+  "categoryName": "Healthcare",
+  "serviceDetails": [
+    {
+      "serviceName": "Healthcare Service",
+      "serivceDesc": "This is test description for healthcare service",
+      "servicePhotos": [
+        {
+          "photo1": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo2": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo3": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo4": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media"
         }
+      ],
+      "businessURL": {
+        "instagram": "https://www.instagram.com",
+        "whatsapp": "https://www.whatsapp.com",
+        "twitter": "https://www.twitter.com",
+        "youtube": "https://www.youtube.com"
+      },
+      "serviceAddress": [
+        {
+          "addressTitle": "57/2, Margosa Road",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "560064",
+          "firstName": "Test",
+          "lastName": "User",
+          "phoneNo": "1234567890",
+          "fromDay": "Monday",
+          "toDay": "Friday",
+          "fromTime": "10:00",
+          "toTime": "18:00",
+          "suburb": "Malleshwaram"
+        }
+      ],
+      "avgRatings": {
+        "$numberDecimal": "0"
+      },
+      "serviceRnR": [
+        {
+          "email": "test@email.com",
+          "name": "Test1",
+          "usrRatings": 4,
+          "description": "This is false review given for testing"
+        }
+      ],
+      "serviceReports": [
+        {
+          "email": "test@gmail.in",
+          "reportStmt": "This is text from textarea for reporting a service",
+          "reason": "Unkown"
+        }
+      ],
+      "subCategory1": {
+        "name": "Doctor"
+      },
+      "subCategory2": {
+        "name": "Peadiactrician"
+      },
+      "subCategory3": {
+        "name": ""
+      },
+      "subCategory4": {
+        "name": ""
+      },
+      "listedBy": {
+        "email": "test@gmail.com",
+        "name": "User Testing 123",
+        "phoneNo": "0192837465"
+      },
+      "createdAt": {
+        "$date": "2024-02-20T00:00:00.000Z"
       }
-    ],
-    []
+    },
+    {
+      "serviceName": "Healthcare Service 1",
+      "serivceDesc": "This is test description for healthcare service 1",
+      "servicePhotos": [
+        {
+          "photo1": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo2": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo3": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo4": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media"
+        }
+      ],
+      "businessURL": {
+        "instagram": "https://www.instagram.com",
+        "whatsapp": "https://www.whatsapp.com",
+        "twitter": "https://www.twitter.com",
+        "youtube": "https://www.youtube.com"
+      },
+      "serviceAddress": [
+        {
+          "addressTitle": "57/2, Margosa Road",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "560064",
+          "firstName": "Test",
+          "lastName": "User",
+          "phoneNo": "1234567890",
+          "fromDay": "Monday",
+          "toDay": "Friday",
+          "fromTime": "10:00",
+          "toTime": "18:00",
+          "suburb": "Malleshwaram"
+        }
+      ],
+      "avgRatings": {
+        "$numberDecimal": "0"
+      },
+      "serviceRnR": [
+        {
+          "email": "test@email.com",
+          "name": "Test1",
+          "usrRatings": 5,
+          "description": "This is false review given for testing"
+        },
+        {
+          "email": "test1@email.in",
+          "name": "Test 2",
+          "usrRatings": 4,
+          "description": "This is true review given for testing"
+        }
+      ],
+      "serviceReports": [
+        {
+          "email": "test@gmail.in",
+          "reportStmt": "This is text from textarea for reporting a service",
+          "reason": "Unkown"
+        }
+      ],
+      "subCategory1": {
+        "name": "Nurse"
+      },
+      "subCategory2": {
+        "name": "Peadiactrician"
+      },
+      "subCategory3": {
+        "name": ""
+      },
+      "subCategory4": {
+        "name": ""
+      },
+      "listedBy": {
+        "email": "test@gmail.com",
+        "name": "User Testing 123",
+        "phoneNo": "0192837465"
+      },
+      "createdAt": {
+        "$date": "2024-02-20T00:00:00.000Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d881469df0402e3f24b4f5"
+  },
+  "categoryName": "Education",
+  "serviceDetails": [
+    {
+      "serviceName": "Minerva Bean",
+      "serivceDesc": "Non sed et dolor con",
+      "servicePhotos": [
+        {
+          "photo1": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo2": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073347-Semi-Truck-Fact-scaled.webp?generation=1708683074112381&alt=media",
+          "photo3": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073332-car.jfif?generation=1708683074343209&alt=media",
+          "photo4": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073336-minibus.png?generation=1708683074360501&alt=media",
+          "_id": {
+            "$oid": "65dee5a32b8f86441fc3a904"
+          }
+        }
+      ],
+      "businessURL": {
+        "instagram": "Reprehenderit culpa",
+        "whatsapp": "Eius nisi facilis qu",
+        "twitter": "Laboriosam voluptas",
+        "youtube": "Ratione consequatur"
+      },
+      "serviceAddress": [
+        {
+          "addressTitle": "Nobis dolores delect",
+          "suburb": "Doddanekundi",
+          "city": "Chennai",
+          "state": "Tamil Nadu",
+          "country": "India",
+          "pincode": "400004",
+          "firstName": "Kelly",
+          "lastName": "Singleton",
+          "phoneNo": "4631254756",
+          "fromDay": "Saturday",
+          "toDay": "Saturday",
+          "fromTime": "05:36",
+          "toTime": "23:50",
+          "_id": {
+            "$oid": "65d881469df0402e3f24b4f8"
+          }
+        },
+        {
+          "addressTitle": "Veritatis quia quisq",
+          "suburb": "Malleswaram",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "123321",
+          "firstName": "Kiara",
+          "lastName": "Bell",
+          "phoneNo": "5913243546",
+          "fromDay": "Friday",
+          "toDay": "Thursday",
+          "fromTime": "21:00",
+          "toTime": "21:47",
+          "_id": {
+            "$oid": "65d881469df0402e3f24b4f9"
+          }
+        }
+      ],
+      "avgRatings": {
+        "$numberDecimal": "0"
+      },
+      "serviceRnR": [
+        {
+          "email": "kishor.p@codeswift.in",
+          "name": "Mr.RanjithKumarABB",
+          "usrRatings": 3,
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\nmolestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\nnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\noptio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\nobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam\nnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\ntenetur error, harum nesciunt ipsum debitis quas",
+          "_id": {
+            "$oid": "65dee5a32b8f86441fc3a907"
+          }
+        },
+        {
+          "email": "kishor.p@codeswift.in",
+          "name": "Mr.RanjithKumarABB",
+          "usrRatings": 3,
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\nmolestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\nnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\noptio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\nobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam\nnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\ntenetur error, harum nesciunt ipsum debitis quas",
+          "_id": {
+            "$oid": "65dee5a32b8f86441fc3a908"
+          }
+        }
+      ],
+      "serviceReports": [
+        {
+          "email": "",
+          "reportStmt": "",
+          "reason": "",
+          "_id": {
+            "$oid": "65d881469df0402e3f24b4fb"
+          }
+        }
+      ],
+      "subCategory1": {
+        "name": "College"
+      },
+      "subCategory2": {
+        "name": "CBSE"
+      },
+      "subCategory3": {
+        "name": "Government"
+      },
+      "listedBy": {
+        "email": "kishor.p@codeswift.in",
+        "name": "Mr.RanjithKumarABB",
+        "phoneNo": "9845517094"
+      },
+      "createdAt": {
+        "$date": "2024-02-23T11:28:06.875Z"
+      },
+      "_id": {
+        "$oid": "65dee5a32b8f86441fc3a903"
+      }
+    },
+    {
+      "serviceName": "Minerva 123 Bean",
+      "serivceDesc": "Esse lorem alias re",
+      "servicePhotos": [
+        {
+          "photo1": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo2": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073347-Semi-Truck-Fact-scaled.webp?generation=1708683074112381&alt=media",
+          "photo3": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073332-car.jfif?generation=1708683074343209&alt=media",
+          "photo4": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073336-minibus.png?generation=1708683074360501&alt=media",
+          "_id": {
+            "$oid": "65dc37a8cdb1610c909e51d8"
+          }
+        }
+      ],
+      "businessURL": {
+        "instagram": "Quas aut id sunt et",
+        "whatsapp": "Aperiam laborum quia",
+        "twitter": "Perferendis ea expli",
+        "youtube": "Reprehenderit non q"
+      },
+      "serviceAddress": [
+        {
+          "addressTitle": "Non excepturi repudi",
+          "suburb": "Malleswaram",
+          "city": "Chennai",
+          "state": "Tamil Nadu",
+          "country": "India",
+          "pincode": "Molestiae ab proiden",
+          "firstName": "Lev",
+          "lastName": "Gonzalez",
+          "phoneNo": "18",
+          "fromDay": "Wednesday",
+          "toDay": "Tuesday",
+          "fromTime": "03:28",
+          "toTime": "23:26",
+          "_id": {
+            "$oid": "65dc37a8cdb1610c909e51d4"
+          }
+        },
+        {
+          "addressTitle": "Aliquam cum molestia",
+          "suburb": "Itaque proident exe",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "Aut delectus non ne",
+          "firstName": "Patrick",
+          "lastName": "Dawson",
+          "phoneNo": "70",
+          "fromDay": "Sunday",
+          "toDay": "Saturday",
+          "fromTime": "22:29",
+          "toTime": "17:28",
+          "_id": {
+            "$oid": "65dc37a8cdb1610c909e51d5"
+          }
+        }
+      ],
+      "avgRatings": {
+        "$numberDecimal": "0"
+      },
+      "serviceRnR": [
+        {
+          "email": "kishor.p@codeswift.in",
+          "name": "Mr.RanjithKumarABB",
+          "usrRatings": 2,
+          "description": " Impedit sit sunt quaerat, odit,\ntenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\nquia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \nsapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\nrecusandae alias error harum maxime adipisci amet laborum. Perspiciatis \nminima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit",
+          "_id": {
+            "$oid": "65dee8b97e22eafe8d1ce1bd"
+          }
+        },
+        {
+          "email": "kishor.p@codeswift.in",
+          "name": "Mr.RanjithKumarABB",
+          "usrRatings": 3,
+          "description": "s vel sint commodi repudiandae consequuntur voluptatum laborum\nnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\noptio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\nobcaecati tenetur iure eius earum",
+          "_id": {
+            "$oid": "65deec817e22eafe8d1ce347"
+          }
+        },
+        {
+          "email": "kishor.p@codeswift.in",
+          "name": "Mr.RanjithKumarABB",
+          "usrRatings": 4,
+          "description": "um debitis quas aliquid. Reprehenderit,\nquia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \nsapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\nrecusandae alias error harum maxime adipisci amet laborum. Perspiciatis \nminima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit \nquibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur \nfugiat, temporibus enim commodi iusto libero magni deleniti quod quam \nconsequuntur! Commodi minima ",
+          "_id": {
+            "$oid": "65deed317e22eafe8d1ce383"
+          }
+        }
+      ],
+      "serviceReports": [
+        {
+          "email": "kishor.p@codeswift.in",
+          "reportStmt": "um debitis quas aliquid. Reprehenderit,\nquia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \nsapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\nrecusandae alias error harum maxime adipisci amet laborum. Perspiciatis \nminima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit \nquibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur \nfugiat, temporibus enim commodi iusto libero magni deleniti quod quam \nconsequuntur! Commodi minima ",
+          "reason": "Misinformation",
+          "_id": {
+            "$oid": "65df08297e22eafe8d1ced8b"
+          }
+        },
+        {
+          "email": "kishor.p@codeswift.in",
+          "reportStmt": "This is unwanted commercial content / spam promoted by the business owner againest all parties of governing body",
+          "reason": "Unwanted commercial content or spam",
+          "_id": {
+            "$oid": "65df08627e22eafe8d1cedbb"
+          }
+        },
+        {
+          "email": "kishor.p@codeswift.in",
+          "reportStmt": " aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\ntenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\nquia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \nsapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\nrecusandae alias error harum maxime adipisci amet laborum. Perspiciatis \nminima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit \nquibusdam sed amet tempora. Si",
+          "reason": "Child Abuse",
+          "_id": {
+            "$oid": "65df08a27e22eafe8d1cee11"
+          }
+        }
+      ],
+      "subCategory1": {
+        "name": "School"
+      },
+      "subCategory2": {
+        "name": "State"
+      },
+      "subCategory3": {
+        "name": "Private"
+      },
+      "listedBy": {
+        "email": "kishor.p@codeswift.in",
+        "name": "Mr.RanjithKumarABB",
+        "phoneNo": "9845517094"
+      },
+      "createdAt": {
+        "$date": "2024-02-26T07:03:04.461Z"
+      },
+      "_id": {
+        "$oid": "65dc37a8cdb1610c909e51d3"
+      }
+    },
+    {
+      "serviceName": "Alfreda Deleon",
+      "serivceDesc": "Hic culpa suscipit e",
+      "servicePhotos": [
+        {
+          "photo1": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073336-minibus.png?generation=1708683074360501&alt=media",
+          "photo2": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073332-car.jfif?generation=1708683074343209&alt=media",
+          "photo3": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073347-Semi-Truck-Fact-scaled.webp?generation=1708683074112381&alt=media",
+          "photo4": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "_id": {
+            "$oid": "65dc37cbcdb1610c909e51e6"
+          }
+        }
+      ],
+      "businessURL": {
+        "instagram": "Sunt et sed consecte",
+        "whatsapp": "Libero sint vel cons",
+        "twitter": "Non maxime dolor aut",
+        "youtube": "Iure nihil lorem mag"
+      },
+      "serviceAddress": [
+        {
+          "addressTitle": "Nisi nobis sed quia ",
+          "suburb": "Malleshwaram",
+          "city": "Chennai",
+          "state": "Tamil Nadu",
+          "country": "India",
+          "pincode": "123456",
+          "firstName": "Ayanna",
+          "lastName": "Cooke",
+          "phoneNo": "59",
+          "fromDay": "Wednesday",
+          "toDay": "Thursday",
+          "fromTime": "09:33",
+          "toTime": "06:53",
+          "_id": {
+            "$oid": "65dc37cbcdb1610c909e51e7"
+          }
+        },
+        {
+          "addressTitle": "Excepteur suscipit s",
+          "suburb": "Malleshwaram",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "654321",
+          "firstName": "Vernon",
+          "lastName": "Whitney",
+          "phoneNo": "54",
+          "fromDay": "Sunday",
+          "toDay": "Wednesday",
+          "fromTime": "21:47",
+          "toTime": "12:19",
+          "_id": {
+            "$oid": "65dc37cbcdb1610c909e51e8"
+          }
+        }
+      ],
+      "avgRatings": {
+        "$numberDecimal": "0"
+      },
+      "serviceRnR": [
+        {
+          "email": "",
+          "name": "",
+          "usrRatings": 0,
+          "description": "",
+          "_id": {
+            "$oid": "65dc37cbcdb1610c909e51e9"
+          }
+        }
+      ],
+      "serviceReports": [
+        {
+          "email": "",
+          "reportStmt": "",
+          "reason": "",
+          "_id": {
+            "$oid": "65dc37cbcdb1610c909e51ea"
+          }
+        }
+      ],
+      "subCategory1": {
+        "name": "College"
+      },
+      "subCategory2": {
+        "name": "ICSE"
+      },
+      "subCategory3": {
+        "name": "Private"
+      },
+      "listedBy": {
+        "email": "kishor.p@codeswift.in",
+        "name": "Mr.RanjithKumarABB",
+        "phoneNo": "9845517094"
+      },
+      "createdAt": {
+        "$date": "2024-02-26T07:03:39.815Z"
+      },
+      "_id": {
+        "$oid": "65dc37cbcdb1610c909e51e5"
+      }
+    },
+    {
+      "serviceName": "India Institute of Technology",
+      "serivceDesc": " aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\ntenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\nquia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \nsapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\nrecusandae alias error harum maxime adipisci amet laborum. Perspiciatis \nminima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit \nquibusdam sed amet tempora. Si",
+      "servicePhotos": [
+        {
+          "photo1": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1709123853705-pickup.jfif?generation=1709123855278466&alt=media",
+          "photo2": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1709123853693-6mb.jpg?generation=1709123855298158&alt=media",
+          "photo3": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1709123853703-goodstruck.jpg?generation=1709123855520579&alt=media",
+          "photo4": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1709123853708-Semi-Truck-Fact-scaled.webp?generation=1709123855584549&alt=media",
+          "_id": {
+            "$oid": "65df29207fba30a16692efe2"
+          }
+        }
+      ],
+      "businessURL": {
+        "instagram": "www.instagram.com",
+        "whatsapp": "www.whatsapp.com",
+        "twitter": "www.twitter.com",
+        "youtube": "www.youtube.com"
+      },
+      "serviceAddress": [
+        {
+          "addressTitle": "rem! Officiis iure rerum voluptates a cumque ve",
+          "suburb": "Kolkata",
+          "city": "Kolkata",
+          "state": "West Bengal",
+          "country": "India",
+          "pincode": "100002",
+          "firstName": "First ",
+          "lastName": "Name",
+          "phoneNo": "1234567890",
+          "fromDay": "Monday",
+          "toDay": "Saturday",
+          "fromTime": "10:00",
+          "toTime": "18:04",
+          "_id": {
+            "$oid": "65df29207fba30a16692efe3"
+          }
+        },
+        {
+          "addressTitle": " voluptates a cumque verem! Officiis iure rerum",
+          "suburb": "Malleswaram",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "560064",
+          "firstName": "Last",
+          "lastName": "Name",
+          "phoneNo": "9876543211",
+          "fromDay": "Tuesday",
+          "toDay": "Sunday",
+          "fromTime": "12:05",
+          "toTime": "20:05",
+          "_id": {
+            "$oid": "65df29207fba30a16692efe4"
+          }
+        }
+      ],
+      "avgRatings": {
+        "$numberDecimal": "0"
+      },
+      "serviceRnR": [
+        {
+          "email": "",
+          "name": "",
+          "usrRatings": 0,
+          "description": "",
+          "_id": {
+            "$oid": "65df29207fba30a16692efe5"
+          }
+        }
+      ],
+      "serviceReports": [
+        {
+          "email": "",
+          "reportStmt": "",
+          "reason": "",
+          "_id": {
+            "$oid": "65df29207fba30a16692efe6"
+          }
+        }
+      ],
+      "subCategory1": {
+        "name": "College"
+      },
+      "subCategory2": {
+        "name": "CBSE"
+      },
+      "subCategory3": {
+        "name": "Government"
+      },
+      "listedBy": {
+        "email": "tuvyqivi@mailinator.com",
+        "name": "Ms. Kiara K Ruiz",
+        "phoneNo": "3622222222"
+      },
+      "_id": {
+        "$oid": "65df29207fba30a16692efe1"
+      },
+      "createdAt": {
+        "$date": "2024-02-28T12:37:52.970Z"
+      }
+    }
   ],
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "65d33543f2511fc86a808e6c"
+    "$oid": "65dc394bcdb1610c909e51f7"
   },
-  "categories": [
-    [
-      {
-        "categoryName": "Event Organizing",
-        "category": [
-          {
-            "serviceName": "This is Event Organizing service listed by the test user",
-            "servicePhotos": {
-              "photo1": "",
-              "photo2": "",
-              "photo3": "",
-              "photo4": ""
-            },
-            "serviceDesc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-            "serviceLocation": [
-              {
-                "coords": {}
-              }
-            ],
-            "address": [
-              {
-                "addressTitle": "Address Title ",
-                "state": "Maharashtra",
-                "city": "Mumbai",
-                "pincode": "400708",
-                "country": "India"
-              }
-            ],
-            "businessUrl": {
-              "youtubeUrl": "Youtube",
-              "instagramUrl": "Instagram",
-              "twitterUrl": "Twitter"
-            },
-            "workingHours": {
-              "fromDay": "Wednesday",
-              "toDay": "Sunday",
-              "fromTime": "16:18",
-              "toTime": "16:18"
-            },
-            "serviceReviews": [
-              {
-                "email": "kishor.p@codeswift.in",
-                "name": "Mr.RanjithKumarABB",
-                "usrRatings": 1,
-                "description": "TTTTTTTTTTTTTestablished fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various "
-              }
-            ],
-            "serviceReports": "THTHTHTHTH that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various ",
-            "subCategory1": "Restaurants",
-            "subCategory2": "Italian",
-            "subCategory3": "Take-away",
-            "avgRatings": 3
+  "categoryName": "Event Organizing",
+  "serviceDetails": [
+    {
+      "serviceName": "Carly York",
+      "serivceDesc": "Ratione temporibus e",
+      "servicePhotos": [
+        {
+          "photo1": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo2": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo3": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "photo4": "https://storage.googleapis.com/download/storage/v1/b/bda-file-server-dev.appspot.com/o/files%2Fbda-1708683073343-bus.jfif?generation=1708683074032378&alt=media",
+          "_id": {
+            "$oid": "65dc394bcdb1610c909e51f9"
           }
-        ]
-      }
-    ]
-  ],
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "65d33558f2511fc86a808e6d"
-  },
-  "categories": [
-    [
-      {
-        "categoryName": "Food & Catering",
-        "category": [
-          {
-            "serviceName": "This is Food & Catering service listed by the test user",
-            "servicePhotos": {
-              "photo1": "",
-              "photo2": "",
-              "photo3": "",
-              "photo4": ""
-            },
-            "serviceDesc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-            "serviceLocation": [
-              {}
-            ],
-            "address": [
-              {
-                "addressTitle": "Address Title ",
-                "state": "Maharashtra",
-                "city": "Mumbai",
-                "pincode": "400708",
-                "country": "India"
-              }
-            ],
-            "businessUrl": {
-              "youtubeUrl": "Youtube",
-              "instagramUrl": "Instagram",
-              "twitterUrl": "Twitter"
-            },
-            "workingHours": {
-              "fromDay": "Wednesday",
-              "toDay": "Sunday",
-              "fromTime": "16:18",
-              "toTime": "16:18"
-            },
-            "serviceReviews": [
-              {
-                "email": "test@email.com",
-                "name": "Test User",
-                "usrRatings": "4",
-                "description": "This is test review"
-              }
-            ],
-            "subCategory1": "Restaurants",
-            "subCategory2": "Italian",
-            "subCategory3": "Take-away",
-            "avgRatings": 4
-          }
-        ],
-        "userDetails": {
-          "_id": "65ce3ffd18e5d91cee8b08a8",
-          "name": "RaoRanjithNAB",
-          "userPlanHistory": [],
-          "serviceCategory": [
-            {
-              "category": "police2",
-              "notificationFlag": true,
-              "serviceLocation": "Mumbai",
-              "locationName": [
-                {
-                  "_id": "65cb4e4f638071de28651ff3",
-                  "city": "Mumbai",
-                  "lat": 19.0761,
-                  "lng": 72.8775,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Maharashtra"
-                },
-                {
-                  "_id": "65cb4e4f638071de28651ff5",
-                  "city": "Bangalore",
-                  "lat": 12.9789,
-                  "lng": 77.5917,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Karnataka"
-                }
-              ],
-              "type": "Business",
-              "_id": "65ce5041ae62c41c7548508d"
-            },
-            {
-              "category": "Food54321",
-              "notificationFlag": true,
-              "serviceLocation": "Chennai",
-              "locationName": [
-                {
-                  "_id": "65cb4e4f638071de28651ff6",
-                  "city": "Chennai",
-                  "lat": 13.0825,
-                  "lng": 80.275,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Tamil Nadu"
-                },
-                {
-                  "_id": "65cb4e4f638071de28651ff7",
-                  "city": "Hyderabad",
-                  "lat": 17.385,
-                  "lng": 78.4867,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Telangana"
-                }
-              ],
-              "type": "Social",
-              "_id": "65ce535987cf9870e4b8e7ad"
-            }
-          ],
-          "firstName": "Ranjith",
-          "lastName": "AB",
-          "phone": "9845517094",
-          "email": "ranjith1234@gmail.com",
-          "password": "12346",
-          "currentLocation": "Surat",
-          "__v": 0,
-          "businessNo": "9845517097",
-          "familyName": "Rao",
-          "middleName": "N",
-          "whatsappNo": "9845517097"
         }
-      }
-    ]
-  ],
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "65d33574f2511fc86a808e6e"
-  },
-  "categories": [
-    [
-      {
-        "categoryName": "Healthcare",
-        "category": [
-          {
-            "serviceName": "This is Healthcare service name entered by the test user,This is another very very very long service name entered by the test user",
-            "servicePhotos": {
-              "photo1": "",
-              "photo2": "",
-              "photo3": "",
-              "photo4": ""
-            },
-            "serviceDesc": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-            "serviceLocation": [
-              {}
-            ],
-            "address": [
-              {
-                "addressTitle": "Address Title ",
-                "state": "Maharashtra",
-                "city": "Mumbai",
-                "pincode": "400708",
-                "country": "India"
-              }
-            ],
-            "businessUrl": {
-              "youtubeUrl": "Youtube",
-              "instagramUrl": "Instagram",
-              "twitterUrl": "Twitter"
-            },
-            "workingHours": {
-              "fromDay": "Wednesday",
-              "toDay": "Sunday",
-              "fromTime": "16:18",
-              "toTime": "16:18"
-            },
-            "serviceReviews": [
-              {
-                "email": "test@email.com",
-                "name": "Test User",
-                "usrRatings": "4",
-                "description": "This is test review"
-              }
-            ],
-            "subCategory1": "Restaurants",
-            "subCategory2": "Italian",
-            "subCategory3": "Take-away",
-            "avgRatings": 2
+      ],
+      "businessURL": {
+        "instagram": "Occaecat illum et e",
+        "whatsapp": "Aut sunt et molliti",
+        "twitter": "Incidunt saepe vel ",
+        "youtube": "Vel labore sunt duci"
+      },
+      "serviceAddress": [
+        {
+          "addressTitle": "Irure dolorem eaque ",
+          "suburb": "Delhi",
+          "city": "Delhi",
+          "state": "Delhi",
+          "country": "India",
+          "pincode": "100001",
+          "firstName": "Dana",
+          "lastName": "Avery",
+          "phoneNo": "96",
+          "fromDay": "Tuesday",
+          "toDay": "Sunday",
+          "fromTime": "12:42",
+          "toTime": "01:25",
+          "_id": {
+            "$oid": "65dc394bcdb1610c909e51fa"
           }
-        ],
-        "userDetails": {
-          "_id": "65ce3ffd18e5d91cee8b08a8",
-          "name": "RaoRanjithNAB",
-          "userPlanHistory": [],
-          "serviceCategory": [
-            {
-              "category": "police2",
-              "notificationFlag": true,
-              "serviceLocation": "Mumbai",
-              "locationName": [
-                {
-                  "_id": "65cb4e4f638071de28651ff3",
-                  "city": "Mumbai",
-                  "lat": 19.0761,
-                  "lng": 72.8775,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Maharashtra"
-                },
-                {
-                  "_id": "65cb4e4f638071de28651ff5",
-                  "city": "Bangalore",
-                  "lat": 12.9789,
-                  "lng": 77.5917,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Karnataka"
-                }
-              ],
-              "type": "Business",
-              "_id": "65ce5041ae62c41c7548508d"
-            },
-            {
-              "category": "Food54321",
-              "notificationFlag": true,
-              "serviceLocation": "Chennai",
-              "locationName": [
-                {
-                  "_id": "65cb4e4f638071de28651ff6",
-                  "city": "Chennai",
-                  "lat": 13.0825,
-                  "lng": 80.275,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Tamil Nadu"
-                },
-                {
-                  "_id": "65cb4e4f638071de28651ff7",
-                  "city": "Hyderabad",
-                  "lat": 17.385,
-                  "lng": 78.4867,
-                  "country": "India",
-                  "iso2": "IN",
-                  "state": "Telangana"
-                }
-              ],
-              "type": "Social",
-              "_id": "65ce535987cf9870e4b8e7ad"
-            }
-          ],
-          "firstName": "Ranjith",
-          "lastName": "AB",
-          "phone": "9845517094",
-          "email": "ranjith1234@gmail.com",
-          "password": "12346",
-          "currentLocation": "Surat",
-          "__v": 0,
-          "businessNo": "9845517097",
-          "familyName": "Rao",
-          "middleName": "N",
-          "whatsappNo": "9845517097"
+        },
+        {
+          "addressTitle": "Doloribus voluptatem",
+          "suburb": "Andheri",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "country": "India",
+          "pincode": "400707",
+          "firstName": "Hilda",
+          "lastName": "Frank",
+          "phoneNo": "23",
+          "fromDay": "Sunday",
+          "toDay": "Thursday",
+          "fromTime": "15:43",
+          "toTime": "08:50",
+          "_id": {
+            "$oid": "65dc394bcdb1610c909e51fb"
+          }
         }
+      ],
+      "avgRatings": {
+        "$numberDecimal": "0"
+      },
+      "serviceRnR": [
+        {
+          "email": "",
+          "name": "",
+          "usrRatings": 0,
+          "description": "",
+          "_id": {
+            "$oid": "65dc394bcdb1610c909e51fc"
+          }
+        }
+      ],
+      "serviceReports": [
+        {
+          "email": "",
+          "reportStmt": "",
+          "reason": "",
+          "_id": {
+            "$oid": "65dc394bcdb1610c909e51fd"
+          }
+        }
+      ],
+      "subCategory1": {
+        "name": "Party"
+      },
+      "subCategory2": {
+        "name": "Night-Dance"
+      },
+      "subCategory3": {
+        "name": "Public"
+      },
+      "listedBy": {
+        "email": "kishor.p@codeswift.in",
+        "name": "Mr.RanjithKumarABB",
+        "phoneNo": "9845517094"
+      },
+      "_id": {
+        "$oid": "65dc394bcdb1610c909e51f8"
+      },
+      "createdAt": {
+        "$date": "2024-02-26T07:10:03.217Z"
       }
-    ]
+    }
   ],
   "__v": 0
 }]
