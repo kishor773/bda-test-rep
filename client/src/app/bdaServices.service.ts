@@ -7,10 +7,11 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class ServicesService {
-
+  params: any = [];
   constructor(private http: HttpClient) { }
 
   baseUrl = `http://localhost:3000`
+  // baseUrl = `https://bda-server-dev.el.r.appspot.com`
 
   public getSessionStorageHandler(data: any) {
     let sessionData: any = sessionStorage.getItem(data);
@@ -24,11 +25,50 @@ export class ServicesService {
   //  API's for Category Collections
   getCategoriesServiceData() {
     let url = `${this.baseUrl}/api/categories/getAll`;
-    return this.http.get(url);
+
+    // Retrieve token from session storage
+    let token = this.getSessionStorageHandler('token');
+
+    // Construct the HTTP headers with the token
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      }),
+    };
+
+    // Make the HTTP GET request with the constructed headers
+    return this.http.get(url, httpOptions);
   }
   getCategoriesById(catId: any) {
     let url = `${this.baseUrl}/api/categories/getAll/${catId}`;
-    return this.http.get(url)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.get(url, httpOptions)
+  }
+
+  getCategoryByCategoryName(name: any) {
+    let url = `${this.baseUrl}/api/categories/getByName`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+      })
+    }
+    let body = {
+      "category": name
+    }
+    console.log(body);
+
+    return this.http.post(url, body, httpOptions)
   }
   // postCategoriesServiceData(data: any) {
   //   let url = `${this.baseUrl}/api/categories/postAll`;
@@ -39,24 +79,66 @@ export class ServicesService {
   //   return this.http.put(url, data);
   // }
 
-  //  API's for Services Collections
-  //API's for selected categories from service collection
+  //!API's for selected categories from service collection
   postselectedCategoriesServiceData(data: any) {
     let url = `${this.baseUrl}/api/services/postAll`;
-    return this.http.post(url, data)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.post(url, data, httpOptions)
   }
   getServicesServiceData() {
     let url = `${this.baseUrl}/api/services/getAll`;
-    return this.http.get(url)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.get(url, httpOptions)
   }
   getServiceById(serviceId: any) {
-    let url = `${this.baseUrl}/api/services/getAll/${serviceId}`;
-    return this.http.get(url)
+    let url = `${this.baseUrl}/api/services/getAll/serviceDetails/${serviceId}`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.get(url, httpOptions)
   }
-
+  getServicesByCategoryName(categoryName: any) {
+    let url = `${this.baseUrl}/api/services/getByCategoryName/${categoryName}`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.get(url, httpOptions)
+  }
   sortServiceBy() {
     let url = `${this.baseUrl}/api/services/sortBy`;
-    return this.http.get(url)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.get(url, httpOptions)
   }
   // postServicesServiceData(data:any){
   //   let url="http://localhost:3000/api/services/postAll";
@@ -64,57 +146,128 @@ export class ServicesService {
   // }
   putServicesServiceData(_id: any, data: any) {
     let url = `${this.baseUrl}/api/services/updateAll/${_id}`;
-    return this.http.put(url, data)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.put(url, data, httpOptions)
   }
   getLoginDataService() {
     let url = `${this.baseUrl}/api/login`;
-    return this.http.get(url);
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.get(url, httpOptions);
   }
 
   postLoginDataService(data: any) {
     let url = `${this.baseUrl}/login-user`;
-    return this.http.post(url, data)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.post(url, data, httpOptions)
   }
 
-  // API's for signup
+  //! API's for signup
   postSignupDataService(data: any) {
     let url = `${this.baseUrl}/api/signup/postAll`;
+
     return this.http.post(url, data);
   }
   //API's for indian_state_city
   getAllIndianCitiesStates() {
     let url = `${this.baseUrl}/api//indian_states_cities/getAll`;
-    return this.http.get(url)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}` // No "Bearer" prefix
+      })
+    }
+    return this.http.get(url, httpOptions)
   }
 
   putUsersServiceData(userId: any, data: any) {
     let url = `${this.baseUrl}/api/users/updateAll/${userId}`;
-    return this.http.put(url, data)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.put(url, data, httpOptions)
   }
 
   //!API's for Search Collection
 
   getAllSearches() {
     let url = `${this.baseUrl}/api/search/getAll`;
-    return this.http.get(url)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.get(url, httpOptions)
   }
 
   postSearchedData(data: any) {
     let url = `${this.baseUrl}/api/search/postAll`;
-    return this.http.post(url, data)
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.post(url, data, httpOptions)
   }
 
   //!API's for Location collection for Search-loc page
   getRecentLocationDataService() {
     let url = `${this.baseUrl}/api/locations/getAll`;
-    return this.http.get(url);
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      })
+    }
+    return this.http.get(url, httpOptions);
   }
 
   updateLocationUser(_id: any, data: any) {
     console.log(_id, data);
 
     let url = `${this.baseUrl}/api/locations/updateAll/${_id}`;
-    return this.http.put(url, data);
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.put(url, data, httpOptions);
   }
 
   // getLocationName(latitude: number, longitude: number) {
@@ -135,7 +288,55 @@ export class ServicesService {
   //   });
   // }
 
+  upload(file: any): Observable<any> {
+    // Create form data
+    const formData = new FormData();
+    let url = `${this.baseUrl}/api/image/upload`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `${token}`,
+      })
+    }
+    // Store form name as "file" with file data
+    formData.append('files', file, file.name);
 
+    // Make http post request over api
+    // with formData as req
 
+    console.log(url, formData, httpOptions);
+
+    return this.http.post(url, formData, httpOptions);
+  }
+
+  //FULL-TEXT-SEACRCH-SERVICES
+  searchServices(query: any) {
+    let url = `${this.baseUrl}/services/${query}`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `${token}`,
+        params: this.params,
+      }),
+    };
+
+    console.log(httpOptions);
+
+    return this.http.get(url, httpOptions);
+  }
+
+  getFiltersServicesData(filterObj: any) {
+    let url = `${this.baseUrl}/api/services/filterServices`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+
+      })
+    }
+    return this.http.post(url, filterObj, httpOptions);
+  }
 
 }

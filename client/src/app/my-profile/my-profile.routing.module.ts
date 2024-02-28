@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { YourProfComponent } from './your-prof/your-prof.component';
-import { ListedServicesComponent } from './selected-categories/selected-categories.component';
+import { SelectedCategories } from './selected-categories/selected-categories.component';
 const routes: Routes = [
     {
         path: 'my-profile',
@@ -9,17 +9,20 @@ const routes: Routes = [
     },
     {
         path: 'categories',
-        component: ListedServicesComponent,
-    }, {
+        component: SelectedCategories,
+    }, 
+    {
         path: 'categories/:id',
-        component: ListedServicesComponent,
+        component: SelectedCategories,
     },
+
     // {
-    //     path: 'my-profile',
-    //     component: YourProfComponent,
-    // }, {
-    //     path: 'my-profile',
-    //     component: YourProfComponent,
+    //     path: 'categories',
+    //     component: ListedServicesComponent,
+    // },
+    // {
+    //     path: 'categories/:id',
+    //     component: ListedServicesComponent,
     // },
 ];
 

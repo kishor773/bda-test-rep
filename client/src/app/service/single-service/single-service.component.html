@@ -1,5 +1,5 @@
-<!-- <app-header></app-header> -->
-<!-- <app-search-loc></app-search-loc> -->
+<app-header></app-header>
+<app-search-loc></app-search-loc>
 <div class="contanier-fluid"><br>
     <div class="row">
         <div class="col-1"></div>
@@ -13,12 +13,11 @@
                 <div class="card" id="img-block">
                     <div class="listing-img-carousel">
                         <button (click)="scrollLeft()"></button>
-                        <span #widgetsContent>
-                            <img src="../../../assets/images/b1.jpg">
-                            <img src="../../../assets/images/b2.jpg">
-                            <img src="../../../assets/images/b3.jpg">
-                            <img src="../../../assets/images/b4.jpg">
-                            <img src="../../../assets/images/b5.jpg">
+                        <span #widgetsContent *ngFor="let img of singleServiceResp.servicePhotos">
+                            <img src="{{img.photo1}}">
+                            <img src="{{img.photo2}}">
+                            <img src="{{img.photo3}}">
+                            <img src="{{img.photo4}}">
                         </span>
                         <button (click)="scrollRight()"></button>
                     </div>
@@ -51,8 +50,8 @@
                                 </div>
                                 <p>Write a review:</p>
                                 <textarea name="writeReview" id="writeReview" class="form-control shadow-none"
-                                    (change)="writeReview($event)" minlength="100" maxlength="500"
-                                    formControlName="description" [(ngModel)]="reviewContent"></textarea>
+                                    (change)="writeReview($event)" [(ngModel)]="reviewContent" minlength="100"
+                                    maxlength="500" formControlName="description"></textarea>
                                 <button class="btn"
                                     [disabled]="reviewContent.length < 100 || reviewContent.length > 500"
                                     (click)="submit()">Submit</button>
@@ -92,7 +91,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <!-- {{singleServiceResp.socialUrls|json}} -->
-                                <ul *ngFor="let data of singleServiceResp.address" class="contact">
+                                <ul *ngFor="let data of singleServiceResp.serviceAddress" class="contact">
                                     <li>
                                         <span><img src="../../../assets/icons/geo-alt (2).png" alt=""></span>
                                         <span>{{data.addressTitle}},<br>{{data.city}},
@@ -115,21 +114,42 @@
                                         <span><img src="../../../assets/icons/email.png" alt=""></span>
                                         <span>{{data.phoneNo}}</span>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <span><img src="../../../assets/icons/youtube.png" alt=""></span>
-                                        <span> {{singleServiceResp.businessUrl.youTubeUrl}}</span>
+                                        <span> {{singleServiceResp.businessURL.youtube}}</span>
                                     </li>
                                     <li>
                                         <span><img src="../../../assets/icons/whatsapp.png" alt=""></span>
-                                        <span>{{singleServiceResp.businessUrl.whatsappUrl}}</span>
+                                        <span>{{singleServiceResp.businessURL.whatsapp}}</span>
                                     </li>
                                     <li>
                                         <span><img src="../../../assets/icons/instagram.png" alt=""></span>
-                                        <span>{{singleServiceResp.businessUrl.instagramUrl}}</span>
+                                        <span>{{singleServiceResp.businessURL.instagram}}</span>
                                     </li>
                                     <li>
                                         <span><img src="../../../assets/icons/twitter-x.png" alt=""></span>
-                                        <span>{{singleServiceResp.businessUrl.twitterUrl}}</span>
+                                        <span>{{singleServiceResp.businessURL.twitter}}</span>
+                                    </li>-->
+                                </ul>
+
+                            </div>
+                            <div class="row">
+                                <ul class="contact">
+                                    <li>
+                                        <span><img src="../../../assets/icons/youtube.png" alt=""></span>
+                                        <span> {{singleServiceResp.businessURL.youtube}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/whatsapp.png" alt=""></span>
+                                        <span>{{singleServiceResp.businessURL.whatsapp}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/instagram.png" alt=""></span>
+                                        <span>{{singleServiceResp.businessURL.instagram}}</span>
+                                    </li>
+                                    <li>
+                                        <span><img src="../../../assets/icons/twitter-x.png" alt=""></span>
+                                        <span>{{singleServiceResp.businessURL.twitter}}</span>
                                     </li>
                                 </ul>
                             </div>

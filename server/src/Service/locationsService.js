@@ -45,7 +45,8 @@ module.exports.putLocationsDataService = async (_id, locationsData) => {
             '_id': _id,
         }
         const options = { new: true }
-        var data = await locationsModel.findOneAndUpdate(filter, locationsData, options);
+        var data = await locationsModel.updateOne(filter, locationsData,options);
+        console.log(data,"data")
         return data;
     }
     catch (error) {

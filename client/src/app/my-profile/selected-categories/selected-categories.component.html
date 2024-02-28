@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <!-- <app-header></app-header> -->
+    <app-header></app-header>
     <div class="row">
         <div class="col-3">
             <app-side-prof></app-side-prof>
@@ -18,7 +18,7 @@
                                             <label for="businessName">Business Name <span
                                                     class="mandatoryField">*</span></label>
                                             <input type="text" class="form-control shadow-none" name="businessName"
-                                                id="businessName" formControlName="serviceName">
+                                                id="businessName" (change)="businessName($event)" >
                                         </div>
                                     </div><br>
                                     <div class="row">
@@ -26,7 +26,7 @@
                                             <label for="shortDescription">Short Description <span
                                                     class="mandatoryField">*</span></label>
                                             <textarea class="form-control shadow-none" name="shortDescription"
-                                                id="shortDescription" formControlName="serviceDesc"></textarea>
+                                                id="shortDescription" (change)="shortDesc($event)"></textarea>
                                         </div>
                                     </div><br>
                                     <div class="row">
@@ -78,7 +78,6 @@
                                                     }}
                                                 </option>
                                             </select>
-
                                         </div>
                                         <!-- <div class="col-sm">
                                 <label for="subCat4">Sub Category 4 </label>
@@ -88,101 +87,152 @@
                                 </select>
                             </div> -->
                                     </div><br>
-                                    <p>Address</p>
-                                    <div class="row address-row">
-                                        <br>
-                                        <table class="table table-responsive table-bordered text-center">
-                                            <thead>
-                                                <tr>
-                                                    <th>Address Title</th>
-                                                    <th>City</th>
-                                                    <th>State</th>
-                                                    <th>Country</th>
-                                                    <th>Pincode</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><textarea name="addressTitle" class="form-control shadow-none"
-                                                            id="addressTitle" [value]=""
-                                                            formControlName="addressTitle"></textarea></td>
-                                                    <td><select name="city" id="city" class="form-control shadow-none"
-                                                            (change)="cityHandler($event)" formControlName="city">
-                                                            <option value=""></option>
-                                                            <option *ngFor="let add of addressArr" [value]=add.city>
-                                                                {{add.city}}
-                                                            </option>
-                                                        </select></td>
-                                                    <td>
-                                                        <select name="state" id="state" class="form-control shadow-none"
-                                                            (change)="stateHandler($event)" formControlName="state">
-                                                            <option value=""></option>
-                                                            <option *ngFor="let add of addressArr" [value]=add.state>
-                                                                {{add.state}}
-                                                            </option>
-                                                        </select>
-
-                                                    </td>
-                                                    <td><select name="country" id="country"
-                                                            class="form-control shadow-none"
-                                                            (change)="countryHandler($event)" formControlName="country">
-                                                            <option value=""></option>
-                                                            <option *ngFor="let add of addressArr" [value]=add.country>
-                                                                {{add.country}}
-                                                            </option>
-                                                        </select></td>
-                                                    <td><input type="text" name="pincode" id="pincode"
-                                                            class="form-control shadow-none" [value]="" max="6"
-                                                            formControlName="pincode"></td>
-                                                    <td>
-                                                        <!-- <button type="button" (click)="deleteAddress(i)">Delete</button> -->
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <!-- <p>Address</p><div class="row address-row"></div> -->
+                                    <div class="container-accordion">
+                                        <div class="accordion">
+                                            <div class="option">
+                                                <!-- <input class="toggle" [id]="i" type="checkbox" /> -->
+                                                <input class="toggle" id="acc" type="checkbox" />
+                                                <!-- <label class="title" [for]="i"> -->
+                                                <label class="title" for="acc">
+                                                    <div class="row title-row">
+                                                        Address, Contact Details, Working Hours
+                                                    </div>
+                                                </label>
+                                                <div class="content">
+                                                    <div class="row content-row"
+                                                        *ngFor="let locations of selectedLocationsForCategories;let i=index">
+                                                        <!-- {{selectedLocationsForCategories|json}} -->
+                                                        <div class="row">
+                                                            <div class="col-sm">
+                                                                <label for="addressTitle"> Address Title</label>
+                                                                <textarea name="addressTitle"
+                                                                    class="form-control shadow-none" id="addressTitle"
+                                                                    (change)="addressTitle($event,i)"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm">
+                                                                <label for="suburban">Suburban</label>
+                                                                <input type="text" name="suburban" id="suburban"
+                                                                    (change)="suburban($event,i)"
+                                                                    class="form-control shadow-none">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="city">City</label>
+                                                                <select name="city" id="city"
+                                                                    class="form-control shadow-none"
+                                                                    (change)="cityHandler($event,i)">
+                                                                    <option [ngValue]="locations.city">
+                                                                        {{locations.city}}
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm"><label for="state">State</label><select
+                                                                    name="state" id="state"
+                                                                    class="form-control shadow-none"
+                                                                    (change)="stateHandler($event,i)">
+                                                                    <option [ngValue]="locations.state">
+                                                                        {{locations.state}}
+                                                                    </option>
+                                                                </select></div>
+                                                            <div class="col-sm"><label
+                                                                    for="country">Country</label><select name="country"
+                                                                    id="country" class="form-control shadow-none"
+                                                                    (change)="countryHandler($event,i)">
+                                                                    <option [ngValue]="locations.country">India</option>
+                                                                </select></div>
+                                                            <div class="col-sm"><label
+                                                                    for="pincode">Pincode</label><input type="number"
+                                                                    name="pincode" id="pincode"
+                                                                    class="form-control shadow-none" [value]="" max="6"
+                                                                    (change)="pincodeHandler($event,i)"></div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm">
+                                                                <label for="fromTime">From Time</label>
+                                                                <input type="time" name="fromTime"
+                                                                    class="form-control shadow-none" id="fromTime"
+                                                                    (change)="fromTime($event,i)">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="toTime">To Time</label>
+                                                                <input type="time" name="toTime"
+                                                                    class="form-control shadow-none" id="toTime"
+                                                                    formControlName="toTime"
+                                                                    (change)="toTime($event,i)">
+                                                            </div>
+                                                            <div class="col-sm"><label for="fromDay">From Day</label>
+                                                                <select name="fromDay" id="fromDay"
+                                                                    class="form-control shadow-none"
+                                                                    (change)="fromDay($event,i)">
+                                                                    <option value=""></option>
+                                                                    <option *ngFor="let days of daysOfWeek"
+                                                                        [value]=days.name>
+                                                                        {{days.name}}
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="toDay">To Day</label>
+                                                                <select name="toDay" id="toDay"
+                                                                    class="form-control shadow-none"
+                                                                    (change)="toDay($event,i)">
+                                                                    <option value=""></option>
+                                                                    <option *ngFor="let days of daysOfWeek"
+                                                                        [value]=days.name>
+                                                                        {{days.name}}
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm">
+                                                                <label for="firstName">First Name</label>
+                                                                <input type="text" name="firstName" id="firstName"
+                                                                    class="form-control shadow-none" [value]=""
+                                                                    (change)="firstName($event,i)">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="lastName">Last Name</label>
+                                                                <input type="text" name="lastName" id="lastName"
+                                                                    class="form-control shadow-none" [value]=""
+                                                                    (change)="lastName($event,i)">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="phone">Phone No</label>
+                                                                <input type="number" name="phone" id="phone" min=""
+                                                                    max="" class="form-control shadow-none" [value]=""
+                                                                    (change)="phone($event,i)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p>Working Hours</p>
-                                    <div class="row workingHrs-row">
+                                    <!-- <p>Working Hours</p><div class="row workingHrs-row"><div class="col-sm"></div></div> -->
+                                    <p>Business URLs</p>
+                                    <div class="row businessUrl-row">
                                         <div class="col-sm">
-                                            <label for="fromDay">From Day</label>
-                                            <select name="fromDay" id="fromDay" class="form-control shadow-none"
-                                                (change)="cityHandler($event)" formControlName="fromDay">
-                                                <option value=""></option>
-                                                <option *ngFor="let days of daysOfWeek" [value]=days.name>
-                                                    {{days.name}}
-                                                </option>
-                                            </select>
-                                            <!-- <ng-select class="ng-select" placeholder="" [clearable]="false"
-                                    [searchable]="true" appendTo="body">
-                                    <ng-option *ngFor="let days of daysOfWeek"
-                                        [value]="days.name">{{days.name}}</ng-option>
-                                </ng-select> -->
+                                            <label for="Youtube">Youtube</label>
+                                            <input type="text" name="Youtube" class="form-control shadow-none"
+                                                id="Youtube" (change)="youtubeURL($event)">
                                         </div>
                                         <div class="col-sm">
-                                            <label for="toDay">To Day</label>
-                                            <select name="toDay" id="toDay" class="form-control shadow-none"
-                                                (change)="cityHandler($event)" formControlName="toDay">
-                                                <option value=""></option>
-                                                <option *ngFor="let days of daysOfWeek" [value]=days.name>
-                                                    {{days.name}}
-                                                </option>
-                                            </select>
-                                            <!-- <ng-select class="ng-select" placeholder="" [clearable]="false"
-                                    [searchable]="true" appendTo="body">
-                                    <ng-option *ngFor="let days of daysOfWeek"
-                                        [value]="days.name">{{days.name}}</ng-option>
-                                </ng-select> -->
+                                            <label for="Instagram">Instagram</label>
+                                            <input type="text" name="Instagram" class="form-control shadow-none"
+                                                id="Instagram" (change)="instaURL($event)">
                                         </div>
                                         <div class="col-sm">
-                                            <label for="fromTime">From Time</label>
-                                            <input type="time" name="fromTime" class="form-control shadow-none"
-                                                id="fromTime" formControlName="fromTime">
+                                            <label for="Twitter">Twitter</label>
+                                            <input type="text" name="Twitter" class="form-control shadow-none"
+                                                id="Twitter" (change)="twitterURL($event)">
                                         </div>
                                         <div class="col-sm">
-                                            <label for="toTime">To Time</label>
-                                            <input type="time" name="toTime" class="form-control shadow-none"
-                                                id="toTime" formControlName="toTime">
+                                            <label for="Whatsapp">Whatsapp</label>
+                                            <input type="text" name="Whatsapp" class="form-control shadow-none"
+                                                id="Twitter" (change)="whatsappURL($event)">
                                         </div>
                                     </div>
                                     <p>Attachments </p>
@@ -190,52 +240,41 @@
                                         <p> First Photo is mandatory which will be used as Cover Photo</p>
                                         <div class="attach">
                                             <span>
-                                                <button class="btn"></button>
-                                                <input type="file" name="myfile" accept="image/*"
-                                                    formControlName="photo1" />
+                                                <a class="btn"> <input type="file" name="myfile" accept="image/*"
+                                                        (change)="attchImage1($event,0)" /></a>
                                             </span>
                                             <span>
-                                                <button class="btn"></button>
-                                                <input type="file" name="myfile" accept="image/*"
-                                                    formControlName="photo2" />
+                                                <a class="btn">
+                                                    <input type="file" name="myfile" accept="image/*"
+                                                        (change)="attchImage2($event,1)" /></a>
                                             </span>
                                             <span>
-                                                <button class="btn"></button>
-                                                <input type="file" name="myfile" accept="image/*"
-                                                    formControlName="photo3" />
+                                                <a class="btn">
+                                                    <input type="file" name="myfile" accept="image/*"
+                                                        (change)="attchImage3($event,2)" /></a>
                                             </span>
                                             <span>
-                                                <button class="btn"></button>
-                                                <input type="file" name="myfile" accept="image/*"
-                                                    formControlName="photo4" />
+                                                <a class="btn">
+                                                    <input type="file" name="myfile" accept="image/*"
+                                                        (change)="attchImage4($event,3)" /></a>
                                             </span>
                                         </div>
-
-
                                     </div>
-                                    <p>Business URLs</p>
-                                    <div class="row businessUrl-row">
-                                        <div class="col-sm">
-                                            <label for="Youtube">Youtube</label>
-                                            <input type="url" name="toTime" class="form-control shadow-none"
-                                                id="Youtube" formControlName="youtubeUrl">
-                                        </div>
-                                        <div class="col-sm">
-                                            <label for="Instagram">Instagram</label>
-                                            <input type="url" name="toTime" class="form-control shadow-none"
-                                                id="Instagram" formControlName="instagramUrl">
-                                        </div>
-                                        <div class="col-sm">
-                                            <label for="Twitter">Twitter</label>
-                                            <input type="url" name="toTime" class="form-control shadow-none"
-                                                id="Twitter" formControlName="twitterUrl">
-                                        </div>
+                                    <div class="row preview-row">
+                                        <img id="image-preview-1" src="">
+                                        <img id="image-preview-2" src="">
+                                        <img id="image-preview-3" src="">
+                                        <img id="image-preview-4" src="">
+                                    </div><br>
+                                    <a class="saveUpBtn" (click)="saveAndUpload()">Save and Upload</a>
 
-                                    </div>
                                 </div>
-                                <button type="submit" class="button" (click)="submit()">Submit</button>
-                            </form> {{this.selectedCategoriesFormName.value|json}}
+                            </form>
+                            <!-- {{this.selectedCategoriesFormName.value|json}} -->
                         </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="serviceSubmit" (click)="serviceListingSubmit()" [disabled]="isDisabled">Create New Service</button>
                     </div>
                 </div>
             </form>

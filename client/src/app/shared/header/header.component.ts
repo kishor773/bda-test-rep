@@ -75,8 +75,4 @@ export class HeaderComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['/login'])
   }
-
-  setStorage() {
-    this._bda.setSessionStorage('isViewing', 'accounts')
-  }
 }

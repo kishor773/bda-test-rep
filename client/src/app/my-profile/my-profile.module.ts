@@ -4,7 +4,7 @@ import { SideProfComponent } from './side-prof/side-prof.component';
 import { YourProfComponent } from './your-prof/your-prof.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { ListedServicesComponent } from './selected-categories/selected-categories.component';
+import { SelectedCategories } from './selected-categories/selected-categories.component';
 import { MyProfileRoutingModule } from './my-profile.routing.module'
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     SideProfComponent,
     YourProfComponent,
-    ListedServicesComponent,
+    SelectedCategories,
   ],
   imports: [
     CommonModule,

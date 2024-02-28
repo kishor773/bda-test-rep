@@ -7,6 +7,8 @@ const url = env.MONGO_DB_BASE_URL;
 const port = 3000;
 
 const userModel = require('./src/Model/userModel');
+const plansModel = require('./src/Model/plansModel');
+const servicesModel = require('./src/Model/servicesModel');
 const auth = require('./src/middleware/jwt');
 const cors = require('cors');
 mongoose.connect(url)
@@ -33,8 +35,8 @@ server.use(function (req, res, next) {
 server.use(express.json());
 server.use('/api', require('./src/routes/routes'));
 
-  //JWT Authentication
-  server.post('/login-user', async (req, res) => {
+//JWT  Implemenet Authentication
+server.post('/login-user', async (req, res) => {
     const { email, password, phone } = req.body;
 
     try {
@@ -93,7 +95,7 @@ server.use('/api', require('./src/routes/routes'));
         //     "token": ""
         //   }
         // If user exists and credentials are correct, generate JWT token
-      
+
         const payload = {
             userId: user._id, firstName: user.firstName, lastName: user.lastName, email: user.email,        //     "lastName": "NP",
             name: user.name,
@@ -106,7 +108,9 @@ server.use('/api', require('./src/routes/routes'));
             referralCode: user.referralCode,
             notifPrefCheck: user.notifPrefCheck,
             serviceCategory: user.serviceCategory,
-            userStatus: user.userStatus
+            userStatus: user.userStatus,
+            familyName: user.familyName,
+            middleName: user.middleName
             /** 
 * Paste one or more documents here
 */
@@ -122,21 +126,54 @@ server.use('/api', require('./src/routes/routes'));
         res.json({ errorCode: 1, message: 'Something went wrong', errorMsg: error });
     }
 });
-  //JWT Authentication
+//JWT Implemenet  Authentication  PROTECT ROUTES
 server.get('/protectedRoute', auth.verifyToken, (req, res) => {
     // Access user information from req.user
     res.json({ message: 'You have access to protected data', user: req.user });
 });
 
-
-
-     //port
-server.listen(`${port}`, function check(error) {
-    if (error) {
-        console.log("error", error)
+//!FULL-TEXT-SEARCH FOR SERVICES COLLECTION
+server.get('/services/:query', auth.verifyToken, async (req, res) => {
+    console.log(req.params)
+    try {
+        const query = req.params.query;
+        const services = await servicesModel.find(
+            { $text: { $search: query } },
+            { score: { $meta: "textScore" } }
+        ).sort({ score: { $meta: "textScore" } });
+        console.log(services);
+        res.json(services);
     }
-    else {
-        console.log(`Server is listening to ${port}`)
+    catch (error) {
+        console.error('Error searching search string:', error);
+        res.json({ message: 'Error in matching search string' });
     }
-}
-)
+})
+//FULL-TEXT-SEARCH FOR PLANS COLLECTION
+server.get('/plans/:query', async (req, res) => {
+    try {
+        // Get the search query from request parameters
+        const query = req.params.query;
+
+        // Find users based on text search in MongoDB
+        const users = await plansModel.find(
+            { $text: { $search: query } },
+            { score: { $meta: "textScore" } }
+        ).sort({ score: { $meta: "textScore" } });
+
+        // Send the search results as response
+        res.json(users);
+    } catch (error) {
+        console.error('Error searching users:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+}),
+    //port
+    server.listen(`${port}`, function check(error) {
+        if (error) {
+            console.log("error", error)
+        }
+        else {
+            console.log(`Server is listening to ${port}`)
+        }
+    })

@@ -2,86 +2,44 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ServicesService } from 'src/app/bdaServices.service';
 import { FormControl, FormGroup } from '@angular/forms';
-// import { SelectedCategories } from '../selected-categories/selected-categories.model'
-// import { Ng2ImgMaxService } from 'ng2-img-max';
 @Component({
   selector: 'app-selected-categories',
   templateUrl: './selected-categories.component.html',
   styleUrls: ['./selected-categories.component.css'],
 })
-export class ListedServicesComponent implements OnInit, AfterViewInit {
+export class SelectedCategories implements OnInit, AfterViewInit {
   categories: any[] = [];
   selectedCategoriesFormName: any;
   subCat1: any[] = [];
   subCat2: any[] = [];
   subCat3: any[] = [];
   subCat4: any[] = [];
-  // locations = [
-  //   { id: 1, name: 'Bengaluru' },
-  //   { id: 2, name: 'Mysuru' },
-  //   { id: 3, name: 'KGF' },
-  //   { id: 4, name: 'Kolar' },
-  // ];
-
-  addressArr: any = [
+  imageUploadArr: any = [];
+  imageUpldRespArr: any = [];
+  addressArr: any = [];
+  selectedLocationsForCategories: any = []
+  newServiceObj: any = {}
+  businessURL: any = {}
+  listedby: any = {
+    email: "",
+    name: "",
+    phoneNo: ""
+  }
+  serviceRprt: any = [
     {
-      city: 'Delhi',
-      lat: '28.6100',
-      lng: '77.2300',
-      country: 'India',
-      iso2: 'IN',
-      state: 'Delhi',
-    },
-    {
-      city: 'Mumbai',
-      lat: '19.0761',
-      lng: '72.8775',
-      country: 'India',
-      iso2: 'IN',
-      state: 'Maharashtra',
-    },
-    {
-      city: 'Kolkata',
-      lat: '22.5675',
-      lng: '88.3700',
-      country: 'India',
-      iso2: 'IN',
-      state: 'West Bengal',
-    },
-    {
-      city: 'Bangalore',
-      lat: '12.9789',
-      lng: '77.5917',
-      country: 'India',
-      iso2: 'IN',
-      state: 'Karnataka',
-    },
-    {
-      city: 'Chennai',
-      lat: '13.0825',
-      lng: '80.2750',
-      country: 'India',
-      iso2: 'IN',
-      state: 'Tamil Nadu',
-    },
-    {
-      city: 'Hyderabad',
-      lat: '17.3850',
-      lng: '78.4867',
-      country: 'India',
-      iso2: 'IN',
-      state: 'Telangana',
-    },
-    {
-      city: 'Pune',
-      lat: '18.5203',
-      lng: '73.8567',
-      country: 'India',
-      iso2: 'IN',
-      state: 'Maharashtra',
-    },
+      email: "",
+      reportStmt: "",
+      reason: ""
+    }
   ];
-
+  servicernr: any = [
+    {
+      email: "",
+      name: "",
+      usrRatings: 0,
+      description: ""
+    }
+  ]
   daysOfWeek = [
     { id: 1, name: 'Monday' },
     { id: 2, name: 'Tuesday' },
@@ -91,25 +49,15 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
     { id: 6, name: 'Saturday' },
     { id: 7, name: 'Sunday' },
   ];
-  cities = [
-    { id: 1, name: 'MA, Boston' },
-    { id: 2, name: 'FL, Miami' },
-    { id: 3, name: 'NY, New York', disabled: true },
-    { id: 4, name: 'CA, Los Angeles' },
-    { id: 5, name: 'TX, Dallas' },
-  ];
-
-  servicesArr: any = [
-    { id: 1, name: 'Education' },
-    { id: 2, name: 'Work' },
-    { id: 3, name: 'Food' },
-  ];
   selectedServiceCategory: any;
   groupedByCategory: any;
+
+  isDisabled: Boolean = true;
   constructor(
     private router: Router,
     private _aR: ActivatedRoute,
     private _bdaS: ServicesService,
+
   ) {
     this.selectedCategoriesFormName = new FormGroup({
       serviceName: new FormControl(''),
@@ -134,6 +82,7 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
       instagramUrl: new FormControl(''),
       youtubeUrl: new FormControl(''),
       twitterUrl: new FormControl(''),
+      whatsappUrl: new FormControl(''),
       email: new FormControl(''),
       name: new FormControl(''),
       usrRatings: new FormControl(''),
@@ -141,28 +90,46 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
     });
   }
   ngOnInit(): void {
-    let businessListing
-    this.fetchAllCategories();
     this._aR.params.subscribe((params: Params) => {
       // console.log(params, typeof params['id']);
       this.selectedServiceCategory = params['id'];
+      this.fetchAllCategories(this.selectedServiceCategory);
+      // this.checkSessionForServiceByCategoryName(this.selectedServiceCategory);
+      this.filterLocFrmCatSel(this.selectedServiceCategory)
+
     });
   }
-  deleteAddress(i: any) {
-    this.addressArr.splice(i, 1);
+  checkSessionForServiceByCategoryName(selectedServiceCategory: string) {
+    let sessionData = this._bdaS.getSessionStorageHandler('serviceByCategoryName')
+    console.log(sessionData);
+    if (sessionData == null) {
+      console.log(true);
+    } else {
+      console.log(false);
+    }
+  }
+  filterLocFrmCatSel(categSel: string) {
+    let sessionData = this._bdaS.getSessionStorageHandler('categoriesSelected');
+    // console.log(sessionData);
+    let filteredCategories = sessionData.filter((category: any) => category.category === categSel);
+    this.selectedLocationsForCategories = filteredCategories[0].locationName.map(({ lat, lng, iso2, _id, ...rest }: any) => rest);
+    console.log('this.selectedLocationsForCategories', this.selectedLocationsForCategories);
+    // this.selectedLocationsForCategories = filteredCategories[0].locationName
+
   }
   ngAfterViewInit() {
     this._aR.params.subscribe((params: Params) => {
       // console.log(params, typeof params['id']);
       this.selectedServiceCategory = params['id'];
-    });
-  }
 
-  fetchAllCategories() {
-    this._bdaS.getCategoriesServiceData().subscribe((res: any) => {
-      // console.log('get-all-categories=res', res.message);
-      // this.groupSimilarCategoriesHandler(res.message)
-      this.categories = res.message;
+    });
+    this.getIndianLocationData()
+  }
+  fetchAllCategories(categ: any) {
+    this._bdaS.getCategoryByCategoryName(categ).subscribe((res: any) => {
+      this.categories = res.message
+      console.log('categ-by-name', this.categories);
+
     });
   }
   selectCatHandler(event: any) {
@@ -172,14 +139,23 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
   }
   selectSubCat1Handler(event: any) {
     let subcat1Select = event.target.value;
+    let bodySubCat1 = { name: subcat1Select };
+    this.newServiceObj.subCategory1 = bodySubCat1
     this.filterSubCat2handler(subcat1Select);
   }
   selectSubCat2Handler(event: any) {
     let subcat2Select = event.target.value;
     console.log(subcat2Select);
+    let bodySubCat2 = { name: subcat2Select };
+    this.newServiceObj.subCategory2 = bodySubCat2
     this.filterSubCat3handler(subcat2Select);
   }
-  selectSubCat3Handler(event: any) { }
+  selectSubCat3Handler(event: any) {
+    let subcat3Select = event.target.value;
+    console.log(subcat3Select);
+    let bodySubCat3 = { name: subcat3Select };
+    this.newServiceObj.subCategory3 = bodySubCat3
+  }
   public filterSubCat1handler(data: any) {
     this.subCat1 = this.categories.filter(
       (subCat1) => subCat1.category == data
@@ -197,103 +173,324 @@ export class ListedServicesComponent implements OnInit, AfterViewInit {
     this.subCat3 = this.categories.filter((subCat3) => subCat3.type == data);
     console.log(this.subCat3);
   }
-
-  submit() {
-    let userDetailsFromStorage =
-      this._bdaS.getSessionStorageHandler('usrDetls');
-    let bodydata = {
-      categories: [
-        {
-          categoryName: this.selectedCategoriesFormName.value.categoryName,
-          category: [
-            {
-              serviceName: this.selectedCategoriesFormName.value.serviceName,
-              servicePhotos: {
-                photo1: this.selectedCategoriesFormName.value.photo1,
-                photo2: this.selectedCategoriesFormName.value.photo2,
-                photo3: this.selectedCategoriesFormName.value.photo3,
-                photo4: this.selectedCategoriesFormName.value.photo4,
-              },
-              serviceDesc: this.selectedCategoriesFormName.value.serviceDesc,
-              serviceLocation: [
-                {
-                  coords: {
-                    latitude: this.selectedCategoriesFormName.value.latitude,
-                    longitude: this.selectedCategoriesFormName.value.longitude,
-                    speed: this.selectedCategoriesFormName.value.speed,
-                    accuracy: this.selectedCategoriesFormName.value.accuracy,
-                  },
-                },
-              ],
-              address: [
-                {
-                  addressTitle:
-                    this.selectedCategoriesFormName.value.addressTitle,
-                  state: this.selectedCategoriesFormName.value.state,
-                  city: this.selectedCategoriesFormName.value.city,
-                  pincode: this.selectedCategoriesFormName.value.pincode,
-                  country: this.selectedCategoriesFormName.value.country,
-                },
-              ],
-
-              businessUrl: {
-                youtubeUrl: this.selectedCategoriesFormName.value.youtubeUrl,
-                instagramUrl:
-                  this.selectedCategoriesFormName.value.instagramUrl,
-                twitterUrl: this.selectedCategoriesFormName.value.twitterUrl,
-              },
-              workingHours: {
-                fromDay: this.selectedCategoriesFormName.value.fromDay,
-                toDay: this.selectedCategoriesFormName.value.toDay,
-                fromTime: this.selectedCategoriesFormName.value.fromTime,
-                toTime: this.selectedCategoriesFormName.value.toTime,
-              },
-              serviceReviews: [{
-                email: this.selectedCategoriesFormName.value.email,
-                name: this.selectedCategoriesFormName.value.name,
-                usrRatings: this.selectedCategoriesFormName.value.usrRatings,
-                description: this.selectedCategoriesFormName.value.description,
-              }],
-              subCategory1: this.selectedCategoriesFormName.value.subCategory1,
-              subCategory2: this.selectedCategoriesFormName.value.subCategory2,
-              subCategory3: this.selectedCategoriesFormName.value.subCategory3,
-            },
-          ],
-          userDetails: userDetailsFromStorage,
-        },
-      ],
-    };
-
-    this._bdaS
-      .postselectedCategoriesServiceData(bodydata)
-      .subscribe((data: any) => {
-        console.log(data, 'selected-categories data--------');
-      });
+  public getIndianLocationData() {
+    this._bdaS.getAllIndianCitiesStates().subscribe((data: any) => {
+      this.addressArr = data.message;
+      // console.log(data, "Indian")
+    })
   }
-  cityHandler(event: any) { }
-  stateHandler(event: any) { }
-  countryHandler(event: any) { }
+  businessName(event: any) {
+    let busName = event.target.value;
+    // console.log('business-name-', busName);
+    busName == '' ? this.isDisabled = true : this.isDisabled = false
+    this.newServiceObj.serviceName = busName
+  }
+  shortDesc(event: any) {
+    let shortDescr = event.target.value;
+    // console.log('shortDescr-', shortDescr);
+    shortDescr == '' ? this.isDisabled = true : this.isDisabled = false;
+    this.newServiceObj.serivceDesc = shortDescr
+  }
+  addressTitle(event: any, i: number) {
+    let addrTitle = event.target.value
+    this.selectedLocationsForCategories[i].addressTitle = addrTitle
+    // console.log('addressTitle', this.selectedLocationsForCategories, i);
+    addrTitle == '' ? this.isDisabled = true : this.isDisabled = false;
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
+  }
+  suburban(event: any, i: number) {
+    let subUrban = event.target.value
+    this.selectedLocationsForCategories[i].suburb = subUrban
+    // console.log('subUrban', this.selectedLocationsForCategories, i);
+    subUrban == '' ? this.isDisabled = true : this.isDisabled = false;
 
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
 
+  }
+  cityHandler(event: any, i: number) {
+    // console.log('cityHandler', this.selectedLocationsForCategories, i);
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
 
-  //API FOR IMAGE COMPRESSION
-  // onFileSelected(event: any) {
-  //   const file: File = event.target.files[0];
-  //   if (file) {
-  //     const maxSizeInMB = 5; // Maximum file size in MB
+  }
+  stateHandler(event: any, i: number) {
+    // console.log('stateHandler', this.selectedLocationsForCategories, i);
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
 
-  //     if (file.size / (1024 * 1024) > maxSizeInMB) {
-  //       // If file size exceeds 5 MB, compress it
-  //     let returnedData=  this._bdaS.compressImage(file, maxSizeInMB);
-  //     console.log(returnedData);
+  }
+  countryHandler(event: any, i: number) {
+    // console.log('countryHandler', this.selectedLocationsForCategories, i);
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
 
-  //     } else {
-  //       // If file size is within 5 MB, do not compress
-  //       console.log("File size is within 5 MB. No compression needed.");
-  //     }
-  //   }
-  // }
+  }
+  pincodeHandler(event: any, i: number) {
+    let pinCode = event.target.value;
+    this.selectedLocationsForCategories[i].pincode = pinCode
+    // console.log('pincodeHandler', this.selectedLocationsForCategories, i);
+    pinCode == '' ? this.isDisabled = true : this.isDisabled = false;
 
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
 
+  }
+  fromTime(event: any, i: number) {
+    let frmTime = event.target.value
+    this.selectedLocationsForCategories[i].fromTime = frmTime
+    // console.log('fromTime', this.selectedLocationsForCategories, i);
+    frmTime == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
+
+  }
+  toTime(event: any, i: number) {
+    let toTime = event.target.value
+    this.selectedLocationsForCategories[i].toTime = toTime
+    // console.log('toTime', this.selectedLocationsForCategories, i);
+    toTime == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
+
+  }
+  fromDay(event: any, i: number) {
+    let frmDay = event.target.value
+    this.selectedLocationsForCategories[i].fromDay = frmDay
+    // console.log('frmDay', this.selectedLocationsForCategories, i);
+    frmDay == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
+
+  }
+  toDay(event: any, i: number) {
+    let toDay = event.target.value
+    this.selectedLocationsForCategories[i].toDay = toDay
+    // console.log('toDay', this.selectedLocationsForCategories, i);
+    toDay == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
+
+  }
+  firstName(event: any, i: number) {
+    let firstName = event.target.value
+    this.selectedLocationsForCategories[i].firstName = firstName
+    // console.log('firstName', this.selectedLocationsForCategories, i);
+    firstName == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
+
+  }
+  lastName(event: any, i: number) {
+    let lastName = event.target.value
+    this.selectedLocationsForCategories[i].lastName = lastName
+    // console.log('lastName', this.selectedLocationsForCategories, i);
+    lastName == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
+
+  }
+  phone(event: any, i: number) {
+    let phone = event.target.value
+    this.selectedLocationsForCategories[i].phoneNo = phone
+    // console.log('phone', this.selectedLocationsForCategories, i);
+    phone == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.serviceAddress = this.selectedLocationsForCategories
+
+  }
+
+  youtubeURL(event: any) {
+    let url = event.target.value;
+    // console.log('youtube-url', url);
+    this.businessURL.youtube = url
+    url == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.businessURL = this.businessURL
+  }
+  instaURL(event: any) {
+    let url = event.target.value;
+    this.businessURL.instagram = url
+    url == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.businessURL = this.businessURL
+  }
+  twitterURL(event: any) {
+    let url = event.target.value;
+    this.businessURL.twitter = url
+    url == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.businessURL = this.businessURL
+  }
+  whatsappURL(event: any) {
+    let url = event.target.value;
+    this.businessURL.whatsapp = url
+    url == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    this.newServiceObj.businessURL = this.businessURL
+  }
+
+  attchImage1(event: any, i: number) {
+    let file = event.target.files[0];
+    // console.log('image-', file);
+    // Show preview of the selected image
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const preview = document.getElementById('image-preview-1');
+      if (preview) {
+        preview.setAttribute('src', e.target.result);
+      }
+    };
+    reader.readAsDataURL(file);
+    //! check for existing image, replace / push selected image into array
+    if (this.imageUploadArr[i]) {
+      this.imageUploadArr[i] = file;
+      // this.imageUploadArr[i] = file == '' ? this.isDisabled = true : this.isDisabled = false;
+
+    } else {
+      this.imageUploadArr.push(file);
+
+    }
+    // console.log(this.imageUploadArr, this.imageUploadArr/.length);
+
+  }
+  attchImage2(event: any, i: number) {
+    let file = event.target.files[0];
+    // console.log('image-', file);
+
+    // Show preview of the selected image
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const preview = document.getElementById('image-preview-2');
+      if (preview) {
+        preview.setAttribute('src', e.target.result);
+      }
+    };
+    reader.readAsDataURL(file);
+    //! check for existing image, replace / push selected image into array
+    if (this.imageUploadArr[i]) {
+      this.imageUploadArr[i] = file;
+    } else {
+      this.imageUploadArr.push(file);
+    }
+    // console.log(this.imageUploadArr, this.imageUploadArr.length);
+
+  }
+  attchImage3(event: any, i: number) {
+    let file = event.target.files[0];
+    // console.log('image-', file);
+
+    //? Show preview of the selected image
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const preview = document.getElementById('image-preview-3');
+      if (preview) {
+        preview.setAttribute('src', e.target.result);
+      }
+    };
+    reader.readAsDataURL(file);
+    //! check for existing image, replace / push selected image into array
+    if (this.imageUploadArr[i]) {
+      this.imageUploadArr[i] = file;
+    } else {
+      this.imageUploadArr.push(file);
+    }
+    // console.log(this.imageUploadArr, this.imageUploadArr.length);
+  }
+  attchImage4(event: any, i: number) {
+    let file = event.target.files[0];
+    // console.log('image-', file);
+
+    //? Show preview of the selected image
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const preview = document.getElementById('image-preview-4');
+      if (preview) {
+        preview.setAttribute('src', e.target.result);
+      }
+    };
+    reader.readAsDataURL(file);
+    //! check for existing image, replace / push selected image into array
+    if (this.imageUploadArr[i]) {
+      this.imageUploadArr[i] = file;
+    } else {
+      this.imageUploadArr.push(file);
+    }
+    // console.log(this.imageUploadArr, this.imageUploadArr.length);
+
+  }
+
+  saveAndUpload() {
+    console.log('SAVE-N-SUBMIT-FN-CALL');
+    if (this.imageUploadArr.length > 0) {
+      console.log('IMAGE-UPLOAD-API-CALL-BEGINS');
+      console.log('-imageUploadArr-', this.imageUploadArr);
+      for (let i = 0; i < this.imageUploadArr.length; i++) {
+        const element = this.imageUploadArr[i];
+        this._bdaS.upload(element).subscribe((res: any) => {
+          let resData = res.files[0]
+          if (res.errorCode == 0) {
+            console.log(`file-upload-res----${i}`, res);
+            this.imageUpldRespArr.push(resData)
+            this._bdaS.setSessionStorage('imageUpldRespArr', JSON.stringify(this.imageUpldRespArr))
+            console.log(`SESSION-STORAGE-SET-FOR-UPLOADED-IMAGES-RESPONSE-----${i}`);
+          }
+        })
+      }
+    } else {
+      this.isDisabled = true
+    }
+  }
+
+  serviceListingSubmit() {
+    let loggedInUsr = this._bdaS.getSessionStorageHandler('usrDetls')
+    this.listedby.email = loggedInUsr.email
+    this.listedby.name = loggedInUsr.name
+    this.listedby.phoneNo = loggedInUsr.phone
+    this.newServiceObj.listedBy = this.listedby
+    this.newServiceObj.serviceReports = this.serviceRprt
+    this.newServiceObj.serviceRnR = this.servicernr
+
+    let imageUrls = this._bdaS.getSessionStorageHandler('imageUpldRespArr');
+    // console.log(imageUrls);
+    let servicephotos = [
+      {
+        "photo1": imageUrls[0]['mediaLink'] || "",
+        "photo2": imageUrls[1]['mediaLink'] || "",
+        "photo3": imageUrls[2]['mediaLink'] || "",
+        "photo4": imageUrls[3]['mediaLink'] || ""
+      }
+
+      // {
+      //   "photo1": "url",
+      //   "photo2": "url",
+      //   "photo3": "url",
+      //   "photo4": "url"
+      // }
+    ];
+    this.newServiceObj.servicePhotos = servicephotos
+    console.log(this.newServiceObj);
+
+    let serviceCatExist = this._bdaS.getSessionStorageHandler('serviceByCategoryName')
+    // console.log(serviceCatExist[0]._id);
+    if (serviceCatExist == null) {
+      // console.log('POST-API-CALL');
+      //! MAKE POST API CALL FOR NEW SERVICE UNDER SELECTED CATEGORY
+      let newServiceDocument = {
+        categoryName: this.selectedServiceCategory,
+        serviceDetails: [this.newServiceObj]
+      }
+      console.log('POST-API-CALL', newServiceDocument);
+      this._bdaS.postselectedCategoriesServiceData(newServiceDocument).subscribe((res: any) => {
+        console.log('service-posted-with-new-service', res);
+      })
+    } else {
+      //? MAKE PUT API CALL FOR NEW SERVICE UNDER SELECTED CATEGORY
+      // console.log('before', serviceCatExist);
+      console.log('PUT-API-CALL', serviceCatExist);
+
+      let id = serviceCatExist[0]._id;
+      serviceCatExist[0].serviceDetails.push(this.newServiceObj)
+      console.log('after', serviceCatExist[0].serviceDetails.length, serviceCatExist[0])
+      this._bdaS.putServicesServiceData(id, serviceCatExist[0]).subscribe((res: any) => {
+        console.log('service-updated-with-new-service', res);
+      })
+    }
+  }
 
 }

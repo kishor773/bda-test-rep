@@ -191,9 +191,6 @@ const serviceSchema = new Schema({
 });
 
 
-//! Old model 
-// module.exports = mongoose.model('services', serviceSchema);
 
-//! New model 
-module.exports = mongoose.model('newServices', serviceSchema);
+module.exports = mongoose.model('services', serviceSchema);
 

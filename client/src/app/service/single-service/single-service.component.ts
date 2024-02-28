@@ -45,8 +45,10 @@ export class SingleServiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      console.log(params['id']);
+      
       this.serviceId = params['id'];
-      this.getSingleServiceById(this.serviceId);
+      this.getSingleServiceById(params['id']);
       window.onclick = (event: any) => this.closeDropdownOnClickOutside(event);
 
     });
@@ -224,15 +226,17 @@ export class SingleServiceComponent implements OnInit {
   getSingleServiceById(id: any) {
     this._bda.getServiceById(id).subscribe((res: any) => {
       // this.singleServiceResp = data;
-      this.singleServiceResp = res.message.categories[0][0].category[0];
-      this.categoryName = res.message.categories[0][0].categoryName;
+      
+      this.singleServiceResp = res.message.serviceDetails[0];
+      console.log(this.singleServiceResp);
+      // this.categoryName = res.message.categories[0][0].categoryName;
       this.serviceName = this.singleServiceResp.serviceName
-      this.serviceRatings = this.singleServiceResp.serviceReviews[0].usrRatings;
-      this.serviceShortDescription = this.singleServiceResp.serviceDesc;
-      this.serviceReviews = this.singleServiceResp.serviceReviews
+      this.serviceRatings = this.singleServiceResp.avgRatings.$numberDecimal;
+      this.serviceShortDescription = this.singleServiceResp.serivceDesc
+      this.serviceReviews = this.singleServiceResp.serviceRnR
 
-      console.log("singleServiceResp-res--->", res.message.categories);
-      this._bda.setSessionStorage('serviceBodyData', JSON.stringify(res.message.categories[0][0]))
+      // console.log("this.serviceReviews--->", this.serviceReviews);
+      this._bda.setSessionStorage('serviceBodyData', JSON.stringify(res.message))
     })
   }
   myFunction() {
@@ -270,11 +274,7 @@ export class SingleServiceComponent implements OnInit {
 
   writeReview(event: any) {
     console.log('writeReview', event.target.value);
-    // if (event.target.value.length > '') {
-    //   this.reviewSubmitDisable = false;
-    // } else {
-    //   this.reviewSubmitDisable = true;
-    // }
+    
   }
 
   openModal(): void {

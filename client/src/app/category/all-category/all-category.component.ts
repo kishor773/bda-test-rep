@@ -33,6 +33,16 @@ export class AllCategoryComponent implements OnInit {
       // console.log( this.categoriesData,"get")
     });
   }
+  checkToken(categoryName: any) {
+    const token = this.categories.getSessionStorageHandler('token');
+    if (token) {
+      this.selectCategory(categoryName);
+    }
+    else {
+      alert("login-first");
+      this._router.navigate(['/login'])
+    }
+  }
 
   selectCategory(categoryName: any) {
     console.log(categoryName);

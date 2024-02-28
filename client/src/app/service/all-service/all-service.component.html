@@ -1,5 +1,7 @@
-<!-- <app-header></app-header> -->
-<!-- <app-search-loc></app-search-loc> -->
+<app-header></app-header>
+<!-- ADDED SEARCH METHOD -->
+<!-- <app-search-loc  (searchTextChange)="onSearchTextChange($event)"></app-search-loc>     -->
+<app-search-loc ></app-search-loc>    
 <div class="container-fluid"><br>
     <div class="row">
         <div class="col-1"></div>
@@ -63,19 +65,21 @@
                 </div>
             </div>
             <div class="second-div">
-                <div class="card" *ngFor="let item of servicesdata;let i=index"
+                <!-- <div class="card" *ngFor="let item of servicesdata.slice(0,3)| filter:searchtext;let i=index"
+                    [routerLink]="['/services/singleServices', item._id]"> -->
+                    <div class="card" *ngFor="let item of servicesdata;let i=index"
                     [routerLink]="['/services/singleServices', item._id]">
                     <div class="card-body all-service-card">
                         <div class="image-block">
-                            <img src="" alt="">
+                            <img src="{{item.servicePhotos[0].photo1}}" alt="">
                         </div>
                         <div>
                             <span class="row data-row">
-                                <p>{{item.categories[0][0].category[0].serviceName}}</p>
-                                <p>{{item.categories[0][0].category[0].avgRatings}} <img
+                                <p>{{item.serviceName}}</p>
+                                <p>{{item.avgRatings.$numberDecimal}} <img
                                         src="/assets/icons/Star 1.png" alt="" class="star"></p>
                                 <p><img src="/assets/icons/geo-alt.png">
-                                    {{item.categories[0][0].category[0].address[0].city}}</p>
+                                    {{item.serviceAddress[0].city}}</p>
                             </span>
                             <span class="row actions-row">
                                 <span class="action-btns">
@@ -92,7 +96,6 @@
 
                 </div>
                 <button (click)="loadMore(servicesdata)">Load more</button>
-                <button (click)="sortByRatings()">Sort</button>
             </div>
         </div>
         <div class="col-1">

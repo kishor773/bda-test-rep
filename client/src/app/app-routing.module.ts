@@ -21,11 +21,6 @@ const routes: Routes = [
     path: 'allCategory',
     component: AllCategoryComponent,
   },
-  // { path: 'example', component: ExampleComponent, data: { breadcrumb: 'Example' } }
-  // {
-  //   path: 'allServices',
-  //   component: AllServiceComponent
-  // },
   {
     path: 'login',
     component: LoginComponent,
@@ -42,10 +37,6 @@ const routes: Routes = [
     path: 'user-search',
     component: UserSearchComponent
   },
-  // {
-  //   path: 'singleServices/:id',
-  //   component: SingleServiceComponent
-  // },
   {
     path: 'account',
     loadChildren: () =>

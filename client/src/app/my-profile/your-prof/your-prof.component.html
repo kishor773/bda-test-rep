@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <!-- <app-header></app-header> -->
+    <app-header></app-header>
     <div class="row">
         <div class="col-3">
             <app-side-prof></app-side-prof>
@@ -14,14 +14,14 @@
                             </span>
                             <span>{{usrName}}</span>
                         </div>
-                        <div>
+                        <!-- <div>
                             <span>
 
                                 <button type="button"><img src="../../../assets/icons/pencil-square.png"
-                                        alt="">Edit</button>
+                                        alt="" (click)="enableForm()">Edit</button>
                             </span>
 
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -68,16 +68,16 @@
                                     formControlName="whatsappNo">
                             </div>
                             <div class="col-sm">
-                                <label for="businessNo">Business Telephone No.</label>
-                                <input type="number" class="form-control shadow-none" name="businessNo" id="businessNo"
-                                    formControlName="businessNo">
+                                <label for="businessTel">Business Telephone No.</label>
+                                <input type="number" class="form-control shadow-none" name="businessTel"
+                                    id="businessTel" formControlName="businessNo">
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-sm">
                                 <label for="categoryInterests">Category Interests</label>
                                 <ng-select [items]="categories" [multiple]="true" [closeOnSelect]="false"
-                                    [searchable]="true" bindLabel="category" placeholder="Select"
+                                    [searchable]="true" bindLabel="category" placeholder="Select" 
                                     (change)="selectCategories($event)">
                                 </ng-select>
 
@@ -119,7 +119,7 @@
                     <div class="accordion">
                         <div class="option">
                             <!-- <input class="toggle" [id]="i" type="checkbox" /> -->
-                            <input class="toggle" id="i" type="checkbox" />
+                            <input class="toggle" id="i" type="checkbox" checked />
                             <!-- <label class="title" [for]="i"> -->
                             <label class="title" for="i">
                                 <div class="row title-row">
@@ -128,6 +128,7 @@
                             </label>
                             <div class="content">
                                 <div class="row content-row" *ngFor="let data of viewManageCategArr;let i=index">
+                                    <!-- {{data|json}} -->
                                     <div class="col-3">
                                         <label for="categoryName">Category Name</label>
                                         <input type="text" class="form-control shadow-none" name="categoryName"
@@ -136,9 +137,10 @@
                                     <div class="col-3">
                                         <label for="categoryInterests">Locations Served</label>
                                         <ng-select [items]="locations" [multiple]="true" [closeOnSelect]="false"
-                                            [searchable]="true" bindLabel="city" placeholder="Select"
+                                            [searchable]="true" bindLabel="city" placeholder="Select" [bindValue]="data.locationName[i].city"
                                             (change)="locServed($event,i)">
                                         </ng-select>
+                                        <!-- {{data.locationName[i]|json}} -->
                                     </div>
                                     <div class="col-3">
                                         <!-- <div class="form-check form-switch">
@@ -148,9 +150,10 @@
                                                 Notifications</label>
                                         </div> -->
 
-                                        <input class="form-check-input" type="checkbox" [value]="true" [id]="i"
+                                        <input class="form-check-input" type="checkbox" value="true"
+                                            [checked]="data.notificationFlag" id="notif-{{i}}{{i+1}}"
                                             (change)="notifCheck($event,i)">&nbsp;
-                                        <label class="form-check-label" [for]="i">
+                                        <label class="form-check-label" for="notif-{{i}}{{i+1}}">
                                             Allow
                                             Notifications
                                         </label>
@@ -158,29 +161,32 @@
                                     <div class="col-2">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="Business,Social"
-                                                [id]="i" (change)="checkBusinessType($event,i)">
-                                            <label class="form-check-label" [for]="i">
+                                                [checked]="data.type=='Business,Social'" id="both-{{i}}{{i+2}}"
+                                                (change)="checkBusinessType($event,i)">
+                                            <label class="form-check-label" for="both-{{i}}{{i+2}}">
                                                 Both
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Business" [id]="i"
+                                            <input class="form-check-input" type="checkbox" value="Business"
+                                                [checked]="data.type=='Business'" id="business-{{i}}{{i+3}}"
                                                 (change)="checkBusinessType($event,i)">
-                                            <label class="form-check-label" [for]="i">
+                                            <label class="form-check-label" for="business-{{i}}{{i+3}}">
                                                 Business
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Social" [id]="i"
+                                            <input class="form-check-input" type="checkbox" value="Social"
+                                                [checked]="data.type=='Social'" id="social-{{i}}{{i+4}}"
                                                 (change)="checkBusinessType($event,i)">
-                                            <label class="form-check-label" [for]="i">
+                                            <label class="form-check-label" for="social-{{i}}{{i+4}}">
                                                 Social
                                             </label>
                                         </div>
 
                                     </div>
                                     <div class="col-1">
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <button type="button" class="btn btn-danger" (click)="deleteAccordionRow(i)">Delete</button>
                                     </div>
                                 </div>
                                 <div class="row">

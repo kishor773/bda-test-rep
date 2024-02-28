@@ -6,31 +6,15 @@
             </li>
             <li><a routerLink='/account/categories' routerLinkActive="active" id="location">Categories</a>
                 <div id="loc-sug">
-                    <!-- <ul>
-                        <li>Business
-                            <ol>
-                                <li><a [routerLink]="['/account/categories','Education']"
-                                        routerLinkActive="active">Education</a>
-                                </li>
-                                <li><a [routerLink]="['/account/categories','Food']" routerLinkActive="active">Food</a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li>Social
-                            <ol>
-                                <li><a [routerLink]="['/account/categories','Social 1']"
-                                        routerLinkActive="active">Social 1</a></li>
-                                <li><a [routerLink]="['/account/categories','Social 2']"
-                                        routerLinkActive="active">Social 2</a></li>
-                            </ol>
-                        </li>
-                    </ul> -->
-
                     <ul *ngFor="let data of businessType; let i=index">
                         <li>{{data.type}}
                             <ol>
-                                <li><a [routerLink]="['/account/categories',data.category]"
-                                        routerLinkActive="active">{{data.category}}</a></li>
+                                <li>
+                                    <a [routerLink]="['/account/categories',data.category]" routerLinkActive="active"
+                                        (click)="fetchServiceByCatName(data.category)">{{data.category}}</a>
+                                    <!-- <a routerLinkActive="active"
+                                        (click)="fetchServiceByCatName(data.category)">{{data.category}}</a> -->
+                                </li>
                             </ol>
                         </li>
                     </ul>

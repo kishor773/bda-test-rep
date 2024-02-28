@@ -13,29 +13,30 @@ export class YourProfComponent implements OnInit {
   viewManageCategArr: Array<any> = []
   profileForm: any;
   usrName: any;
+  isFormDisabled: Boolean = false;
   // locationData: any;
   constructor(public _bda: ServicesService) {
     this.profileForm = new FormGroup(
       {
-        familyName: new FormControl(null, [Validators.required]),
-        firstName: new FormControl(null, [Validators.required]),
-        middleName: new FormControl(null, [Validators.required]),
-        lastName: new FormControl(null, [Validators.required]),
-        name: new FormControl(),
-        email: new FormControl(null, [Validators.required]),
-        phone: new FormControl(null, [Validators.required]),
-        whatsappNo: new FormControl(null, [Validators.required]),
-        businessNo: new FormControl(null, [Validators.required]),
+        familyName: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        firstName: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        middleName: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        lastName: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        name: new FormControl({ value: '', disabled: false }),
+        email: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        phone: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        whatsappNo: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        businessNo: new FormControl({ value: '', disabled: false }, [Validators.required]),
         // password: new FormControl(),
-        isAdmin: new FormControl(false),
-        currentLocation: new FormControl(null, [Validators.required]),
-        currentActivePlan: new FormControl(),
-        userPlanHistory: new FormControl(),
-        referralCode: new FormControl(),
-        notifPrefCheck: new FormControl(true),
-        serviceCategory: new FormControl(null, [Validators.required]),
-        userRegStatus: new FormControl(),
-        userStatus: new FormControl(),
+        isAdmin: new FormControl({ value: false, disabled: false }),
+        currentLocation: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        currentActivePlan: new FormControl({ value: '', disabled: false }),
+        userPlanHistory: new FormControl({ value: '', disabled: false }),
+        referralCode: new FormControl({ value: '', disabled: false }),
+        notifPrefCheck: new FormControl({ value: true, disabled: false }),
+        serviceCategory: new FormControl({ value: '', disabled: false }, [Validators.required]),
+        userRegStatus: new FormControl({ value: '', disabled: false }),
+        userStatus: new FormControl({ value: '', disabled: false }),
         // token: ""
       }
     )
@@ -44,7 +45,7 @@ export class YourProfComponent implements OnInit {
   ngOnInit(): void {
     let data = this._bda.getSessionStorageHandler('usrDetls');
     this.usrName = `${data.firstName} ${data.lastName}`
-    console.log(data);
+    // console.log(data);
     this.patchUserForm(data)
   }
   ngAfterViewInit() {
@@ -53,8 +54,10 @@ export class YourProfComponent implements OnInit {
   }
 
   public patchUserForm(data: any) {
-    this.viewManageCategArr = data.serviceCategory;
-    console.log('GOT DATA TO PATCH USER FORM', this.viewManageCategArr);
+    console.log('PATCHING FORM', data);
+    this.viewManageCategArr = data.serviceCategory
+    console.log('this.viewManageCategArr', this.viewManageCategArr);
+
     this.profileForm.patchValue({
       familyName: data.familyName,
       firstName: data.firstName,
@@ -75,13 +78,31 @@ export class YourProfComponent implements OnInit {
       serviceCategory: data.serviceCategory,
       userRegStatus: data.userRegStatus,
       userStatus: data.userStatus,
-      // token: ""
     })
+
+    // this.profileForm.disable()
+  }
+  enableForm() {
+    console.log('enable-form-click');
+
+    this.profileForm.controls['familyName'].disable(false)
+    this.profileForm.controls['firstName'].disable(false)
+    this.profileForm.controls['middleName'].disable(false)
+    this.profileForm.controls['lastName'].disable(false)
+    this.profileForm.controls['name'].disable(false)
+    this.profileForm.controls['email'].disable(false)
+    this.profileForm.controls['phone'].disable(false)
+    this.profileForm.controls['whatsappNo'].disable(false)
+    this.profileForm.controls['businessNo'].disable(false)
+    this.profileForm.controls['currentLocation'].disable(false)
+    this.profileForm.controls['currentActivePlan'].disable(false)
+    this.profileForm.controls['userPlanHistory'].disable(false)
+    this.profileForm.controls['referralCode'].disable(false)
   }
   public getLocationData() {
     this._bda.getAllIndianCitiesStates().subscribe((data: any) => {
       this.locations = data.message;
-      console.log(data, "Indian")
+      // console.log(data, "Indian")
     })
   }
   public getCategoriesData() {
@@ -93,7 +114,7 @@ export class YourProfComponent implements OnInit {
   notifCheck(event: any, i: any) {
     let checkNotif = event.target.checked
     this.viewManageCategArr[i]['notificationFlag'] = checkNotif
-    console.log('notif-check-', i, event.target.checked);
+    // console.log('notif-check-',checkNotif);
   }
 
   selectCategories(event: any) {
@@ -108,7 +129,7 @@ export class YourProfComponent implements OnInit {
     // console.log("this.profileForm", this.profileForm.value);
   }
   locServed(event: any, i: any) {
-    // console.log('locations-served----------', event);
+    console.log('locations-served----------', event);
     this.viewManageCategArr[i]['serviceLocation'] = event[0]['city'];
     this.viewManageCategArr[i]['locationName'] = event;
 
@@ -157,5 +178,9 @@ export class YourProfComponent implements OnInit {
         console.log(res.message);
       }
     })
+  }
+
+  deleteAccordionRow(i: any) {
+    this.viewManageCategArr.splice(i, 1)
   }
 }

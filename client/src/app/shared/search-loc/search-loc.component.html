@@ -32,8 +32,7 @@
             </div>
         </div>
         <div class="col-7 search">
-            <!-- <button type="button">Search</button> -->
-            <input type="search" class="form-control shadow-none" (click)="goToUserSearches()" name="" id="">
+            <input type="search" class="form-control shadow-none" [(ngModel)]="searchQuery" name="searchQuery" id="searchQuery" (change)="search($event)">
         </div>
         <div class="col-1"></div>
     </div>

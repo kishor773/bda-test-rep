@@ -28,10 +28,10 @@ module.exports.postPlansDataService= async(plansDetails)=>{
         return error
     }
 }
-module.exports.putPlansDataService=async(planId,plansDetails)=>{
+module.exports.putPlansDataService=async(_id,plansDetails)=>{
     try{
         const filter ={
-            'planId':planId
+            '_id':_id
         }
   var data = await plansModel.updateOne(filter,plansDetails);
   return data;

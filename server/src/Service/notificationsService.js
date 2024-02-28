@@ -41,10 +41,10 @@ notificationsModelData.searchNotification = notificationsDetails.searchNotificat
     }
 }
 
-module.exports.putNotificationsDataService= async(searchBroadcastId,notificationsDetails)=>{
+module.exports.putNotificationsDataService= async(_id,notificationsDetails)=>{
 try{
     const filter ={
-        'searchBroadcast.searchBroadcastId':searchBroadcastId,
+        '_id':_id,
     }
 var data = await notificationsModel.updateOne(filter,notificationsDetails);
 return data

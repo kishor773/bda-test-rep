@@ -1,6 +1,5 @@
-<!-- <app-header></app-header> -->
-<!-- <app-search-loc></app-search-loc> -->
-<!-- Announcements block -->
+<app-header></app-header>
+<app-search-loc></app-search-loc>
 <div class="container-fluid">
     <div class="row">
         <div class="col-1"></div>
@@ -16,7 +15,7 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-            <h3 class="home-heading">Available Categories in Malleshwaram</h3>
+            <h3 class="home-heading">Available Categories in {{currentUserLocation}}</h3>
             <!-- <div class="categories-card">
                 <ng-container
                     *ngFor="let item of categoriesData | slice:0:(showAllCategories ? categoriesData.length : maxCategoriesToShow)">
@@ -29,10 +28,10 @@
                     <p>Show more</p>
                 </div>
             </div> -->
-            <div class="categories-card mt-4" routerLink="/services/allServices">
+            <div class="categories-card mt-4">
                 <div class="card" id="cat-card"
                     *ngFor="let item of categoriesData | slice:0:(showAllCategories ? categoriesData.length : maxCategoriesToShow)"
-                    (click)="selectCategory(item._id,item.category)">
+                    (click)="checkToken(item._id,item.category)">
                     <img src="../../../assets/images/food.png" class="card-img-top" alt="..."><br>
                     <p class="card-title">{{item.category}}</p>
                 </div>

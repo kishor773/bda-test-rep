@@ -1,5 +1,5 @@
-<!-- <app-header></app-header> -->
-<!-- <app-search-loc></app-search-loc> -->
+<app-header></app-header>
+<app-search-loc></app-search-loc>
 <div class="container-fluid"><br><br>
     <div class="row ">
         <div class="col-1"></div>
@@ -15,8 +15,7 @@
                 <!-- <div *ngFor="let item of categoriesData|filter:searchtext" class="categories-card-child">
                     <p>{{item.category}}</p>
                 </div> -->
-                <div class="card" *ngFor="let item of categoriesData|filter:searchtext"
-                    (click)="selectCategory(item.category)">
+                <div class="card" *ngFor="let item of categoriesData|filter:searchtext" (click)="checkToken(item.category)">
                     <img src="../../../assets/images/food.png" class="card-img-top" alt="..."><br>
                     <p class="card-title">{{item.category}}</p>
                 </div>

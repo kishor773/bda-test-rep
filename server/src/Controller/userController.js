@@ -5,16 +5,16 @@ var getUserDataController = async (req, res) => {
   try {
     var userData = await userService.getUserDataService();
     if (userData) {
-      res.status(200).send({ "message": userData, "status": true })
+      res.json({ "message": userData, "status": true })
     }
     else {
-      res.status(200).send({ "message": "not able to get data", "status": false })
+      res.json({ "message": "not able to get data", "status": false })
     }
   }
 
   catch (error) {
     console.log(error);
-    res.status(500).send({ "message": "internal Storage error", "status": false })
+    res.json({ "message": "internal Storage error", "status": false })
   }
 }
 

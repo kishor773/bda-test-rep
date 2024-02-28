@@ -28,17 +28,18 @@ export class HomeComponent implements OnInit {
     })
   }
   ngOnInit(): void {
-    sessionStorage.removeItem('isViewing')
     this.getCategoriesData();
     this.fetchCategories();
-    // this.currentUserLocation = sessionStorage.getItem('current-location');
-    // console.log(this.currentUserLocation);
+    this.currentUserLocation = sessionStorage.getItem('current-location');
+    console.log(this.currentUserLocation);
 
     // if (!this._bda.getSessionStorageHandler('isViewing')) {
     // this._bda.setSessionStorage('isViewing', '/accounts')
     // }
 
   }
+
+
 
   showMoreCategories() {
     this.showAllCategories = true;
@@ -60,12 +61,23 @@ export class HomeComponent implements OnInit {
     console.log(cat);
 
   }
+
+
+  checkToken(id: any, categoryName: any) {
+    const token = this._bda.getSessionStorageHandler('token');
+    if (token) {
+      this.selectCategory(id, categoryName);
+    }
+    else {
+      alert("login-first");
+      this._router.navigate(['/login'])
+    }
+  }
   selectCategory(id: any, categoryName: any) {
     console.log(categoryName);
-    this._router.navigate(['./services/allServices', this.currentUserLocation, categoryName],
-      {
-        queryParams: { categoryId: id }
-      })
+    this._router.navigate(['./services/allServices', this.currentUserLocation, categoryName], {
+      queryParams: { categoryId: id }
+    })
   }
 
   // save() {

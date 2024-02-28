@@ -46,10 +46,10 @@ module.exports.postSearchDataService=async(searchDetails)=>{
     }
 }
 
-module.exports.putSearchDataService=async(locationId,searchDetails)=>{
+module.exports.putSearchDataService=async(_id,searchDetails)=>{
     try{
         const filter={
-            'searchHistory.serviceLocation.locationId':locationId
+            '_id':_id
         }
  var data = await searchModel.updateOne(filter,searchDetails);
  return data;
