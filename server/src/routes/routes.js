@@ -59,6 +59,8 @@ router.post('/services/postAll', auth.verifyToken, servicesController.postServic
 // router.route('/services/postAll').post(servicesController.postServicesDataController);
 router.put('/services/updateAll/:_id', auth.verifyToken, servicesController.putServicesDataController)
 // router.route('/services/updateAll/:_id').put(servicesController.putServicesDataController);
+router.put('/services/updateAll/serviceDetails/:_id',auth.verifyToken,servicesController.putServicesByServiceDetailsIdDataController)
+// router.route('/services/updateAll/:_id').put(servicesController.putServicesDataServiceIDController);
 router.get('/services/getAll/:_id', auth.verifyToken, servicesController.getServicesIdDataController);
 // router.route('/services/getAll/:_id').get(servicesController.getServicesIdDataController);
 router.get('/services/getAll/serviceDetails/:_id',auth.verifyToken,servicesController.getServicesByServiceDetailsIdDataController);

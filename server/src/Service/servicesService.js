@@ -105,12 +105,12 @@ module.exports.putServicesDataServiceInExistingArray = async (id, servicesDetls)
 
 module.exports.filterSerBasedOnCatDataService = async (filterData) => {
     console.log(filterData)
-    let catName=filterData.categoryName ? filterData.categoryName : null
+    let catName = filterData.categoryName ? filterData.categoryName : null
     let subCat1 = filterData.subCategory ? filterData.subCategory : null;
     let subCat2 = filterData.type ? filterData.type : null;
     let subCat3 = filterData.aminities ? filterData.aminities : null
     try {
-        
+
         const filter = [
             {
                 $unwind: "$serviceDetails"
@@ -129,24 +129,24 @@ module.exports.filterSerBasedOnCatDataService = async (filterData) => {
                 $group: {
                     _id: "$_id",
                     matchedServiceDetails: { $push: "$serviceDetails" },
-                    
+
                 }
             },
             {
                 $group: {
                     _id: null,
                     allMatchedServiceDetails: { $push: "$matchedServiceDetails" },
-                   
+
                 }
             },
-           
+
             {
                 $project: {
                     _id: 0,
                     allMatchedServiceDetails: 1
                 }
             },
-            
+
         ]
 
         var data = await servicesModel.aggregate(filter);
@@ -164,6 +164,26 @@ module.exports.getServicesByServiceDetailsIdDataService = async (id) => {
         var data = await servicesModel.findOne({ 'serviceDetails._id': id }, { 'serviceDetails.$': 1 }).exec();
         console.log(data);
         return data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+module.exports.putServicesByServiceDetailsIdDataService = async (_id, serviceDetails) => {
+    try {
+        const filter = {
+            'serviceDetails._id': _id // Match the service detail by its _id
+        };
+        const update = {
+            $set: { 'serviceDetails.$': serviceDetails } //Update the matched service detail with the new data
+        };
+        console.log("serviceDetails", serviceDetails)
+        // const options = { new: true };
+        // const result = await servicesModel.findOneAndUpdate(filter, update, options);
+        const result = await servicesModel.findOneAndUpdate(filter, update);
+        console.log(result)
+        return result;
     } catch (error) {
         console.error(error);
         throw error;

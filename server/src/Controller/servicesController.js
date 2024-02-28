@@ -111,5 +111,23 @@ var getServicesByServiceDetailsIdDataController = async (req, res) => {
       res.json({ "message": 'Failed to fetch service by Id', "status": false })
 
    }
+
 }
-module.exports = { filterSerBasedOnCatController, getServicesByServiceDetailsIdDataController, getServicesDataController, serviceSort, postServicesDataController, putServicesDataController, getServicesIdDataController, getServicesByCategoryName }
+
+var putServicesByServiceDetailsIdDataController = async (req, res) => {
+   try {
+      var servicesData = await servicesService.putServicesByServiceDetailsIdDataService(req.params._id, req.body);
+
+      if (servicesData) {
+         res.status(200).send({ "message": servicesData, "status": true })
+      }
+      else {
+         res.status(200).send({ "message": "not able to put data", "status": false })
+      }
+   }
+   catch (error) {
+      console.log(error);
+      res.status(500).send({ "message": "internal storage error", "status": false })
+   }
+}
+module.exports = { filterSerBasedOnCatController, getServicesByServiceDetailsIdDataController, getServicesDataController, serviceSort, postServicesDataController, putServicesDataController, getServicesIdDataController, getServicesByCategoryName, putServicesByServiceDetailsIdDataController }
