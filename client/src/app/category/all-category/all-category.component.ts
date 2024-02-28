@@ -13,6 +13,7 @@ export class AllCategoryComponent implements OnInit {
   currentStudentID = '';
   showForm: boolean = false;
   searchtext: any;
+currentUserLocation:any;
 
   constructor(private categories: ServicesService, private _router: Router) {
     this.hero = new FormGroup({
@@ -25,6 +26,8 @@ export class AllCategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentUserLocation = sessionStorage.getItem('current-location');
+    console.log(this.currentUserLocation);
     this.getCategoriesData();
   }
   getCategoriesData() {
@@ -33,10 +36,10 @@ export class AllCategoryComponent implements OnInit {
       // console.log( this.categoriesData,"get")
     });
   }
-  checkToken(categoryName: any) {
+  checkToken(id:any,categoryName: any) {
     const token = this.categories.getSessionStorageHandler('token');
     if (token) {
-      this.selectCategory(categoryName);
+      this.selectCategory(id,categoryName);
     }
     else {
       alert("login-first");
@@ -44,9 +47,12 @@ export class AllCategoryComponent implements OnInit {
     }
   }
 
-  selectCategory(categoryName: any) {
+  selectCategory(id:any,categoryName: any) {
     console.log(categoryName);
-    this._router.navigate(['/services/allServices', categoryName])
+    // this._router.navigate(['/services/allServices', categoryName])
+    this._router.navigate(['./services/allServices', this.currentUserLocation, categoryName], {
+      queryParams: { categoryId: id }
+    })
   }
   // save() {
   //   console.log('Current Student ID:', this.currentStudentID);

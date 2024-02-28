@@ -104,6 +104,7 @@ export class ServicesService {
     }
     return this.http.get(url, httpOptions)
   }
+
   getServiceById(serviceId: any) {
     let url = `${this.baseUrl}/api/services/getAll/serviceDetails/${serviceId}`;
     let token = this.getSessionStorageHandler('token');
@@ -123,11 +124,16 @@ export class ServicesService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `${token}`,
-        params: this.params,
+
       })
     }
     return this.http.get(url, httpOptions)
   }
+
+  // getServiceByServiceDetailsID(serviceDetailsID:any){
+  //   let url=`${this.baseUrl}/api/services/getAll/serviceDetails/${serviceDetailsID`
+  // }
+
   sortServiceBy() {
     let url = `${this.baseUrl}/api/services/sortBy`;
     let token = this.getSessionStorageHandler('token');
@@ -151,11 +157,25 @@ export class ServicesService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `${token}`,
-        params: this.params,
+
       })
     }
     return this.http.put(url, data, httpOptions)
   }
+  
+  putServiceByServiceDetailsData(serviceId: any, serviceDetails: any) {
+    let url = `${this.baseUrl}/api/services/updateAll/serviceDetails/${serviceId}`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+
+      })
+    }
+    return this.http.put(url, serviceDetails, httpOptions)
+  }
+
   getLoginDataService() {
     let url = `${this.baseUrl}/api/login`;
     let token = this.getSessionStorageHandler('token');
@@ -213,6 +233,8 @@ export class ServicesService {
     }
     return this.http.put(url, data, httpOptions)
   }
+
+
 
   //!API's for Search Collection
 
@@ -338,5 +360,7 @@ export class ServicesService {
     }
     return this.http.post(url, filterObj, httpOptions);
   }
+
+
 
 }

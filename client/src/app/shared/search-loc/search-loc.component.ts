@@ -18,13 +18,24 @@ export class SearchLocComponent implements OnInit {
 
   GeocodedArr: any = [];
   searchQuery: any;
+  usrEmail: any;
   constructor(private window: Window, private router: Router, private _bda: ServicesService) { }
 
   ngOnInit() {
-    this.getCurrentLocation()
+    let currLoc=  sessionStorage.getItem('current-location');
+    console.log("currLoc-->",currLoc);
+    if(!currLoc){
+      this.getCurrentLocation()
+    }
+    else{
+      this.currentLocName= sessionStorage.getItem('current-location');
+      this.searchQuery=sessionStorage.getItem('searchQuery')
+    }
+   
     this.selectedLocation = this.locations[0];
     window.onclick = (event: any) => this.closeDropdownOnClickOutside(event);
     let usr = this._bda.getSessionStorageHandler('usrDetls');
+    this.usrEmail=usr.email
     this.getRecentLocationData(usr.email);
   }
   ngAfterViewInit() {
@@ -80,6 +91,7 @@ export class SearchLocComponent implements OnInit {
     fetch(apiUrl)
       .then(response => response.json())
       .then((geocodingData: any) => {
+        console.log(geocodingData)
         const locationData = geocodingData;
         this.currentLocName = locationData.address.suburb;
         this.updateUsrCurrLocHandler(locationData)
@@ -92,7 +104,8 @@ export class SearchLocComponent implements OnInit {
 
   //!api for geo location by change event method
   geocodeLocation(event: any) {
-    let enteredLocationName = event?.target.value
+    let enteredLocationName = event?.target.value;
+    console.log(enteredLocationName)
     if (enteredLocationName) {
       const apiUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
         enteredLocationName
@@ -105,7 +118,7 @@ export class SearchLocComponent implements OnInit {
             this.currentLocName = locationData.display_name;
             this.GeocodedArr = geocodingData[0];
             // this._bda.setSessionStorage('current-location', this.currentLocName)
-
+            this.fetchCurUsrLocByLatLong( locationData.lat,locationData.lon)
             console.log('Geocoded Latitude:', locationData.lat);
             console.log('Geocoded Longitude:', locationData.lon);
           } else {
@@ -128,9 +141,11 @@ export class SearchLocComponent implements OnInit {
     updateRecentLocs.coords.latitude = parseFloat(locationData.lat);
     updateRecentLocs.coords.longitude = parseFloat(locationData.lon);
     let ssUsrLoc = this._bda.getSessionStorageHandler('user-location')
-    ssUsrLoc[0].recentlocations.push(updateRecentLocs)
+    // ssUsrLoc[0].recentlocations.push(updateRecentLocs);
+    console.log(ssUsrLoc[0].recentlocations)
     const locationExists = ssUsrLoc[0].recentlocations.some((loc: any) => loc.locationName === updateRecentLocs.locationName);
     if (!locationExists) {
+      ssUsrLoc[0].recentlocations.push(updateRecentLocs)
       this._bda.updateLocationUser(ssUsrLoc[0]._id, ssUsrLoc[0]).subscribe((res: any) => {
         if (res.errorCode == 0) {
           this.locations[0].recentlocations.push(updateRecentLocs);
@@ -140,7 +155,9 @@ export class SearchLocComponent implements OnInit {
               // this.locations.push(res.data);
               this.locations[0].recentlocations.push(updateRecentLocs)
               // console.log('locations-after-updtae', this.locations);
-              this._bda.setSessionStorage('user-location', JSON.stringify(this.locations))
+              this._bda.setSessionStorage('user-location', JSON.stringify(this.locations));
+              // this.getRecentLocationData(this.usrEmail);
+              // ssUsrLoc[0].recentlocations.push(updateRecentLocs);
             }
           })
         }
@@ -148,6 +165,7 @@ export class SearchLocComponent implements OnInit {
     } else {
       console.log('Location already exists in user locations');
     }
+    
   }
 
   goToUserSearches() {
@@ -155,14 +173,36 @@ export class SearchLocComponent implements OnInit {
 
   myFunction() {
     document.getElementById("myDropdown-location")?.classList.toggle("show");
+
+
   }
   searchServices(event: any) {
     console.log('search-event', event.target.value);
   }
-  search(event: Event): void {
+  searchService(event: any) {
+    let searchSer = event?.target.value;
+    if(searchSer){
+      this.searchQuery=searchSer;
+      // this.router.navigate(['./services/allServices',this.currentLocName,this.searchQuery],{
+      //   queryParams:{fromLoc:"serachQuery"}
+      // })
+      this._bda.setSessionStorage('searchQuery', this.searchQuery)
+      this.router.navigate(['./services/allServices'], { queryParams: { q: this.searchQuery,loc: this.currentLocName} })
+    }
+  
 
-    this.router.navigate(['/services/allServices'], { queryParams: { q: this.searchQuery } })
 
+  }
 
+  clickOnRecLoc(recLocName:any){
+    if(recLocName){
+      this.currentLocName=recLocName;
+      this._bda.setSessionStorage('current-location', this.currentLocName);
+      console.log(this.searchQuery)
+      if (this.searchQuery != '') {
+        this.router.navigate(['./services/allServices'], { queryParams: { q: this.searchQuery, loc: this.currentLocName } })
+      }
+      
+    }
   }
 }

@@ -20,11 +20,19 @@
                             <label for="firstname">First Name</label>
                             <input type="text" name="firstname" id="firstname" class="form-control shadow-none"
                                 formControlName="firstName">
+                            <div *ngIf="signup.get('firstName').invalid && signup.get('firstName').touched"
+                                class="text-danger">
+                                First Name is required
+                            </div>
                         </div>
                         <div class="col-sm">
                             <label for="lastname">Last Name</label>
                             <input type="text" name="lastname" id="lastname" class="form-control shadow-none"
                                 formControlName="lastName">
+                            <div *ngIf="signup.get('lastName').invalid && signup.get('lastName').touched"
+                                class="text-danger">
+                                last Name is required
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -32,18 +40,40 @@
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" class="form-control shadow-none"
                                 formControlName="email">
+                            <div *ngIf="signup.get('email').invalid && signup.get('email').touched" class="text-danger">
+                                <div *ngIf="signup.get('email').errors.required">
+                                    Email is required
+                                </div>
+                                <div *ngIf="signup.get('email').errors.email">
+                                    Invalid email format
+                                </div>
+                            </div>
                         </div>
+
                         <div class="col-sm">
                             <label for="phno">Mobile Number</label>
-                            <input type="number" name="phno" id="phno" class="form-control shadow-none"
+                            <input type="text" name="phno" id="phno" class="form-control shadow-none"
                                 formControlName="phone">
+                            <div *ngIf="signup.get('phone').invalid && signup.get('phone').touched" class="text-danger">
+                                <div *ngIf="signup.get('phone').errors.required">
+                                    Mobile Number is required
+                                </div>
+                                <div *ngIf="signup.get('phone').errors.maxlength">
+                                    Mobile Number must be at most 10 digits long
+                                </div>
+                                <div *ngIf="signup.get('phone').errors?.invalidLength">
+                                    Mobile Number must be at least 10 digits long
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
                     <div class="row">
                         <div class="col-sm">
                             <label for="location">Location</label>
                             <select name="location" id="location" class="form-control shadow-none"
-                                (change)="Handler($event)" formControlName="currentLocation">
+                                formControlName="currentLocation">
                                 <option value=""></option>
                                 <option *ngFor="let item of locationData" [value]=item.city>{{item.city}} </option>
                             </select>
@@ -51,6 +81,10 @@
                                             [searchable]="true" bindLabel="city" placeholder="Select"
                                             (change)="Handler($event)"   formControlName="currentLocation">
                                         </ng-select> -->
+                        </div>
+                        <div *ngIf="signup.get('currentLocation').invalid && signup.get('currentLocation').touched"
+                            class="text-danger">
+                            currentLocation is required
                         </div>
                         <!-- <div class="col-sm">
                             <label for="Categories">Select Categories / Interests</label>
@@ -64,10 +98,13 @@
                     <div class="row">
                         <div class="col-sm">
                             <label for="password">Create Password</label>
-                            <input type="text" name="password" id="password" class="form-control shadow-none"
+                            <input type="password" name="password" id="password" class="form-control shadow-none"
                                 formControlName="password">
                         </div>
-
+                        <div *ngIf="signup.get('password').invalid && signup.get('password').touched"
+                            class="text-danger">
+                            password is required
+                        </div>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -76,7 +113,7 @@
                     </div>
                 </div>
             </div>
-        </div> {{this.signup.value|json}}
+        </div>
     </form>
 
 </div>

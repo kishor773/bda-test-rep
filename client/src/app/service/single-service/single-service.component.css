@@ -110,6 +110,11 @@
 
 }
 
+#review-sec {
+    height: 600px;
+    overflow-y: scroll;
+}
+
 #review-sec div:nth-child(1) {
     border-bottom: 2px solid #84818194;
 }
@@ -145,6 +150,10 @@
     border-bottom: 2px solid #84818194;
 }
 
+/* #review-sec div:nth-child(2){
+    height: 50%;
+
+} */
 #review-sec div:nth-child(2) div span {
     padding: 0 10px;
 
@@ -175,7 +184,7 @@
     font-family: Nunito Sans;
     font-size: 14px;
     font-weight: 400;
-    /* line-height: 33px; */
+    line-height: 33px;
     letter-spacing: 0em;
     text-align: left;
     color: #000000B0;
@@ -372,7 +381,7 @@ span {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
 }
 
 .modal-content div:first-child {

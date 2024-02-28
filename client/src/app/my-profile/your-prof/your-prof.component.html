@@ -77,7 +77,7 @@
                             <div class="col-sm">
                                 <label for="categoryInterests">Category Interests</label>
                                 <ng-select [items]="categories" [multiple]="true" [closeOnSelect]="false"
-                                    [searchable]="true" bindLabel="category" placeholder="Select" 
+                                    [searchable]="true" bindLabel="category" placeholder="Select"
                                     (change)="selectCategories($event)">
                                 </ng-select>
 
@@ -136,8 +136,12 @@
                                     </div>
                                     <div class="col-3">
                                         <label for="categoryInterests">Locations Served</label>
-                                        <ng-select [items]="locations" [multiple]="true" [closeOnSelect]="false"
+                                        <!-- <ng-select [items]="locations" [multiple]="true" [closeOnSelect]="false"
                                             [searchable]="true" bindLabel="city" placeholder="Select" [bindValue]="data.locationName[i].city"
+                                            (change)="locServed($event,i)">
+                                        </ng-select> -->
+                                        <ng-select [items]="locations" [multiple]="true" [closeOnSelect]="false"
+                                            [searchable]="true" bindLabel="city" placeholder="Select"
                                             (change)="locServed($event,i)">
                                         </ng-select>
                                         <!-- {{data.locationName[i]|json}} -->
@@ -186,7 +190,8 @@
 
                                     </div>
                                     <div class="col-1">
-                                        <button type="button" class="btn btn-danger" (click)="deleteAccordionRow(i)">Delete</button>
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="deleteAccordionRow(i)">Delete</button>
                                     </div>
                                 </div>
                                 <div class="row">

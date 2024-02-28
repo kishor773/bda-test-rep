@@ -17,8 +17,6 @@ export class SingleServiceComponent implements OnInit {
   serviceShortDescription: any;
   serviceReviews: any; postData: any;
   stars: number[] = [1, 2, 3, 4, 5]; // Total stars
-  reviewsform: any; reportsform: any;
-  // reviewSubmitDisable: boolean = true;
   @ViewChild('widgetsContent', { read: ElementRef })
   public widgetsContent!: ElementRef<any>;
 
@@ -31,26 +29,61 @@ export class SingleServiceComponent implements OnInit {
   serviceBodyData: any;
   usrDetails: any;
   categoryName: any;
-
+  rnr: any = {
+    email: "",
+    name: "",
+    usrRatings: 0,
+    description: ""
+  }
+  reportBusiness: any = {
+    email: "",
+    reportStmt: "",
+    reason: ""
+  }
+  reportReasons: any = [
+    {
+      reason: "Unwanted commercial content or spam",
+    },
+    {
+      reason: "Pornography or sexually explicit material",
+    },
+    {
+      reason: "Child Abuse",
+    },
+    {
+      reason: "Hate speech or graphic violence",
+    },
+    {
+      reason: "Promotes terrorism",
+    },
+    {
+      reason: "Harassment or bullying",
+    },
+    {
+      reason: "Suicide or self injury",
+    },
+    {
+      reason: "Misinformation",
+    }
+  ]
   constructor(private route: ActivatedRoute, private _bda: ServicesService) {
-    this.reviewsform = new FormGroup({
-      description: new FormControl(''),
-      serviceRating: new FormControl(''),
+    // this.reviewsform = new FormGroup({
+    //   description: new FormControl(''),
+    //   serviceRating: new FormControl(''),
 
-    })
-    this.reportsform = new FormGroup({
-      report: new FormControl(''),
-    })
+    // })
+    // this.reportsform = new FormGroup({
+    //   report: new FormControl(''),
+    // })
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      console.log(params['id']);
-      
+      // console.log(params['id']);
       this.serviceId = params['id'];
+      // console.log(this.serviceId)
       this.getSingleServiceById(params['id']);
       window.onclick = (event: any) => this.closeDropdownOnClickOutside(event);
-
     });
   }
   ngAfterViewInit(): void {
@@ -62,171 +95,133 @@ export class SingleServiceComponent implements OnInit {
   }
   rate(rating: number): void {
     this.serviceRatings = rating;
-    console.log(this.serviceRatings, "ratings---------------------");
-    console.log("New rating: ", rating);
-  }
+    // console.log("ratings---------------------");
+    // console.log("New rating: ", rating);
+    let checkreviesStatus = this.checkForEmptyRnR()
+    // console.log(checkreviesStatus);
+    if (checkreviesStatus && checkreviesStatus.cond == true) {
+      checkreviesStatus.data.serviceDetails[0].serviceRnR.pop();
+      this.rnr.usrRatings = rating
+      this.rnr.email = checkreviesStatus.userDetails.email
+      this.rnr.name = checkreviesStatus.userDetails.name
+    } else {
+      this.rnr.usrRatings = rating
+      this.rnr.email = checkreviesStatus.userDetails.email
+      this.rnr.name = checkreviesStatus.userDetails.name
+      // checkreviesStatus.data.serviceDetails[0].serviceRnR;
+    }
 
+  }
+  writeReview(event: any) {
+    // console.log('writeReview', event.target.value);
+    let checkreviesStatus = this.checkForEmptyRnR()
+    // console.log(checkreviesStatus);
+    if (checkreviesStatus && checkreviesStatus.cond == true) {
+      checkreviesStatus.data.serviceDetails[0].serviceRnR.pop();
+      this.rnr.description = event.target.value
+      this.rnr.email = checkreviesStatus.userDetails.email
+      this.rnr.name = checkreviesStatus.userDetails.name
+    } else {
+      this.rnr.description = event.target.value
+      this.rnr.email = checkreviesStatus.userDetails.email
+      this.rnr.name = checkreviesStatus.userDetails.name
+    }
+
+  }
+  checkForEmptyRnR() {
+    this.serviceBodyData =
+      this._bda.getSessionStorageHandler('serviceBodyData');
+    let userDetails = this._bda.getSessionStorageHandler('usrDetls')
+    let sessionData = this.serviceBodyData.serviceDetails[0].serviceRnR
+    if (sessionData.length == 1 && sessionData[0]['description'] == '' && sessionData[0]['email'] == '' && sessionData[0]['name'] == '' && sessionData[0]['usrRatings'] == 0) {
+      // console.log(true);
+      return { cond: true, data: this.serviceBodyData, userDetails: userDetails }
+    }
+    else {
+      return { cond: false, data: this.serviceBodyData, userDetails: userDetails }
+    }
+  }
+  checkForEmptyReports() {
+    this.serviceBodyData =
+      this._bda.getSessionStorageHandler('serviceBodyData');
+    let userDetails = this._bda.getSessionStorageHandler('usrDetls')
+    let sessionData = this.serviceBodyData.serviceDetails[0].serviceReports
+    if (sessionData.length == 1 && sessionData[0]['email'] == '' && sessionData[0]['reportStmt'] == '' && sessionData[0]['reason'] == '') {
+      // console.log(true);
+      return { cond: true, data: this.serviceBodyData, userDetails: userDetails }
+    }
+    else {
+      return { cond: false, data: this.serviceBodyData, userDetails: userDetails }
+    }
+  }
   submit() {
-    //  alert("ffff")
-
-
-    //so accessing the values from session storage 
-    this.usrDetails = this._bda.getSessionStorageHandler('usrDetls');
-    this.serviceBodyData = this._bda.getSessionStorageHandler('serviceBodyData');
-
-    console.log(this.serviceBodyData, "value from  service session-storage")
-    console.log(this.usrDetails, "value from  user session storage");
-
-    console.log("country", this.serviceBodyData.category[0].businessUrl.youtubeUrl);
-
-    let bodydata = {
-      categories: [
-        {
-          categoryName: this.serviceBodyData.categoryName,
-          category: [
-            {
-              serviceName: this.serviceBodyData.category[0].serviceName,
-              servicePhotos: {
-                photo1: this.serviceBodyData.category[0].servicePhotos.photo1,
-                photo2: this.serviceBodyData.category[0].servicePhotos.photo2,
-                photo3: this.serviceBodyData.category[0].servicePhotos.photo3,
-                photo4: this.serviceBodyData.category[0].servicePhotos.photo4,
-              },
-              serviceDesc: this.serviceBodyData.category[0].serviceDesc,
-              serviceLocation: [
-                {
-                  coords: {
-                    // latitude: this.serviceBodyData.serviceLocation[0].coords.latitude,
-                    // longitude: this.serviceBodyData.serviceLocation[0].coords.longitude,
-                    // speed: this.serviceBodyData.serviceLocation[0].coords.speed,
-                    // accuracy: this.serviceBodyData.serviceLocation[0].coords.accuracy,
-                  },
-                },
-              ],
-              address: [
-                {
-                  addressTitle: this.serviceBodyData.category[0].address[0].addressTitle,
-                  state: this.serviceBodyData.category[0].address[0].state,
-                  city: this.serviceBodyData.category[0].address[0].city,
-                  pincode: this.serviceBodyData.category[0].address[0].pincode,
-                  country: this.serviceBodyData.category[0].address[0].country,
-                },
-              ],
-              businessUrl: {
-                youtubeUrl: this.serviceBodyData.category[0].businessUrl.youtubeUrl,
-                instagramUrl: this.serviceBodyData.category[0].businessUrl.instagramUrl,
-                twitterUrl: this.serviceBodyData.category[0].businessUrl.twitterUrl,
-              },
-              workingHours: {
-                fromDay: this.serviceBodyData.category[0].workingHours.fromDay,
-                toDay: this.serviceBodyData.category[0].workingHours.toDay,
-                fromTime: this.serviceBodyData.category[0].workingHours.fromTime,
-                toTime: this.serviceBodyData.category[0].workingHours.toTime,
-              },
-              serviceReviews: [
-                {
-                  email: this.usrDetails.email,
-                  name: this.usrDetails.name,
-                  usrRatings: this.serviceRatings,
-                  description: this.reviewsform.get('description').value
-                }
-              ],
-              serviceReports: this.reportsform.value.report,
-              subCategory1: this.serviceBodyData.category[0].subCategory1,
-              subCategory2: this.serviceBodyData.category[0].subCategory2,
-              subCategory3: this.serviceBodyData.category[0].subCategory3,
-            },
-          ],
-        },
-      ],
-    };
-
-    console.log(bodydata, "updatedData");
-
-    // Call your backend service to put the data
-    this._bda.putServicesServiceData(this.serviceId, bodydata).subscribe((res: any) => {
-      console.log(res, "updated value");
-      alert("data-updated");
-    });
+    // console.log('this.rnr at submit', this.rnr);
+    this.serviceBodyData.serviceDetails[0].serviceRnR.push(this.rnr)
+    // console.log('this.serviceBodyData at submit', this.serviceBodyData.serviceDetails);
+    let bodydata = { serviceDetails: this.serviceBodyData.serviceDetails }
+    // console.log('body-data', bodydata);
+    this._bda
+      .putServiceByServiceDetailsData(this.serviceId, bodydata.serviceDetails)
+      .subscribe((res: any) => {
+        console.log(res, 'updated-reviews-aubmit');
+        alert('Review added successfully');
+      });
+    window.location.reload()
   }
+  reportReasonSelect(event: any) {
+    // console.log('report-reason-select::::', event.target.value);
+    let reason = event.target.value;
+    let checkreviesStatus = this.checkForEmptyReports()
+    // console.log(checkreviesStatus);
+    if (checkreviesStatus && checkreviesStatus.cond == true) {
+      checkreviesStatus.data.serviceDetails[0].serviceReports.pop();
+      // this.reportBusiness.reportStmt = reason
+      this.reportBusiness.email = checkreviesStatus.userDetails.email
+      this.reportBusiness.reason = reason
+      // console.log('reportReasonSelect +', this.reportBusiness);
+    } else {
+      this.reportBusiness.email = checkreviesStatus.userDetails.email
+      this.reportBusiness.reason = reason
+      // console.log('reportReasonSelect -', this.reportBusiness);
 
+    }
+  }
+  reportStatement(event: any) {
+    let statement = event.target.value;
+    let checkreviesStatus = this.checkForEmptyReports()
+    // console.log(checkreviesStatus);
+    if (checkreviesStatus && checkreviesStatus.cond == true) {
+      checkreviesStatus.data.serviceDetails[0].serviceReports.pop();
+      this.reportBusiness.reportStmt = statement
+      this.reportBusiness.email = checkreviesStatus.userDetails.email
+      // this.reportBusiness.reason = statement
+      // console.log('reportStatement +', this.reportBusiness);
+    } else {
+      this.reportBusiness.reportStmt = statement
+      this.reportBusiness.email = checkreviesStatus.userDetails.email
+      // this.reportBusiness.reason = statement
+      // console.log('reportStatement -', this.reportBusiness);
+
+    }
+  }
   reportSubmit() {
-    let bodydata = {
-      categories: [
-        {
-          categoryName: this.serviceBodyData.categoryName,
-          category: [
-            {
-              serviceName: this.serviceBodyData.category[0].serviceName,
-              servicePhotos: {
-                photo1: this.serviceBodyData.category[0].servicePhotos.photo1,
-                photo2: this.serviceBodyData.category[0].servicePhotos.photo2,
-                photo3: this.serviceBodyData.category[0].servicePhotos.photo3,
-                photo4: this.serviceBodyData.category[0].servicePhotos.photo4,
-              },
-              serviceDesc: this.serviceBodyData.category[0].serviceDesc,
-              serviceLocation: [
-                {
-                  coords: {
-                    // latitude: this.serviceBodyData.serviceLocation[0].coords.latitude,
-                    // longitude: this.serviceBodyData.serviceLocation[0].coords.longitude,
-                    // speed: this.serviceBodyData.serviceLocation[0].coords.speed,
-                    // accuracy: this.serviceBodyData.serviceLocation[0].coords.accuracy,
-                  },
-                },
-              ],
-              address: [
-                {
-                  addressTitle: this.serviceBodyData.category[0].address[0].addressTitle,
-                  state: this.serviceBodyData.category[0].address[0].state,
-                  city: this.serviceBodyData.category[0].address[0].city,
-                  pincode: this.serviceBodyData.category[0].address[0].pincode,
-                  country: this.serviceBodyData.category[0].address[0].country,
-                },
-              ],
-              businessUrl: {
-                youtubeUrl: this.serviceBodyData.category[0].businessUrl.youtubeUrl,
-                instagramUrl: this.serviceBodyData.category[0].businessUrl.instagramUrl,
-                twitterUrl: this.serviceBodyData.category[0].businessUrl.twitterUrl,
-              },
-              workingHours: {
-                fromDay: this.serviceBodyData.category[0].workingHours.fromDay,
-                toDay: this.serviceBodyData.category[0].workingHours.toDay,
-                fromTime: this.serviceBodyData.category[0].workingHours.fromTime,
-                toTime: this.serviceBodyData.category[0].workingHours.toTime,
-              },
-              serviceReviews: [
-                {
-                  email: this.usrDetails.email,
-                  name: this.usrDetails.name,
-                  usrRatings: this.serviceRatings,
-                  description: this.reviewsform.get('description').value
-                }
-              ],
-              serviceReports: this.reportsform.value.report,
-              subCategory1: this.serviceBodyData.category[0].subCategory1,
-              subCategory2: this.serviceBodyData.category[0].subCategory2,
-              subCategory3: this.serviceBodyData.category[0].subCategory3,
-            },
-          ],
-        },
-      ],
-    };
-
-    // this._bda.postselectedCategoriesServiceData(postData).subscribe((res: any) => {
-    //   console.log(res, "posted value");
-    //   alert("data-posted");
-    // });
-    this._bda.putServicesServiceData(this.serviceId, bodydata).subscribe((res: any) => {
-      console.log(res, "updated value");
-      alert("data-updated");
-    });
+    // console.log('report-business', this.reportBusiness);
+    this.serviceBodyData.serviceDetails[0].serviceReports.push(this.reportBusiness)
+    // console.log('this.serviceBodyData at submit report', this.serviceBodyData.serviceDetails);
+    let bodydata = { serviceDetails: this.serviceBodyData.serviceDetails }
+    this._bda
+      .putServiceByServiceDetailsData(this.serviceId, bodydata.serviceDetails)
+      .subscribe((res: any) => {
+        // console.log('updated-report', res);
+        alert('Reported business successfully');
+      });
+    window.location.reload();
   }
 
   getSingleServiceById(id: any) {
     this._bda.getServiceById(id).subscribe((res: any) => {
       // this.singleServiceResp = data;
-      
+
       this.singleServiceResp = res.message.serviceDetails[0];
       console.log(this.singleServiceResp);
       // this.categoryName = res.message.categories[0][0].categoryName;
@@ -235,7 +230,7 @@ export class SingleServiceComponent implements OnInit {
       this.serviceShortDescription = this.singleServiceResp.serivceDesc
       this.serviceReviews = this.singleServiceResp.serviceRnR
 
-      // console.log("this.serviceReviews--->", this.serviceReviews);
+      // console.log("singleServiceResp-res--->", res.message);
       this._bda.setSessionStorage('serviceBodyData', JSON.stringify(res.message))
     })
   }
@@ -272,11 +267,6 @@ export class SingleServiceComponent implements OnInit {
     this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 150), behavior: 'smooth' });
   }
 
-  writeReview(event: any) {
-    console.log('writeReview', event.target.value);
-    
-  }
-
   openModal(): void {
     this.modal.nativeElement.style.display = 'block';
     this.modal1.nativeElement.style.display = 'block'
@@ -285,6 +275,4 @@ export class SingleServiceComponent implements OnInit {
   closeModal(): void {
     this.modal.nativeElement.style.display = 'none';
   }
-
-
 }

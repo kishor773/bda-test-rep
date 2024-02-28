@@ -19,14 +19,28 @@
                     <div class="row">
                         <label for="email">Email</label>
                         <input type="text" name="email" id="email" class="form-control shadow-none" formControlName="email">
+                        <div *ngIf="login.get('email').invalid && login.get('email').touched" class="text-danger">
+                            <div *ngIf="login.get('email').errors.required">
+                                Email is required
+                            </div>
+                            <div *ngIf="login.get('email').errors.email">
+                                Invalid email format
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <label for="pwd">Password</label>
                         <input type="password" name="pwd" id="pwd" class="form-control shadow-none" formControlName="password">
+                        <div *ngIf="login.get('password').invalid && login.get('password').touched" class="text-danger">
+                            <div *ngIf="login.get('password').errors?.required">
+                                Password is required
+                            </div>
+                        </div>
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" type="button" (click)="submit()">Submit</button>
                     </div>
+                    
                     <!-- {{this.login.value|json}} -->
                 </div>
             </div>

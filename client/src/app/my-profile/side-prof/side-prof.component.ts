@@ -9,6 +9,7 @@ import { ServicesService } from 'src/app/bdaServices.service';
 })
 export class SideProfComponent implements OnInit {
   businessType: any = [];
+  busType: any
   servicesdata: any = [];
   constructor(private router: Router, private _aR: ActivatedRoute, private _bda: ServicesService) { }
   ngOnInit(): void {
@@ -19,8 +20,20 @@ export class SideProfComponent implements OnInit {
       this._bda.setSessionStorage('categoriesSelected', JSON.stringify(data.serviceCategory))
     } else {
       // console.log('KEY FOUND FOR CATEGORIES SELECTED IN SESSION STORAGE');
-      this.businessType = this._bda.getSessionStorageHandler('categoriesSelected');
-      // console.log(this.businessType);
+      // this.businessType = this._bda.getSessionStorageHandler('categoriesSelected');
+      let categs = this._bda.getSessionStorageHandler('categoriesSelected');
+      const segregatedCategories: { [key: string]: any[] } = {};
+      categs.forEach((category: any) => {
+        const types = category.type.split(',');
+        types.forEach((type: string) => {
+          if (!segregatedCategories[type]) {
+            segregatedCategories[type] = [];
+          }
+          segregatedCategories[type].push(category);
+        });
+      });
+      this.busType = segregatedCategories
+      console.log(this.busType);
     }
   }
 

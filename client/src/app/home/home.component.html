@@ -33,7 +33,7 @@
                     *ngFor="let item of categoriesData | slice:0:(showAllCategories ? categoriesData.length : maxCategoriesToShow)"
                     (click)="checkToken(item._id,item.category)">
                     <img src="../../../assets/images/food.png" class="card-img-top" alt="..."><br>
-                    <p class="card-title">{{item.category}}</p>
+                    <p class="card-title" title="{{item.category}}">{{item.category}}</p>
                 </div>
                 <div *ngIf="!showAllCategories && categoriesData.length > maxCategoriesToShow"
                     class="categories-card-child" routerLink="/allCategory">
@@ -46,7 +46,7 @@
     <br>
 
     <!-- adverstisment block -->
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
 
         <div class="col-12 int-advt">
 
@@ -59,7 +59,7 @@
 
 
         </div>
-    </div>
+    </div> -->
 </div>
 
 <br>

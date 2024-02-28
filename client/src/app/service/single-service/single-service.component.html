@@ -39,7 +39,7 @@
                         <div class="card-title">
                             <h1> Reviews and Ratings</h1>
                         </div>
-                        <div class="card-body" id="review-sec" [formGroup]="reviewsform">
+                        <div class="card-body" id="review-sec">
                             <div>
                                 <p>Rate this service:</p>
                                 <div class="star-rating">
@@ -51,11 +51,11 @@
                                 <p>Write a review:</p>
                                 <textarea name="writeReview" id="writeReview" class="form-control shadow-none"
                                     (change)="writeReview($event)" [(ngModel)]="reviewContent" minlength="100"
-                                    maxlength="500" formControlName="description"></textarea>
+                                    maxlength="500"></textarea>
                                 <button class="btn"
                                     [disabled]="reviewContent.length < 100 || reviewContent.length > 500"
                                     (click)="submit()">Submit</button>
-                                <!-- {{this.reviewsform.value|json}} -->
+                                <!-- {{rnr|json}} -->
                             </div>
                             <div>
                                 <p>User Reviews and Ratings</p>
@@ -64,9 +64,9 @@
                                     <span>{{serviceReviews[i].name}}</span>
                                     <span>{{serviceReviews[i].usrRatings}}</span>
                                     <span class="dropdown">
-                                        <button (click)="myFunction()" class="dropbtn"><img
+                                        <!-- <button (click)="myFunction()" class="dropbtn"><img
                                                 src="../../../assets/icons/three-dots-vertical.png"
-                                                alt="Logged-in user icon"></button>
+                                                alt="Logged-in user icon"></button> -->
                                         <div id="myDropdown" class="dropdown-content">
                                             <a href="/account/my-profile" routerLink='/account/my-profile'
                                                 routerLinkActive="active">My Profile</a>
@@ -78,6 +78,7 @@
                                     </span>
                                     <br>
                                     <span>{{serviceReviews[i].description}}</span>
+                                    <hr>
                                 </div>
                             </div>
                         </div>
@@ -178,15 +179,22 @@
     <!-- Report Error Modal -->
     <div id="myModal" class="modal" #myModal>
         <!-- Modal content -->
-        <div class="modal-content" [formGroup]="reportsform">
+        <div class="modal-content">
             <div>
                 <span class="close" (click)="closeModal()">&times;</span>
                 <p>Report this business</p>
             </div>
+
             <div class="modal-body">
+                <label for="country">Select Reason</label>
+                <select name="report-reason" id="report-reason" class="form-control shadow-none"
+                    (change)="reportReasonSelect($event)">
+                    <option value=""></option>
+                    <option *ngFor="let rsn of reportReasons" [ngValue]="rsn.reason">{{rsn.reason}}</option>
+                </select>
                 <p>Please state your concern breifly</p>
                 <textarea name="" id="" class="form-control shadow-none" [innerHTML]="" [(ngModel)]="reportContent"
-                    minlength="100" maxlength="500" formControlName="report"></textarea>
+                    minlength="100" maxlength="500" (change)="reportStatement($event)"></textarea>
                 <button class="btn" [disabled]="reportContent.length < 100 || reportContent.length > 500"
                     (click)="reportSubmit()">Submit</button>
                 <!-- {{this.reportsform.value|json}} -->

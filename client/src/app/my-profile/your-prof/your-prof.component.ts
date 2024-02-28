@@ -46,10 +46,12 @@ export class YourProfComponent implements OnInit {
     let data = this._bda.getSessionStorageHandler('usrDetls');
     this.usrName = `${data.firstName} ${data.lastName}`
     // console.log(data);
+    this.getLocationData();
+    
     this.patchUserForm(data)
   }
   ngAfterViewInit() {
-    this.getLocationData();
+    // this.getLocationData();
     this.getCategoriesData();
   }
 

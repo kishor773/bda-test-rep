@@ -6,18 +6,37 @@
             </li>
             <li><a routerLink='/account/categories' routerLinkActive="active" id="location">Categories</a>
                 <div id="loc-sug">
-                    <ul *ngFor="let data of businessType; let i=index">
-                        <li>{{data.type}}
+                    <!-- <ul *ngFor="let data of busType; let i=index">
+                        <li>
+                            {{data}}
                             <ol>
                                 <li>
                                     <a [routerLink]="['/account/categories',data.category]" routerLinkActive="active"
                                         (click)="fetchServiceByCatName(data.category)">{{data.category}}</a>
-                                    <!-- <a routerLinkActive="active"
-                                        (click)="fetchServiceByCatName(data.category)">{{data.category}}</a> -->
                                 </li>
                             </ol>
                         </li>
-                    </ul>
+
+                    </ul> -->
+                    <details>
+                        <summary>Business</summary>
+                        <ul>
+                            <li *ngFor="let data of busType.Business">
+                                <a [routerLink]="['/account/categories',data.category]" routerLinkActive="active"
+                                    (click)="fetchServiceByCatName(data.category)">{{data.category}}</a>
+                            </li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Social</summary>
+                        <ul>
+                            <li *ngFor="let data of busType.Social">
+                                <a [routerLink]="['/account/categories',data.category]" routerLinkActive="active"
+                                    (click)="fetchServiceByCatName(data.category)">{{data.category}}</a>
+                            </li>
+                        </ul>
+
+                    </details>
                 </div>
             </li>
             <li><a routerLink='/account/plan-details' routerLinkActive="active">Plan Details</a></li>

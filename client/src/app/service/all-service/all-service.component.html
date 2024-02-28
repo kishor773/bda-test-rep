@@ -67,11 +67,11 @@
             <div class="second-div">
                 <!-- <div class="card" *ngFor="let item of servicesdata.slice(0,3)| filter:searchtext;let i=index"
                     [routerLink]="['/services/singleServices', item._id]"> -->
-                    <div class="card" *ngFor="let item of servicesdata;let i=index"
+                    <div class="card" *ngFor="let item of servicesdata.slice(0,3);let i=index"
                     [routerLink]="['/services/singleServices', item._id]">
                     <div class="card-body all-service-card">
                         <div class="image-block">
-                            <img src="{{item.servicePhotos[0].photo1}}" alt="">
+                            <img src="{{item.servicePhotos[0]['photo1']}}" alt="">
                         </div>
                         <div>
                             <span class="row data-row">

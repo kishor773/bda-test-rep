@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServicesService } from '../bdaServices.service';
 import { Route, Router } from '@angular/router';
+// Custom validator function for checking if the mobile number is less than 10 digits
+function mobileNumberLength(control: FormControl): { [key: string]: any } | null {
+  const mobile = control.value as string;
+  if (mobile && mobile.length < 10) {
+    return { invalidLength: true };
+  }
+  return null;
+}
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -13,16 +21,14 @@ export class SignupComponent implements OnInit {
   categoryData: any;
   constructor(private service: ServicesService, private router: Router) {
     this.signup = new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      email: new FormControl(''),
-      phone: new FormControl(''),
-      password: new FormControl(''),
-      categoryName: new FormControl(''),
-      currentLocation: new FormControl(''),
-      referralCode: new FormControl(''), // Add this line
-      // businessNo: new FormControl(''), // Add this line
-      // whatsappNo: new FormControl(''), // Add this line
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email,]),
+      phone: new FormControl('', [Validators.required, Validators.maxLength(10), mobileNumberLength]), // Using custom validator
+      password: new FormControl('', Validators.required),
+      categoryName: new FormControl('',),
+      currentLocation: new FormControl('', Validators.required),
+      referralCode: new FormControl('',),
     });
   }
   ngOnInit(): void {
@@ -30,27 +36,33 @@ export class SignupComponent implements OnInit {
     this.getCategoryData();
   }
   submit() {
-    let refCode = this.generateReferralCode(this.signup.value.firstName);
+    if (this.signup.valid) {
+      let refCode = this.generateReferralCode(this.signup.value.firstName);
 
-    let bodydata = {
-      firstName: this.signup.value.firstName,
-      lastName: this.signup.value.lastName,
-      email: this.signup.value.email,
-      phone: this.signup.value.phone,
-      password: this.signup.value.password,
-      currentLocation: this.signup.value.currentLocation,
-      referralCode: refCode,
-    };
+      let bodydata = {
+        firstName: this.signup.value.firstName,
+        lastName: this.signup.value.lastName,
+        email: this.signup.value.email,
+        phone: this.signup.value.phone,
+        password: this.signup.value.password,
+        currentLocation: this.signup.value.currentLocation,
+        referralCode: refCode,
+      };
 
-    this.service.postSignupDataService(bodydata).subscribe((res: any) => {
-      // console.log(data,"signup-data");
-      if (res.errorCode == 0) {
-        this.router.navigate(['/login'])
-      }
+      this.service.postSignupDataService(bodydata).subscribe((res: any) => {
+        if (res.errorCode == 0) {
+          // Navigate to the next page upon successful form submission
+          console.log('::::', res)
+          this.router.navigate(['/login']);
+        } else {
+          console.log('----', res);
 
-    })
-
-    console.log(bodydata, 'bodydata------');
+        }
+      });
+    } else {
+      // Mark all fields as touched to display validation messages
+      this.signup.markAllAsTouched();
+    }
   }
   getLocationData() {
     this.service.getAllIndianCitiesStates().subscribe((data: any) => {
@@ -58,14 +70,12 @@ export class SignupComponent implements OnInit {
       console.log(data, 'location-----');
     });
   }
-
   getCategoryData() {
     this.service.getCategoriesServiceData().subscribe((data: any) => {
       this.categoryData = data.message;
       console.log(data, 'category---------');
     });
   }
-  Handler(event: any) { }
   categoryHandler(event: any) {
     const selectedValue = event;
     console.log('Selected value:', selectedValue);

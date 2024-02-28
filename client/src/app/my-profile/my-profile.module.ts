@@ -7,6 +7,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { SelectedCategories } from './selected-categories/selected-categories.component';
 import { MyProfileRoutingModule } from './my-profile.routing.module'
 import { ReactiveFormsModule } from '@angular/forms';
+import { PlansComponent } from './plans/plans.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SideProfComponent,
     YourProfComponent,
     SelectedCategories,
+    PlansComponent
   ],
   imports: [
     CommonModule,

@@ -132,3 +132,9 @@
     display: block;
     top: 110%;
 }
+span .recentLoc:hover{
+    color:red;
+}
+.recentLoc{
+    cursor: pointer;
+}

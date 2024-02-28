@@ -26,13 +26,14 @@
                         <!-- <ul *ngFor="let item of recLocations;let i=index">
                             <li>{{item.locationName}}</li>
                         </ul> -->
-                        <a [href]="['/services/allServices',item.locationName]">{{item.locationName}}</a>
+                        <!-- <a [href]="['/services/allServices',item.locationName]" >{{item.locationName}}</a> -->
+                        <small class="recentLoc" (click)="clickOnRecLoc(item.locationName)">{{item.locationName}}</small>
                     </span>
                 </div>
             </div>
         </div>
         <div class="col-7 search">
-            <input type="search" class="form-control shadow-none" [(ngModel)]="searchQuery" name="searchQuery" id="searchQuery" (change)="search($event)">
+            <input type="search" placeholder="Search" class="form-control shadow-none" [(ngModel)]="searchQuery" name="searchQuery" id="searchQuery" (change)="searchService($event)">
         </div>
         <div class="col-1"></div>
     </div>

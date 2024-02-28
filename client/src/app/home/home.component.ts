@@ -32,6 +32,9 @@ export class HomeComponent implements OnInit {
     this.fetchCategories();
     this.currentUserLocation = sessionStorage.getItem('current-location');
     console.log(this.currentUserLocation);
+    sessionStorage.removeItem("current-location");
+    sessionStorage.removeItem("searchQuery")
+
 
     // if (!this._bda.getSessionStorageHandler('isViewing')) {
     // this._bda.setSessionStorage('isViewing', '/accounts')
@@ -75,7 +78,7 @@ export class HomeComponent implements OnInit {
   }
   selectCategory(id: any, categoryName: any) {
     console.log(categoryName);
-    this._router.navigate(['./services/allServices', this.currentUserLocation, categoryName], {
+    this._router.navigate(['/services/allServices', this.currentUserLocation, categoryName], {
       queryParams: { categoryId: id }
     })
   }
