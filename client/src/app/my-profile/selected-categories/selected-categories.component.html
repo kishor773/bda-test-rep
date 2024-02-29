@@ -1,10 +1,17 @@
 <div class="container-fluid">
     <app-header></app-header>
+    <p class="info-warn">Following information will be visible to all users</p>
+    <br>
+    <button id="Filters" (click)="openNav()"> <img src="/assets/icons/list.png" alt="">&nbsp;Menu</button>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a><br>
+        <app-side-prof></app-side-prof>
+    </div>
     <div class="row">
-        <div class="col-3">
+        <div class="col-3" id="side-prof-comp">
             <app-side-prof></app-side-prof>
         </div>
-        <div class="col-9">
+        <div class="col-9" id="main">
             <form action="" [formGroup]="selectedCategoriesFormName">
                 <div class="card">
                     <div class="listing-details-tabs">
@@ -18,7 +25,7 @@
                                             <label for="businessName">Business Name <span
                                                     class="mandatoryField">*</span></label>
                                             <input type="text" class="form-control shadow-none" name="businessName"
-                                                id="businessName" (change)="businessName($event)" >
+                                                id="businessName" (change)="businessName($event)">
                                         </div>
                                     </div><br>
                                     <div class="row">
@@ -26,7 +33,8 @@
                                             <label for="shortDescription">Short Description <span
                                                     class="mandatoryField">*</span></label>
                                             <textarea class="form-control shadow-none" name="shortDescription"
-                                                id="shortDescription" (change)="shortDesc($event)"></textarea>
+                                                id="shortDescription" (change)="shortDesc($event)"
+                                                placeholder="Please describe your business breifly"></textarea>
                                         </div>
                                     </div><br>
                                     <div class="row">
@@ -274,7 +282,8 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="serviceSubmit" (click)="serviceListingSubmit()" [disabled]="isDisabled">Create New Service</button>
+                        <button class="serviceSubmit" (click)="serviceListingSubmit()" [disabled]="isDisabled">Create
+                            New Service</button>
                     </div>
                 </div>
             </form>

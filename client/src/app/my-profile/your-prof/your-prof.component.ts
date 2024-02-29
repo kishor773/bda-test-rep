@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServicesService } from 'src/app/bdaServices.service';
 
@@ -15,6 +15,7 @@ export class YourProfComponent implements OnInit {
   usrName: any;
   isFormDisabled: Boolean = false;
   // locationData: any;
+
   constructor(public _bda: ServicesService) {
     this.profileForm = new FormGroup(
       {
@@ -47,7 +48,7 @@ export class YourProfComponent implements OnInit {
     this.usrName = `${data.firstName} ${data.lastName}`
     // console.log(data);
     this.getLocationData();
-    
+
     this.patchUserForm(data)
   }
   ngAfterViewInit() {
@@ -185,4 +186,24 @@ export class YourProfComponent implements OnInit {
   deleteAccordionRow(i: any) {
     this.viewManageCategArr.splice(i, 1)
   }
+
+  openNav() {
+    const mySidenav = document.getElementById("mySidenav");
+    const main = document.getElementById("main");
+
+    if (mySidenav && main) {
+      mySidenav.style.width = "250px";
+      main.style.marginLeft = "250px";
+    }
+  }
+  closeNav() {
+    const mySidenav = document.getElementById("mySidenav");
+    const main = document.getElementById("main");
+
+    if (mySidenav && main) {
+      mySidenav.style.width = "0";
+      main.style.marginLeft = "0";
+    }
+  }
+
 }

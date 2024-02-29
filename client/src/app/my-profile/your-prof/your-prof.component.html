@@ -1,10 +1,17 @@
 <div class="container-fluid">
     <app-header></app-header>
+    <p class="info-warn">For official use only</p>
+
+    <button id="Filters" (click)="openNav()"> <img src="/assets/icons/list.png" alt="">&nbsp;Menu</button>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a><br>
+        <app-side-prof></app-side-prof>
+    </div>
     <div class="row">
-        <div class="col-3">
+        <div class="col-3" id="side-prof-comp">
             <app-side-prof></app-side-prof>
         </div>
-        <div class="col-9">
+        <div class="col-9" id="main">
             <form [formGroup]="profileForm">
                 <div class="card">
                     <div class="your-profile-header">
@@ -129,12 +136,12 @@
                             <div class="content">
                                 <div class="row content-row" *ngFor="let data of viewManageCategArr;let i=index">
                                     <!-- {{data|json}} -->
-                                    <div class="col-3">
+                                    <div class="col-sm">
                                         <label for="categoryName">Category Name</label>
                                         <input type="text" class="form-control shadow-none" name="categoryName"
                                             id="categoryName" [value]="data.category">
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-sm">
                                         <label for="categoryInterests">Locations Served</label>
                                         <!-- <ng-select [items]="locations" [multiple]="true" [closeOnSelect]="false"
                                             [searchable]="true" bindLabel="city" placeholder="Select" [bindValue]="data.locationName[i].city"
@@ -146,7 +153,7 @@
                                         </ng-select>
                                         <!-- {{data.locationName[i]|json}} -->
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-sm">
                                         <!-- <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" role="switch"
                                                 id="flexSwitchCheckChecked" checked (change)="notifCheck($event)">
@@ -162,15 +169,7 @@
                                             Notifications
                                         </label>
                                     </div>
-                                    <div class="col-2">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Business,Social"
-                                                [checked]="data.type=='Business,Social'" id="both-{{i}}{{i+2}}"
-                                                (change)="checkBusinessType($event,i)">
-                                            <label class="form-check-label" for="both-{{i}}{{i+2}}">
-                                                Both
-                                            </label>
-                                        </div>
+                                    <div class="col-sm">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="Business"
                                                 [checked]="data.type=='Business'" id="business-{{i}}{{i+3}}"
@@ -187,9 +186,16 @@
                                                 Social
                                             </label>
                                         </div>
-
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Business,Social"
+                                                [checked]="data.type=='Business,Social'" id="both-{{i}}{{i+2}}"
+                                                (change)="checkBusinessType($event,i)">
+                                            <label class="form-check-label" for="both-{{i}}{{i+2}}">
+                                                Both
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-sm">
                                         <button type="button" class="btn btn-danger"
                                             (click)="deleteAccordionRow(i)">Delete</button>
                                     </div>

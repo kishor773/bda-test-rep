@@ -132,9 +132,38 @@
     display: block;
     top: 110%;
 }
-span .recentLoc:hover{
-    color:red;
+
+span .recentLoc:hover {
+    color: red;
 }
-.recentLoc{
+
+.recentLoc {
     cursor: pointer;
+}
+
+@media screen and (max-width:450px) {
+
+    .container-fluid,
+    .container-fluid-xs,
+    .container-fluid-sm,
+    .container-fluid-md,
+    .container-fluid-lg,
+    .container-fluid-xl {
+        background: #F2F6F9;
+        padding: 0;
+    }
+
+    .search_location {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .col-3{
+        margin: 0 0 10px 0;
+    }
+    .col-3,.col-7 {
+        width: 80%;
+        
+    }
+
 }

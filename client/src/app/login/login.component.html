@@ -1,12 +1,13 @@
+
 <div class="container-fluid">
     <br>
-    <form  [formGroup]="login">
+    <form [formGroup]="login">
         <div class="row-card">
             <div class="card login-card">
                 <div class="card-body">
                     <div class="toggle">
                         <span routerLink="/login" routerLinkActive="active">
-                            <a routerLink="/login" routerLinkActive="active" >
+                            <a routerLink="/login" routerLinkActive="active">
                                 Login
                             </a>
                         </span>
@@ -18,7 +19,8 @@
                     </div>
                     <div class="row">
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control shadow-none" formControlName="email">
+                        <input type="text" name="email" id="email" class="form-control shadow-none"
+                            formControlName="email">
                         <div *ngIf="login.get('email').invalid && login.get('email').touched" class="text-danger">
                             <div *ngIf="login.get('email').errors.required">
                                 Email is required
@@ -29,8 +31,25 @@
                         </div>
                     </div>
                     <div class="row">
+                        <label for="email">Phone</label>
+                        <input type="text" name="phone" id="phone" class="form-control shadow-none"
+                            formControlName="phone">
+                        <div *ngIf="login.get('phone').invalid && login.get('phone').touched" class="text-danger">
+                            <div *ngIf="login.get('phone').errors.required">
+                                Mobile Number is required
+                            </div>
+                            <div *ngIf="login.get('phone').errors.maxlength">
+                                Mobile Number must be at most 10 digits long
+                            </div>
+                            <div *ngIf="login.get('phone').errors?.invalidLength">
+                                Mobile Number must be at least 10 digits long
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <label for="pwd">Password</label>
-                        <input type="password" name="pwd" id="pwd" class="form-control shadow-none" formControlName="password">
+                        <input type="password" name="pwd" id="pwd" class="form-control shadow-none"
+                            formControlName="password">
                         <div *ngIf="login.get('password').invalid && login.get('password').touched" class="text-danger">
                             <div *ngIf="login.get('password').errors?.required">
                                 Password is required
@@ -40,8 +59,8 @@
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" type="button" (click)="submit()">Submit</button>
                     </div>
-                    
-                    <!-- {{this.login.value|json}} -->
+
+                   {{this.login.value|json}}
                 </div>
             </div>
         </div>

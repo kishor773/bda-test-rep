@@ -9,6 +9,7 @@
 
 button {
     border: none;
+    /* width: auto; */
 }
 
 .navbar-brand {
@@ -153,6 +154,13 @@ button {
     font-size: 16px;
     border: none;
     cursor: pointer;
+
+}
+
+.dropbtn {
+    width: 50%;
+    float: inline-end;
+    cursor: pointer;
 }
 
 /* .dropbtn:hover,
@@ -191,6 +199,25 @@ button {
 .show {
     display: block;
     right: 10%;
+    top: 40px;
 }
 
+@media screen and (max-width:450px) {
+    #mainNav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
 
+    /* #navbarNavAltMarkup .navbar-nav {
+        display: flex;
+    } */
+
+    .dropbtn {
+        width: 40%;
+        float: inline-end;
+        cursor: pointer;
+    }
+
+}

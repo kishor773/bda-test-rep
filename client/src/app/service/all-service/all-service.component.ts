@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ServicesService } from 'src/app/bdaServices.service';
@@ -29,9 +29,9 @@ export class AllServiceComponent implements OnInit {
   catName: any;
   fromLoc: any;
   filterFromApi: boolean = true;
-  paramsCatName:any='';
-  filteredServiceDetails:any=[]
-
+  paramsCatName: any = '';
+  filteredServiceDetails: any = []
+  @ViewChild('myModal') modal!: ElementRef;
   constructor(private services: ServicesService, private _ar: ActivatedRoute) { }
   ngOnInit(): void {
 
@@ -39,9 +39,9 @@ export class AllServiceComponent implements OnInit {
     this._ar.params.subscribe((params: any) => {
       console.log('-=-=-=-', params);
       if (params.name) {
-        this.paramsCatName=params.name
+        this.paramsCatName = params.name
         this.getServicesData(params.name);
-       
+
       }
 
     });
@@ -51,7 +51,7 @@ export class AllServiceComponent implements OnInit {
     this._ar.queryParams.subscribe((params: any) => {
       console.log('-=-=QP-=-', params);
 
-      if (params.q == undefined || params.q == null ) {
+      if (params.q == undefined || params.q == null) {
         // this.getCategoryById(params.categoryId);
         sessionStorage.removeItem('current-location');
         sessionStorage.removeItem('searchQuery');
@@ -62,7 +62,7 @@ export class AllServiceComponent implements OnInit {
           let resData = res;
           // console.log(res);
           if (params.loc) {
-            
+
             this.allTypes = [];
             this.allSubCategories = [];
             this.allAminities = [];
@@ -112,8 +112,8 @@ export class AllServiceComponent implements OnInit {
             //   );
             // });
 
-            console.log( this.filteredServiceDetails);
-            if ( this.filteredServiceDetails.length > 0) {
+            console.log(this.filteredServiceDetails);
+            if (this.filteredServiceDetails.length > 0) {
               this.filterFromApi = false;
               this.filteredServiceDetails.forEach((item: any) => {
                 if (item.subCategory1.name != '') {
@@ -128,7 +128,7 @@ export class AllServiceComponent implements OnInit {
               })
             }
 
-            this.servicesdata =  this.filteredServiceDetails
+            this.servicesdata = this.filteredServiceDetails
 
           }
           else {
@@ -213,17 +213,18 @@ export class AllServiceComponent implements OnInit {
   }
 
   selectType(type: any) {
-    this.filter={}
+    this.filter = {}
     if (type) {
       this.filter['type'] = type;
       this.getFiltersServices()
+      this.closeModal();
     }
     else {
       this.filter['type'] = null
     }
   }
   selectSubcategory(cat: any) {
-    this.filter={}
+    this.filter = {}
     if (cat) {
       this.filter['subCategory'] = cat,
         this.getFiltersServices()
@@ -233,7 +234,7 @@ export class AllServiceComponent implements OnInit {
     }
   }
   selectAminitie(aminitie: any) {
-    this.filter={}
+    this.filter = {}
     if (aminitie) {
       this.filter['aminities'] = aminitie;
       this.getFiltersServices()
@@ -245,7 +246,7 @@ export class AllServiceComponent implements OnInit {
 
   getFiltersServices() {
     console.log(this.filter);
-   
+
     this.filter['categoryName'] = this.paramsCatName;
 
     if (this.filterFromApi) {
@@ -266,8 +267,8 @@ export class AllServiceComponent implements OnInit {
         }
       })
     } else {
-      this.servicesdata =  this.filteredServiceDetails.filter((details: any) => {
-        return details.subCategory1.name==this.filter.subCategory || details.subCategory2.name==this.filter.type || details.subCategory3.name==this.filter.aminities;
+      this.servicesdata = this.filteredServiceDetails.filter((details: any) => {
+        return details.subCategory1.name == this.filter.subCategory || details.subCategory2.name == this.filter.type || details.subCategory3.name == this.filter.aminities;
       });
     }
 
@@ -283,5 +284,13 @@ export class AllServiceComponent implements OnInit {
       array[j] = temp;
     }
     return array;
+  }
+
+  openModal(): void {
+    this.modal.nativeElement.style.display = 'block';
+  }
+
+  closeModal(): void {
+    this.modal.nativeElement.style.display = 'none';
   }
 }

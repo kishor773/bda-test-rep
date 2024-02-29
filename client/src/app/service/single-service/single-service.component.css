@@ -63,6 +63,9 @@
     justify-content: center;
 }
 
+.reviews-row {
+    display: flex;
+}
 
 .reviews-row .col-9 {
     padding: 0 7px 0 0;
@@ -422,4 +425,34 @@ span {
     text-decoration: none;
     cursor: pointer;
     float: inline-end;
+}
+
+@media screen and (max-width:450px) {
+    .reviews-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .reviews-row .col-9 {
+        padding: 0;
+    }
+
+    .col-9,
+    .col-3 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .reviews-row .col-3 {
+        padding: 0;
+        margin: 15px 0 0 0;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+    }
 }

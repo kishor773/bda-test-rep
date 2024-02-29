@@ -1,7 +1,7 @@
 <app-header></app-header>
 <!-- ADDED SEARCH METHOD -->
 <!-- <app-search-loc  (searchTextChange)="onSearchTextChange($event)"></app-search-loc>     -->
-<app-search-loc ></app-search-loc>    
+<app-search-loc></app-search-loc>
 <div class="container-fluid"><br>
     <div class="row">
         <div class="col-1"></div>
@@ -22,6 +22,47 @@
         <div class="col-1"></div>
     </div>
     <br>
+    <div id="mob-filters">
+        <button id="Filters" (click)="openModal()"> <img src="/assets/icons/Vector.png" alt="">&nbsp;Filters</button>
+        <div id="myModal" class="modal" #myModal>
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div>
+                    <span class="close" (click)="closeModal()">&times;</span>
+                    <p>Filters</p>
+                </div>
+                <div class="modal-body">
+                    <div class="ratings">
+                        <p>Ratings</p>
+                        <span class="col-md-1" *ngFor="let stars of starsArr; let i =index"><button>{{stars}}
+                                <img src="../../../assets/icons/Star 1.png" alt=""></button>
+                        </span>
+                    </div>
+                    <div class="type">
+                        <p>Type</p>
+                        <span *ngFor="let type of allTypes; let i =index"><button
+                                (click)="selectType(type)">{{type}}</button>
+                        </span>
+                    </div>
+                    <div class="subCategory">
+                        <p>Sub Category</p>
+                        <div class="allCategories">
+                            <span *ngFor="let cat of allSubCategories; let i =index"><button
+                                    (click)="selectSubcategory(cat)">{{cat}}</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="aminities">
+                        <p>Amenities</p>
+                        <span *ngFor="let aminitie of allAminities; let i =index"><button
+                                (click)="selectAminitie(aminitie)">{{aminitie}}</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
     <div class="row">
         <div class="col-1">
         </div>
@@ -29,7 +70,6 @@
             <div class="first-div">
                 <!-- <app-filters [selectedCategoryId]=catId></app-filters> -->
                 <div class="filterCard">
-
                     <div class="heading">
                         <div> <img src="/assets/icons/Vector.png" alt=""></div>
                         <div>
@@ -57,17 +97,17 @@
 
                     </div>
                     <div class="aminities">
-                        <p>Aminities</p>
+                        <p>Amenities</p>
                         <span *ngFor="let aminitie of allAminities; let i =index"><button
                                 (click)="selectAminitie(aminitie)">{{aminitie}}</button></span>
                     </div>
-
                 </div>
             </div>
+
             <div class="second-div">
                 <!-- <div class="card" *ngFor="let item of servicesdata.slice(0,3)| filter:searchtext;let i=index"
                     [routerLink]="['/services/singleServices', item._id]"> -->
-                    <div class="card" *ngFor="let item of servicesdata.slice(0,3);let i=index"
+                <div class="card" *ngFor="let item of servicesdata.slice(0,3);let i=index"
                     [routerLink]="['/services/singleServices', item._id]">
                     <div class="card-body all-service-card">
                         <div class="image-block">
@@ -76,8 +116,8 @@
                         <div>
                             <span class="row data-row">
                                 <p>{{item.serviceName}}</p>
-                                <p>{{item.avgRatings.$numberDecimal}} <img
-                                        src="/assets/icons/Star 1.png" alt="" class="star"></p>
+                                <p>{{item.avgRatings.$numberDecimal}} <img src="/assets/icons/Star 1.png" alt=""
+                                        class="star"></p>
                                 <p><img src="/assets/icons/geo-alt.png">
                                     {{item.serviceAddress[0].city}}</p>
                             </span>
@@ -95,7 +135,7 @@
                     </div>
 
                 </div>
-                <button (click)="loadMore(servicesdata)">Load more</button>
+                <button (click)="loadMore(servicesdata)" class="loadMore">Click here for more results</button>
             </div>
         </div>
         <div class="col-1">

@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light header">
+  <nav class="navbar navbar-expand-lg navbar-light header" id="mainNav">
     <a class="navbar-brand" href="#">Logo</a>
     <div class="navbar navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
@@ -13,13 +13,11 @@
       </div>
       <div class="navbar-nav">
         <a class="loginBtn" href="/login" *ngIf="!isLoggedIn">Login / Signup</a>
-        <!-- <button (click)="myFunction()" class="dropbtn"><img src="../../../assets/icons/person-circle.png"
-            alt="Logged-in user icon" *ngIf="isLoggedIn">
-        </button> -->
-
         <div class="dropdown">
-          <button><img (click)="myFunction()" class="dropbtn" src="../../../assets/icons/person-circle.png"
-              alt="Logged-in user icon" *ngIf="isLoggedIn"></button>
+          <!-- <button> -->
+            <img (click)="myFunction()" class="dropbtn" src="../../../assets/icons/person-circle.png"
+              alt="Logged-in user icon" *ngIf="isLoggedIn">
+          <!-- </button> -->
           <div id="myDropdown" class="dropdown-content">
             <a href="/account/my-profile" routerLink='/account/my-profile' routerLinkActive="active">My Profile</a>
             <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create an announcement</a>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ServicesService } from '../bdaServices.service';
 import { FormGroup, FormControl, FormControlName } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
   showAllCategories = false;
 
   currentUserLocation: any;
-
+  @ViewChild('widgetsContent', { read: ElementRef })
+  public widgetsContent!: ElementRef<any>;
   constructor(private _bda: ServicesService, private _router: Router) {
     this.hero = new FormGroup({
       category: new FormControl(''),
@@ -28,20 +29,44 @@ export class HomeComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+
     this.getCategoriesData();
     this.fetchCategories();
     this.currentUserLocation = sessionStorage.getItem('current-location');
     console.log(this.currentUserLocation);
+    this.searchHistory();
     sessionStorage.removeItem("current-location");
     sessionStorage.removeItem("searchQuery")
-
 
     // if (!this._bda.getSessionStorageHandler('isViewing')) {
     // this._bda.setSessionStorage('isViewing', '/accounts')
     // }
 
   }
+  searchHistory() {
+    let data = this._bda.getSessionStorageHandler('usrDetls');
+    console.log(data, "data");
+    this._bda.getEmailBySearchedHistoryData(data.email).subscribe((res: any) => {
+      if (res.data.length == 0) {
+        // Construct bodydata for API call
+        let bodydata = {
+          searchHistory: [{}],
+          email: data.email,
+          phone: data.phone,
+        };
+        console.log(bodydata);
+        // Make the API call
+        this._bda.postSearchedData(bodydata).subscribe((data: any) => {
+          console.log(data);
+        });
+      }
+      else {
+        console.log("email is present")
+      }
+      this._bda.setSessionStorage("search", JSON.stringify(res.data))
+    })
 
+  }
 
 
   showMoreCategories() {
@@ -56,7 +81,7 @@ export class HomeComponent implements OnInit {
   getCategoriesData() {
     this._bda.getCategoriesServiceData().subscribe((res: any) => {
       this.categoriesData = res.message;
-      // console.log( this.categoriesData,"get")
+      console.log(this.categoriesData, "get")
     })
   }
 
@@ -72,15 +97,27 @@ export class HomeComponent implements OnInit {
       this.selectCategory(id, categoryName);
     }
     else {
-      alert("login-first");
+      alert("Please login to continue");
       this._router.navigate(['/login'])
     }
   }
   selectCategory(id: any, categoryName: any) {
-    console.log(categoryName);
-    this._router.navigate(['/services/allServices', this.currentUserLocation, categoryName], {
+    // console.log(categoryName);
+    // console.log(id);
+    // console.log(this.currentUserLocation);
+   let currLoc = sessionStorage.getItem('current-location');
+
+    this._router.navigate(['./services/allServices', currLoc, categoryName], {
       queryParams: { categoryId: id }
     })
+  }
+
+  scrollRight(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft + 150), behavior: 'smooth' });
+  }
+
+  scrollLeft(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 150), behavior: 'smooth' });
   }
 
   // save() {

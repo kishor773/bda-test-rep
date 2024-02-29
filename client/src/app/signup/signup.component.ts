@@ -21,9 +21,11 @@ export class SignupComponent implements OnInit {
   categoryData: any;
   constructor(private service: ServicesService, private router: Router) {
     this.signup = new FormGroup({
+      firmName:new FormControl('', Validators.required),
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email,]),
+      // email: new FormControl('', [Validators.required, Validators.email,]),
+      email: new FormControl(''),
       phone: new FormControl('', [Validators.required, Validators.maxLength(10), mobileNumberLength]), // Using custom validator
       password: new FormControl('', Validators.required),
       categoryName: new FormControl('',),
@@ -40,6 +42,7 @@ export class SignupComponent implements OnInit {
       let refCode = this.generateReferralCode(this.signup.value.firstName);
 
       let bodydata = {
+        firmName:this.signup.value.firmName,
         firstName: this.signup.value.firstName,
         lastName: this.signup.value.lastName,
         email: this.signup.value.email,
@@ -54,6 +57,15 @@ export class SignupComponent implements OnInit {
           // Navigate to the next page upon successful form submission
           console.log('::::', res)
           this.router.navigate(['/login']);
+          if(bodydata.email==''){
+            console.log("email not present")
+          }
+          else{
+            this.service.postEmailDataService(bodydata).subscribe((res:any)=>{
+              console.log(res,"email sent succesfully")
+            })
+          }
+          
         } else {
           console.log('----', res);
 

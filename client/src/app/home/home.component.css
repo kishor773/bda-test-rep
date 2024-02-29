@@ -98,3 +98,73 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+
+.listing-img-carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: #efefef; */
+    width: 100%;
+    cursor: pointer;
+}
+
+.listing-img-carousel button:nth-child(1) {
+    /* background-color: #D9D9D9CC; */
+    background-image: url('../../assets/icons/left-arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 28px;
+    height: 123px;
+    border: none;
+    border-radius: 8px, 0px, 0px, 8px;
+}
+
+
+.listing-img-carousel button:nth-child(3) {
+    /* background-color: #D9D9D9CC; */
+    background-image: url('../../assets/icons/right-arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 28px;
+    height: 123px;
+    border: none;
+    border-radius: 8px, 0px, 0px, 8px;
+}
+
+.listing-img-carousel span {
+    display: flex;
+    gap: 15px;
+    padding: 0 5px;
+    overflow-x: hidden;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.listing-img-carousel span img {
+    /* width: 100px; */
+    height: 150px;
+    border-radius: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+    .home-heading {
+        font-family: "Nunito Sans";
+        font-size: 14px;
+        font-weight: 800;
+        /* line-height: 65px; */
+        letter-spacing: 0em;
+        text-align: left;
+        width: 105%;
+    }
+
+    #cat-card {
+        padding: 10px;
+        width: 118px;
+        height: 118px;
+        box-shadow: 0px 1px 5px 1px #00000040;
+    }
+
+}

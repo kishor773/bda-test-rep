@@ -5,7 +5,18 @@
         <div class="col-1"></div>
         <div class="col-10">
             <h3 class="home-heading">Announcements</h3>
-            <div class="card announcement-card">
+            <!-- <div class="card announcement-card">
+            </div> -->
+            <div class="listing-img-carousel">
+                <button (click)="scrollLeft()"></button>
+                <span #widgetsContent>
+                    <img src="../../assets/images/b1.jpg">
+                    <img src="../../assets/images/b2.jpg">
+                    <img src="../../assets/images/b3.jpg">
+                    <img src="../../assets/images/b4.jpg">
+                    <img src="../../assets/images/b5.jpg">
+                </span>
+                <button (click)="scrollRight()"></button>
             </div>
         </div>
         <div class="col-1"></div>
@@ -28,7 +39,7 @@
                     <p>Show more</p>
                 </div>
             </div> -->
-            <div class="categories-card mt-4">
+            <div class="categories-card">
                 <div class="card" id="cat-card"
                     *ngFor="let item of categoriesData | slice:0:(showAllCategories ? categoriesData.length : maxCategoriesToShow)"
                     (click)="checkToken(item._id,item.category)">

@@ -162,7 +162,7 @@ export class ServicesService {
     }
     return this.http.put(url, data, httpOptions)
   }
-  
+
   putServiceByServiceDetailsData(serviceId: any, serviceDetails: any) {
     let url = `${this.baseUrl}/api/services/updateAll/serviceDetails/${serviceId}`;
     let token = this.getSessionStorageHandler('token');
@@ -361,6 +361,44 @@ export class ServicesService {
     return this.http.post(url, filterObj, httpOptions);
   }
 
-
-
+  getEmailBySearchedHistoryData(email: any) {
+    let url = `${this.baseUrl}/api/search/email/${email}`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.get(url, httpOptions)
+  }
+  putAllSearches(_id: any, searchDetails: any) {
+    let url = `${this.baseUrl}/api/search/updateAll/${_id}`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+        params: this.params,
+      })
+    }
+    return this.http.put(url, searchDetails, httpOptions)
+  }
+  createRecLocs(body: any) {
+    let url = `${this.baseUrl}/api/locations/postAll`;
+    let token = this.getSessionStorageHandler('token');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+      })
+    }
+    return this.http.post(url, body, httpOptions);
+  }
+  //API's for email after Sign-up
+  postEmailDataService(bodyData: any) {
+    let url = `${this.baseUrl}/api/email/postAll`;
+    return this.http.post(url, bodyData);
+  }
 }

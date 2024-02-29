@@ -493,4 +493,22 @@ export class SelectedCategories implements OnInit, AfterViewInit {
     }
   }
 
+  openNav() {
+    const mySidenav = document.getElementById("mySidenav");
+    const main = document.getElementById("main");
+
+    if (mySidenav && main) {
+      mySidenav.style.width = "250px";
+      main.style.marginLeft = "250px";
+    }
+  }
+  closeNav() {
+    const mySidenav = document.getElementById("mySidenav");
+    const main = document.getElementById("main");
+
+    if (mySidenav && main) {
+      mySidenav.style.width = "0";
+      main.style.marginLeft = "0";
+    }
+  }
 }
