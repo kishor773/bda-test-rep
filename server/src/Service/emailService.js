@@ -8,7 +8,7 @@ module.exports.postEmailDataService = async (data) => {
     //     "upcomingSessions Length-->",
     //     VARIABLE_NEW.data.length
     // );
-    let emailBody = `Hi ${VARIABLE_NEW.user_name},
+    let emailBody = `Hi ${VARIABLE_NEW.first_name},
             <br>
             <br>New Signup
             <ul>
@@ -21,7 +21,7 @@ module.exports.postEmailDataService = async (data) => {
     let emailAPI1 = process.env.EMAIL_SERVICE_BASE_URL;
     let emailApibody = {
         from: "info@mailers.codeswift.in",
-        to: VARIABLE_NEW.email_address,
+        to: VARIABLE_NEW.email,
         subjectLine: "New Signup Mail",
         htmlToSend: Buffer.from(emailBody).toString("base64"),
         swiftMailApiKey: process.env.SWIFT_EMAIL_KEY,

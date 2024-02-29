@@ -59,17 +59,17 @@ router.post('/services/postAll', auth.verifyToken, servicesController.postServic
 // router.route('/services/postAll').post(servicesController.postServicesDataController);
 router.put('/services/updateAll/:_id', auth.verifyToken, servicesController.putServicesDataController)
 // router.route('/services/updateAll/:_id').put(servicesController.putServicesDataController);
-router.put('/services/updateAll/serviceDetails/:_id',auth.verifyToken,servicesController.putServicesByServiceDetailsIdDataController)
+router.put('/services/updateAll/serviceDetails/:_id', auth.verifyToken, servicesController.putServicesByServiceDetailsIdDataController)
 // router.route('/services/updateAll/:_id').put(servicesController.putServicesDataServiceIDController);
 router.get('/services/getAll/:_id', auth.verifyToken, servicesController.getServicesIdDataController);
 // router.route('/services/getAll/:_id').get(servicesController.getServicesIdDataController);
-router.get('/services/getAll/serviceDetails/:_id',auth.verifyToken,servicesController.getServicesByServiceDetailsIdDataController);
+router.get('/services/getAll/serviceDetails/:_id', auth.verifyToken, servicesController.getServicesByServiceDetailsIdDataController);
 // router.route('/services/getAll/:_id').get(servicesController.getServicesByServiceDetailsIdDataController);
 router.get('/services/sortBy', auth.verifyToken, servicesController.serviceSort);
 // router.route('/services/sortBy').get(servicesController.serviceSort);
 router.get('/services/getByCategoryName/:name', auth.verifyToken, servicesController.getServicesByCategoryName)
 // router.route('/services/getByCategoryName/:name').get(servicesController.getServicesByCategoryName)
-router.post('/services/filterServices', auth.verifyToken,servicesController.filterSerBasedOnCatController)
+router.post('/services/filterServices', auth.verifyToken, servicesController.filterSerBasedOnCatController)
 
 //! SEARCH COLLECTION API's
 router.get('/search/getAll', auth.verifyToken, searchController.getSearchDataController)
@@ -78,6 +78,9 @@ router.post('/search/postAll', auth.verifyToken, searchController.postSearchData
 // router.route('/search/postAll').post(searchController.postSearchDataController);
 router.put('/search/updateAll/:_id', auth.verifyToken, searchController.putSearchDataController);
 // router.route('/search/updateAll/:_id').put(searchController.putSearchDataController);
+router.get('/search/email/:email', auth.verifyToken, searchController.getSearchEmailDataController);
+// router.route('/search/email/:email').get(searchController.getSearchEmailDataController);
+
 
 //! USERS COLLECTION API's
 router.get('/users/getAll', auth.verifyToken, userController.getUserDataController);

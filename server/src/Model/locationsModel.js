@@ -3,7 +3,7 @@ var Schema=mongoose.Schema;
 var locationsSchema= new Schema({
     email:{
         type:String,
-        required:true,
+        required:false,
     },
     name:{
         type:String,

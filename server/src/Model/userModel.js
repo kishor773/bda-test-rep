@@ -1,5 +1,3 @@
-
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -16,7 +14,10 @@ const userSchema = new Schema({
         type: String,
         required: false
     },
-
+    firmName: {
+        type: String,
+        required: false
+    },
     familyName: {
         type: String,
         required: false
@@ -39,7 +40,7 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true,
+        required: false,
         unique: true
     },
     phone: {
@@ -50,7 +51,7 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: false,
-        unique: true
+        unique: false
     },
     isAdmin: {
         type: Boolean,
@@ -119,7 +120,7 @@ const userSchema = new Schema({
             required: false
         },
         locationName: [{
-           
+
         }],
         userType: {
             type: String,
@@ -129,7 +130,7 @@ const userSchema = new Schema({
             type: String,
             required: false
         },
-        _id:{
+        _id: {
             type: String,
             required: false
         }
@@ -147,4 +148,3 @@ const userSchema = new Schema({
 
 
 module.exports = mongoose.model('users', userSchema);
-
